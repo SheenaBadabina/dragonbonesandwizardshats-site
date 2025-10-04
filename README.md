@@ -1,4 +1,4 @@
-# Dragon Bones & Wizard Hats
+# Dragon Bones & Wizards Hats
 
 A clean, mobile-first archive for Sheena’s original fantasy stories.
 
@@ -27,4 +27,4 @@ A clean, mobile-first archive for Sheena’s original fantasy stories.
 - Optional function endpoint: `/functions/contact-submit`
 
 ## License
-© 2025 Sheena. All rights reserved.
+© 2025 dragonbonesandwizardshats. All rights reserved.
