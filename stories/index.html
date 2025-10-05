@@ -5,12 +5,66 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Stories • Dragon Bones & Wizards Hats</title>
   <link rel="stylesheet" href="/assets/css/site.css" />
+  <style>
+    /* Minimal card/grid styling kept local to this page to avoid separate edits */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .story-card {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      padding: 0.75rem;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.35);
+      box-shadow: 0 0 12px rgba(0,191,165,0.2);
+      text-decoration: none;
+      color: inherit;
+    }
+    .story-card img {
+      width: 96px;
+      height: 96px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,191,165,0.25);
+    }
+    .story-card h2 {
+      margin: 0 0 0.25rem 0;
+      font-size: 1.1rem;
+      color: #00bfa5;
+    }
+    .story-card p {
+      margin: 0;
+      color: #e6e6e6;
+      line-height: 1.5;
+      font-size: 0.98rem;
+    }
+    @media (min-width: 720px) {
+      .story-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .story-card {
+        grid-template-columns: 140px 1fr;
+      }
+      .story-card img {
+        width: 140px;
+        height: 140px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
-    <a href="/" class="brand">Dragon Bones & Wizards Hats</a>
+    <a href="/" class="brand">
+      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
+      <span class="brand-text">Dragon Bones & Wizards Hats</span>
+    </a>
     <button class="nav-toggle" aria-label="Menu">☰</button>
-    <nav class="site-nav">
+    <nav class="site-nav" data-collapsible>
       <a href="/">Home</a>
       <a href="/stories/">Stories</a>
       <a href="/contact.html">Contact</a>
@@ -20,22 +74,38 @@
 
   <main class="container">
     <h1>Stories</h1>
-    <p class="muted">Tales of dragons, time, and magic—crafted by Sheena.</p>
+    <p class="muted">Tales of dragons, time, and magic—crafted for people who still believe in wonder.</p>
 
     <section class="story-grid">
-      <article class="story-card">
-        <a href="/stories/the-thief-who-destroyed-time.html">
-          <img src="/assets/TheThiefWhoDestroyedTime(AndHadtoFixIt).png" alt="The Thief Who Destroyed Time (And Had to Fix It)">
-          <h2>The Thief Who Destroyed Time</h2>
-          <p>Raven steals an hourglass that unravels tomorrow—and must repair time itself.</p>
-        </a>
-      </article>
-      <!-- Future stories can easily be added below by duplicating this block -->
+
+      <!-- Story 1 -->
+      <a class="story-card" href="/stories/the-thief-who-destroyed-time.html">
+        <!-- exact filename with spaces/parentheses URL-encoded -->
+        <img src="/assets/The%20Thief%20Who%20Destroyed%20Time%20(And%20Had%20to%20Fix%20It).png"
+             alt="The Thief Who Destroyed Time (And Had to Fix It) thumbnail" />
+        <div>
+          <h2>The Thief Who Destroyed Time (And Had to Fix It)</h2>
+          <p>When Raven steals Chronus’s Hourglass of Hours, tomorrow starts to unravel. To set the world right,
+             she must descend into the Underclock and pay with the only currency time respects.</p>
+        </div>
+      </a>
+
+      <!-- Duplicate this block for future stories -->
+      <!--
+      <a class="story-card" href="/stories/your-next-story-slug.html">
+        <img src="/assets/Your%20Story%20Image.png" alt="Your story thumbnail" />
+        <div>
+          <h2>Your Next Story Title</h2>
+          <p>One-sentence teaser that hooks the reader without spoilers.</p>
+        </div>
+      </a>
+      -->
+
     </section>
   </main>
 
-  <footer>
-    <p>© <span id="year"></span> Dragon Bones & Wizards Hats • <a href="https://www.youtube.com/@DragonBonesAndWizardsHats" target="_blank" rel="noopener">YouTube</a></p>
+  <footer class="site-footer">
+    <p>© <span id="year"></span> dragonbonesandwizardshats</p>
   </footer>
 
   <script src="/assets/js/site.js"></script>
