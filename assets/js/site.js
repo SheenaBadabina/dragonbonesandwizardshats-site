@@ -1,13 +1,17 @@
+// Dragon Bones & Wizards Hats - Site JS
+
 // Mobile nav toggle
-const toggle = document.querySelector('.nav-toggle');
-const nav = document.querySelector('[data-collapsible]');
-if (toggle && nav) {
-  toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(open));
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.site-nav');
+
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
   });
 }
 
-// Footer year
-const yearEl = document.getElementById('year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+// Auto-update footer year
+const yearSpan = document.getElementById('year');
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
+}
