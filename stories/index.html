@@ -2,46 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Stories • Dragon Bones & Wizards Hats</title>
   <link rel="stylesheet" href="/assets/css/site.css" />
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">
-      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
-      <span class="brand-text">Dragon Bones &amp; Wizards Hats</span>
-    </a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
-      onclick="document.querySelector('[data-collapsible]').classList.toggle('open')">☰</button>
-    <nav class="site-nav" data-collapsible>
-      <a href="/" class="nav-link">Home</a>
-      <a href="/contact.html" class="nav-link">Contact</a>
-      <a href="/work-with-me.html" class="nav-link">Work With Me</a>
+    <a href="/" class="brand">Dragon Bones & Wizards Hats</a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/stories/">Stories</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/work-with-me.html">Work With Me</a>
     </nav>
   </header>
 
   <main class="container">
     <h1>Stories</h1>
-    <p class="muted">A growing archive of fantasy tales from strange lands and shadowed towers.</p>
+    <p class="muted">Tales of dragons, time, and magic—crafted by Sheena.</p>
 
     <section class="story-grid">
       <article class="story-card">
         <a href="/stories/the-thief-who-destroyed-time.html">
-          <img src="/assets/TheThiefWhoDestroyedTime(AndHadtoFixIt).png" alt="The Thief Who Destroyed Time artwork" />
-          <div class="story-info">
-            <h2>The Thief Who Destroyed Time (And Had to Fix It)</h2>
-            <p>Raven steals Chronus’s hourglass and learns the cost of tampering with time.</p>
-          </div>
+          <img src="/assets/TheThiefWhoDestroyedTime(AndHadtoFixIt).png" alt="The Thief Who Destroyed Time (And Had to Fix It)">
+          <h2>The Thief Who Destroyed Time</h2>
+          <p>Raven steals an hourglass that unravels tomorrow—and must repair time itself.</p>
         </a>
       </article>
-      <!-- To add a new story later, duplicate the <article> block above -->
+      <!-- Future stories can easily be added below by duplicating this block -->
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> dragonbonesandwizardshats</p>
+  <footer>
+    <p>© <span id="year"></span> Dragon Bones & Wizards Hats • <a href="https://www.youtube.com/@DragonBonesAndWizardsHats" target="_blank" rel="noopener">YouTube</a></p>
   </footer>
+
   <script src="/assets/js/site.js"></script>
 </body>
 </html>
