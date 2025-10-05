@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact • Dragon Bones & Wizards Hats</title>
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
+      <span class="brand-text">Dragon Bones & Wizards Hats</span>
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
+      onclick="document.querySelector('[data-collapsible]').classList.toggle('open')">☰</button>
+    <nav class="site-nav" data-collapsible>
+      <a href="/" class="nav-link">Home</a>
+      <a href="/stories/" class="nav-link">Stories</a>
+      <a href="/contact.html" class="nav-link">Contact</a>
+      <a href="/work-with-me.html" class="nav-link">Work With Me</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Contact</h1>
+    <p>Have a question, collaboration idea, or just want to say hi? Use the form below or email me directly at <a href="mailto:contact@dragonbonesandwizardshats.com">contact@dragonbonesandwizardshats.com</a>.</p>
+
+    <form class="form" method="post" action="/functions/contact-submit">
+      <label>Your Name <input required name="name" /></label>
+      <label>Email Address <input required type="email" name="email" /></label>
+      <label>Message <textarea required name="message" rows="5"></textarea></label>
+
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0vOSqh9kDdb7s_"></div>
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+
+    <div id="toast" class="card" style="display:none;margin-top:16px;">Thanks! Your message has been sent.</div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> dragonbonesandwizardshats</p>
+  </footer>
+
+  <script src="/assets/js/site.js"></script>
+  <script>
+    if (new URLSearchParams(location.search).get('sent') === '1') {
+      document.getElementById('toast').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
