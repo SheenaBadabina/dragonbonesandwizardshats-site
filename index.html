@@ -4,50 +4,55 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dragon Bones & Wizards Hats</title>
+  <meta name="description" content="Fantasy stories told with heart, magic, and wonder." />
   <link rel="stylesheet" href="/assets/css/site.css" />
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">
-      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
+    <a href="/" class="brand">
+      <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
       <span class="brand-text">Dragon Bones & Wizards Hats</span>
     </a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
-      onclick="document.querySelector('[data-collapsible]').classList.toggle('open')">☰</button>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
     <nav class="site-nav" data-collapsible>
-      <a href="/" class="nav-link">Home</a>
-      <a href="/stories/" class="nav-link">Stories</a>
-      <a href="/contact.html" class="nav-link">Contact</a>
-      <a href="/work-with-me.html" class="nav-link">Work With Me</a>
+      <a href="/">Home</a>
+      <a href="/stories/">Stories</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/work-with-me.html">Work With Me</a>
     </nav>
   </header>
 
   <main class="container">
-    <section class="intro">
-      <h1>Welcome to <span style="color:#00bfa5;">Dragon Bones & Wizards Hats</span></h1>
-      <p>Where fantasy stories come alive — told through time, myth, and magic. Each tale is written, narrated, and crafted with care by Sheena, for dreamers who still believe in wonder.</p>
+    <section class="hero" style="background: url('/assets/Bannerdbwh.png') center/cover no-repeat; padding: 6rem 1rem; text-align: center; color: #fff;">
+      <h1>Welcome to Dragon Bones & Wizards Hats</h1>
+      <p>Original fantasy tales written and narrated by Sheena — where magic, myth, and humanity intertwine.</p>
+      <a href="/stories/" class="btn">Explore All Stories</a>
     </section>
 
-    <section class="featured-story">
+    <section class="featured">
       <h2>Latest Story</h2>
-      <article class="story-card">
-        <img src="/assets/TheThiefWhoDestroyedTime(AndHadtoFixIt).png" alt="The Thief Who Destroyed Time artwork" class="story-hero" />
-        <h3>The Thief Who Destroyed Time (And Had to Fix It)</h3>
-        <p>When Raven steals Chronus’s Hourglass of Hours, tomorrow begins to unravel. To fix time, she must give up part of her own life.</p>
-        <a href="/stories/the-thief-who-destroyed-time.html" class="btn">Read Now</a>
+      <article class="featured-story">
+        <img src="/assets/The%20Thief%20Who%20Destroyed%20Time%20(And%20Had%20to%20Fix%20It).png" alt="The Thief Who Destroyed Time" class="featured-img" />
+        <div class="featured-content">
+          <h3><a href="/stories/the-thief-who-destroyed-time.html">The Thief Who Destroyed Time (And Had to Fix It)</a></h3>
+          <p>When Raven steals Chronus’s Hourglass of Hours, tomorrow begins to unravel. To set the world right, she must descend into the Underclock and pay with her own time.</p>
+          <div class="featured-links">
+            <a href="https://youtu.be/-i-ZGzN2j-E?si=Mm5Et7MM4sAIMn3V" target="_blank" rel="noopener" class="btn">🎥 Watch on YouTube</a>
+            <a href="https://open.spotify.com/show/3piG2nuJ2M2xjwbQ7Eu8Df" target="_blank" rel="noopener" class="btn">🎧 Listen on Spotify</a>
+          </div>
+        </div>
       </article>
     </section>
 
-    <section class="art-highlight">
-      <h2>The Battle of Magic & Flame</h2>
-      <img src="/assets/DragonWizardBattle.png" alt="Dragon and wizard battle artwork" class="story-hero" />
+    <section class="promo">
+      <h2>Magic & Mayhem</h2>
+      <img src="/assets/Dragon%20Wizard%20Battle.png" alt="Dragon Wizard Battle artwork" class="promo-img" />
     </section>
   </main>
 
   <footer class="site-footer">
     <p>© <span id="year"></span> dragonbonesandwizardshats</p>
   </footer>
-
   <script src="/assets/js/site.js"></script>
 </body>
 </html>
