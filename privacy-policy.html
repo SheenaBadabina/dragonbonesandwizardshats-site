@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy Policy • Dragon Bones & Wizards Hats</title>
+  <meta name="description" content="Privacy Policy for dragonbonesandwizardshats.com" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <style>
+    /* Keep legal text highly readable */
+    .legal pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      line-height: 1.65;
+      font-size: 1rem;
+      background: rgba(0,0,0,0.25);
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(0,191,165,0.4);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
+      <span class="brand-text">Dragon Bones &amp; Wizards Hats</span>
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
+      onclick="document.querySelector('[data-collapsible]').classList.toggle('open')">☰</button>
+    <nav class="site-nav" data-collapsible>
+      <a href="/">Home</a>
+      <a href="/stories/">Stories</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/work-with-me.html">Work With Me</a>
+    </nav>
+  </header>
+
+  <main class="container legal">
+    <h1>Privacy Policy</h1>
+    <div id="policy"><p><em>Loading Privacy Policy…</em></p></div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> dragonbonesandwizardshats •
+      <a href="/terms-of-use.html">Terms of Use</a> •
+      <a href="/privacy-policy.html">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <script src="/assets/js/site.js"></script>
+  <script>
+    (async () => {
+      const el = document.getElementById('policy');
+      try {
+        const res = await fetch('/assets/legal/privacy-policy.txt', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Missing privacy-policy.txt');
+        const txt = await res.text();
+
+        // Render verbatim (no transformations) inside <pre>
+        const pre = document.createElement('pre');
+        pre.textContent = txt;
+        el.innerHTML = '';
+        el.appendChild(pre);
+      } catch (e) {
+        el.innerHTML = '<p style="color:#f88">Could not load <code>/assets/legal/privacy-policy.txt</code>.</p>';
+      }
+    })();
+  </script>
+</body>
+</html>
