@@ -4,18 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dragon Bones & Wizards Hats</title>
-  <meta name="description" content="Original fantasy stories — a clean, mobile-first archive for Dragon Bones & Wizards Hats." />
-  <!-- CSS will be added next step -->
+  <meta name="description" content="A clean, mobile-first archive for original fantasy stories." />
   <link rel="stylesheet" href="/assets/css/site.css" />
-  <link rel="icon" href="/assets/Logodbwh.png" />
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="/">
-      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" />
+      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="72" height="72" />
       <span class="brand-text">Dragon Bones &amp; Wizards Hats</span>
     </a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
+      onclick="document.querySelector('[data-collapsible]').classList.toggle('open')">☰</button>
     <nav class="site-nav" data-collapsible>
       <a href="/stories/" class="nav-link">Stories</a>
       <a href="/contact.html" class="nav-link">Contact</a>
@@ -23,27 +22,35 @@
     </nav>
   </header>
 
-  <main>
+  <main class="narrow">
     <section class="hero">
-      <img src="/assets/Bannerdbwh.png" alt="Banner art for Dragon Bones & Wizards Hats" />
+      <img src="/assets/Bannerdbwh.png" alt="Dragon facing wizard banner" />
       <div class="hero-copy">
-        <h1>Strange worlds, sharp clocks, soft monsters.</h1>
-        <p>A focused home for original fantasy tales. No clutter—just stories, clearly laid out.</p>
-        <a class="cta" href="/stories/">Browse the Stories</a>
+        <h1>Dragon Bones &amp; Wizards Hats</h1>
+        <p class="lede">
+          A home for sharp, myth-soaked short fiction. Clean reading on mobile, with a single,
+          tidy archive of stories.
+        </p>
+        <p>
+          <a class="cta" href="/stories/">Read the Stories</a>
+        </p>
       </div>
     </section>
 
-    <section class="intro">
-      <h2>What is Dragon Bones &amp; Wizards Hats?</h2>
-      <p>A tidy archive for fiction. Clean typography, dark theme, teal accents, and simple navigation.</p>
+    <section class="narrow" style="margin-top:1.5rem">
+      <h2>Latest</h2>
+      <a class="story-card" href="/stories/the-thief-who-destroyed-time.html">
+        <h3 class="story-title">The Thief Who Destroyed Time (And Had to Fix It)</h3>
+        <p class="story-meta">Time • Consequence • Redemption</p>
+      </a>
     </section>
   </main>
 
   <footer class="site-footer">
     <p>© <span id="year"></span> dragonbonesandwizardshats</p>
   </footer>
-
-  <!-- JS will be added later -->
-  <script src="/assets/js/site.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
