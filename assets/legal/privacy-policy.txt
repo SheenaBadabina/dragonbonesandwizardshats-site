@@ -1,0 +1,240 @@
+# Privacy Policy — Dragon Bones & Wizard Hats
+
+**Last updated: October 5, 2025**
+
+## 1. Introduction
+
+Dragon Bones & Wizard Hats ("DBWH," "we," "us," or "our") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at https://dragonbonesandwizardhats.com (the "Site"), interact with our YouTube channel, listen to our podcast, or otherwise engage with our services (collectively, the "Services").
+
+Please read this Privacy Policy carefully. By using the Services, you consent to the practices described in this Privacy Policy. If you do not agree with this Privacy Policy, please do not use the Services.
+
+## 2. Information We Collect
+
+We collect minimal information necessary to operate the Services and communicate with you. The information we collect falls into the following categories:
+
+### 2.1 Information You Provide Directly
+
+**Contact Form Submissions:** When you use the contact form on our Site, we collect:
+- Your name
+- Your email address
+- The content of your message
+
+**Email Communications:** When you email us directly at contact@dragonbonesandwizardhats.com, we collect the information contained in your email, including your email address and any personal information you choose to share.
+
+### 2.2 Automatically Collected Information
+
+**Analytics Data:** We use Cloudflare Web Analytics, a privacy-respecting analytics service, to understand how visitors use our Site. This service collects:
+- Pages visited
+- Time spent on pages
+- Referring websites
+- General geographic location (country/region level only)
+- Device type and browser type
+- Aggregated, non-identifying usage patterns
+
+Cloudflare Web Analytics does not use cookies, does not track you across websites, and does not collect personally identifiable information. Data is aggregated and anonymized.
+
+**Server Logs:** Our hosting provider (Cloudflare Pages) automatically collects standard server log information, including:
+- IP addresses
+- Browser type and version
+- Date and time of access
+- Pages requested
+- HTTP status codes
+
+This information is used for security, troubleshooting, and system maintenance purposes.
+
+**Anti-Spam Protection:** We use Cloudflare Turnstile to protect our contact form from spam and abuse. Turnstile analyzes browser behavior to verify that form submissions are legitimate. This process is privacy-preserving and does not use invasive tracking methods. Cloudflare may temporarily process your IP address and browser characteristics for this purpose.
+
+### 2.3 Information from Third-Party Platforms
+
+**Embedded Content:** Our Site includes embedded content from third-party platforms such as YouTube, Spotify, and Apple Podcasts. When you interact with this embedded content (e.g., playing a video or audio file), these platforms may collect information about your interaction according to their own privacy policies. We do not control and are not responsible for the data collection practices of these third-party platforms.
+
+**YouTube, Spotify, and Apple Podcasts:** If you access our content through our YouTube channel or listen to our podcast on platforms like Spotify or Apple Podcasts, those platforms collect data according to their respective privacy policies. We do not have access to or control over this data collection.
+
+## 3. How We Use Your Information
+
+We use the information we collect for the following purposes:
+
+### 3.1 Communication
+
+- To respond to your inquiries submitted through the contact form or email
+- To communicate with you about the Services
+- To send you information you have requested
+
+### 3.2 Service Operation and Improvement
+
+- To operate, maintain, and improve the Services
+- To understand how visitors use the Site and identify areas for improvement
+- To troubleshoot technical issues
+- To ensure the security and integrity of the Services
+
+### 3.3 Legal and Safety
+
+- To comply with legal obligations
+- To protect our rights, property, and safety, and the rights, property, and safety of our users and the public
+- To prevent fraud, abuse, and unauthorized access
+
+## 4. How We Share Your Information
+
+We do not sell, rent, or share your personal information with third parties for their marketing purposes. We may share your information in the following limited circumstances:
+
+### 4.1 Service Providers
+
+We work with trusted third-party service providers who assist us in operating the Services, including:
+
+- **Cloudflare Pages:** Hosting provider (United States)
+- **Cloudflare Web Analytics:** Privacy-respecting analytics service
+- **Cloudflare Turnstile:** Anti-spam protection service
+- **Resend (or equivalent):** Email delivery service for contact form submissions
+
+These service providers have access to your information only to perform specific tasks on our behalf and are obligated to protect your information and use it only for the purposes for which it was disclosed.
+
+### 4.2 Legal Requirements
+
+We may disclose your information if required to do so by law or in response to:
+- A court order, subpoena, or other legal process
+- A request from law enforcement or government authorities
+- A good faith belief that disclosure is necessary to protect our rights, your safety, or the safety of others, investigate fraud, or respond to a government request
+
+### 4.3 Business Transfers
+
+In the event of a merger, acquisition, reorganization, bankruptcy, or sale of assets, your information may be transferred as part of that transaction. We will notify you of any such change and any choices you may have regarding your information.
+
+## 5. Cookies and Tracking Technologies
+
+**We do not use cookies for tracking or advertising purposes.** Cloudflare Web Analytics does not use cookies or persistent identifiers.
+
+However, third-party platforms whose content is embedded on our Site (such as YouTube, Spotify, and Apple Podcasts) may use cookies and similar tracking technologies when you interact with their embedded content. We recommend reviewing the privacy policies of these platforms:
+
+- YouTube Privacy Policy: https://policies.google.com/privacy
+- Spotify Privacy Policy: https://www.spotify.com/legal/privacy-policy/
+- Apple Privacy Policy: https://www.apple.com/legal/privacy/
+
+## 6. Data Retention
+
+We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.
+
+- **Contact Form Submissions:** We retain your name, email address, and message content for as long as necessary to respond to your inquiry and maintain a record of our communications. You may request deletion of this information at any time by contacting us.
+- **Server Logs:** Server logs are typically retained for a limited period (e.g., 30-90 days) for security and troubleshooting purposes, after which they are automatically deleted or anonymized.
+- **Analytics Data:** Cloudflare Web Analytics data is aggregated, anonymized, and retained in accordance with Cloudflare's data retention policies.
+
+## 7. Your Privacy Rights
+
+Depending on your location, you may have certain rights regarding your personal information:
+
+### 7.1 Rights for All Users
+
+Regardless of your location, you have the right to:
+
+- **Access:** Request information about what personal data we hold about you
+- **Correction:** Request correction of inaccurate or incomplete personal data
+- **Deletion:** Request deletion of your personal data, subject to certain exceptions
+- **Opt-Out:** Opt out of receiving future communications from us (though we currently do not maintain a mailing list)
+
+### 7.2 Additional Rights for EEA, UK, and Swiss Residents (GDPR)
+
+If you are located in the European Economic Area (EEA), the United Kingdom, or Switzerland, you have additional rights under the General Data Protection Regulation (GDPR), including:
+
+- **Data Portability:** Request a copy of your personal data in a structured, commonly used, and machine-readable format
+- **Restriction of Processing:** Request restriction of processing of your personal data under certain circumstances
+- **Object to Processing:** Object to our processing of your personal data under certain circumstances
+- **Withdraw Consent:** Withdraw your consent at any time where we rely on consent to process your personal data
+- **Lodge a Complaint:** Lodge a complaint with your local data protection authority
+
+**Legal Basis for Processing (GDPR):** We process your personal data on the following legal bases:
+- **Consent:** When you submit the contact form or email us, you consent to our processing of your information to respond to your inquiry
+- **Legitimate Interests:** We have a legitimate interest in operating and improving the Services, ensuring security, and preventing fraud
+
+### 7.3 California Residents (CCPA/CPRA)
+
+If you are a California resident, you have rights under the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA), including:
+
+- **Right to Know:** Request information about the categories and specific pieces of personal information we have collected about you, the categories of sources, the business or commercial purposes for collection, and the categories of third parties with whom we share personal information
+- **Right to Delete:** Request deletion of your personal information, subject to certain exceptions
+- **Right to Correct:** Request correction of inaccurate personal information
+- **Right to Opt-Out of Sale/Sharing:** We do not sell or share your personal information for cross-context behavioral advertising purposes, so there is nothing to opt out of in this regard
+- **Right to Limit Use of Sensitive Personal Information:** We do not use or disclose sensitive personal information for purposes other than those permitted under the CCPA
+- **Non-Discrimination:** Exercise your privacy rights without discriminatory treatment
+
+**Categories of Personal Information We Collect:** For California residents, we collect the following categories of personal information:
+- Identifiers (name, email address, IP address)
+- Internet or network activity information (browsing behavior, interaction with the Site)
+
+**We do not sell personal information** as defined by the CCPA/CPRA.
+
+### 7.4 How to Exercise Your Rights
+
+To exercise any of these rights, please contact us at:
+
+**Email:** contact@dragonbonesandwizardhats.com  
+**Mailing Address:** [Mailing address available upon request]
+
+Please include sufficient information to allow us to verify your identity and locate your information in our systems. We will respond to your request within the timeframe required by applicable law (typically 30-45 days).
+
+## 8. International Data Transfers
+
+The Services are operated from the United States, and your information is stored and processed in the United States. If you are accessing the Services from outside the United States, please be aware that your information may be transferred to, stored, and processed in the United States, where data protection laws may differ from those in your country.
+
+By using the Services, you consent to the transfer of your information to the United States. We take reasonable steps to ensure that your information is treated securely and in accordance with this Privacy Policy.
+
+## 9. Security
+
+We implement reasonable administrative, technical, and physical security measures designed to protect your personal information from unauthorized access, use, disclosure, alteration, or destruction. These measures include:
+
+- Secure hosting infrastructure provided by Cloudflare
+- Encryption of data in transit using HTTPS/TLS
+- Anti-spam protections to prevent abuse of our contact form
+- Limited access to personal information by authorized personnel only
+
+However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to protect your information, we cannot guarantee its absolute security. You transmit information to us at your own risk.
+
+## 10. Children's Privacy
+
+The Services are not directed to individuals under the age of 18, and we do not knowingly collect personal information from children under 18. If we become aware that we have collected personal information from a child under 18, we will take steps to delete such information promptly. If you believe we have collected information from a child under 18, please contact us immediately.
+
+## 11. Affiliate Links and Sponsorships
+
+The Services may include affiliate links or sponsored content. When you click on an affiliate link, the third-party merchant or platform may collect information about your visit according to their privacy policy. We are not responsible for the privacy practices of third-party merchants or platforms.
+
+We do not share your personal information with affiliates or sponsors unless you choose to interact directly with them (e.g., by clicking on their links or visiting their websites).
+
+All affiliate relationships and sponsored content are disclosed in accordance with Federal Trade Commission (FTC) guidelines.
+
+## 12. Future Newsletter and Communications
+
+We do not currently operate a newsletter or mailing list. If we introduce a newsletter in the future, you will have the opportunity to opt in, and we will provide clear mechanisms to unsubscribe. Any such communications will comply with applicable laws, including the CAN-SPAM Act.
+
+## 13. Changes to This Privacy Policy
+
+We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. The "Last updated" date at the top of this page indicates when this Privacy Policy was last revised.
+
+If we make material changes to this Privacy Policy, we will notify you by posting the updated Privacy Policy on this page and updating the "Last updated" date. We encourage you to review this Privacy Policy periodically.
+
+Your continued use of the Services after any changes to this Privacy Policy constitutes your acceptance of the revised Privacy Policy.
+
+## 14. Third-Party Privacy Policies
+
+This Privacy Policy applies only to the Services operated by DBWH. We are not responsible for the privacy practices of third-party websites, platforms, or services, including:
+
+- YouTube (https://policies.google.com/privacy)
+- Spotify (https://www.spotify.com/legal/privacy-policy/)
+- Apple Podcasts (https://www.apple.com/legal/privacy/)
+- Cloudflare (https://www.cloudflare.com/privacypolicy/)
+
+We encourage you to review the privacy policies of any third-party services you use in connection with the Services.
+
+## 15. Do Not Track Signals
+
+Some web browsers have a "Do Not Track" (DNT) feature that signals to websites that you do not want your online activities tracked. Our Site does not currently respond to DNT signals because there is no industry-wide standard for how to interpret such signals. However, we collect minimal data and use privacy-respecting analytics tools that do not track you across websites.
+
+## 16. Contact Us
+
+If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:
+
+**Email:** contact@dragonbonesandwizardshat.com  
+**Mailing Address:** [Mailing address available upon request]
+
+We will respond to your inquiry as promptly as possible, typically within 30 days.
+
+---
+
+**By using the Services, you acknowledge that you have read, understood, and agree to the practices described in this Privacy Policy.**
