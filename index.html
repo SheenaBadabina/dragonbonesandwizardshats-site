@@ -4,165 +4,206 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dragon Bones & Wizards Hats</title>
-  <meta name="description" content="Original fantasy stories told with heart, magic, and wonder." />
+  <meta name="description" content="Fantasy short stories by Sheena — myth, magic, and wonder." />
   <link rel="icon" href="/assets/Logodbwh.png" />
-  <link rel="stylesheet" href="/assets/css/site.css" />
   <style>
-    :root { --ink:#d9e1e8; --muted:#92a1ad; --teal:#00bfa5; --bg:#0b0f12; --surface:#0f1419; --max:980px; }
-    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
-    .wrap{max-width:var(--max);margin:auto;padding:20px}
-    .site-header{border-bottom:1px solid #1c2229;background:rgba(0,0,0,.35)}
-    .brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:700}
-    .brand img{width:32px;height:32px;border-radius:8px}
-    .bar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
-    .site-nav a{color:var(--muted);text-decoration:none;margin-left:14px}
-    .site-nav a:hover{color:var(--ink)}
-    .hero{background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.85)), url("/assets/Bannerdbwh.png") center/cover no-repeat; padding:64px 16px; text-align:center}
-    .hero h1{margin:0 0 8px;font-size:clamp(26px,4vw,38px)}
-    .hero p{margin:0 auto;max-width:700px;color:var(--muted)}
-    .btn{display:inline-block;margin-top:14px;padding:10px 14px;border:1px solid rgba(0,191,165,.5);border-radius:999px;color:#00ffcc;text-decoration:none;box-shadow:0 0 10px rgba(0,191,165,.3)}
-    .section{padding:24px 0}
-    .featured{display:grid;grid-template-columns:1fr;gap:16px;background:var(--surface);border:1px solid #1c2229;border-radius:12px;overflow:hidden}
-    .featured-img{width:100%;height:auto;display:block;object-fit:cover}
-    .featured-body{padding:16px}
-    .featured-body h2{margin:0 0 6px;font-size:1.25rem;color:#00bfa5}
-    .featured-body h3{margin:4px 0 8px}
-    .featured-body p{margin:0 0 10px;color:var(--ink)}
-    .featured-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
-    .featured-links a{display:inline-block;padding:8px 12px;border:1px solid rgba(0,191,165,.45);border-radius:999px;text-decoration:none;color:#00ffcc}
-    .grid-2{display:grid;grid-template-columns:1fr;gap:16px}
-    .promo{background:var(--surface);border:1px solid #1c2229;border-radius:12px;overflow:hidden}
-    .promo img{width:100%;height:auto;display:block;object-fit:cover}
-    .promo .copy{padding:16px;color:var(--muted)}
-    footer{border-top:1px solid #1c2229;margin-top:32px}
-    footer .foot{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
-    footer a{color:#00bfa5;text-decoration:none}
-    @media (min-width:860px){
-      .featured{grid-template-columns:1.2fr 1fr}
-      .grid-2{grid-template-columns:2fr 1fr}
+    :root{
+      --bg:#0b0f12;
+      --panel:#0f1419;
+      --text:#e9f1f7;
+      --muted:#9fb1c1;
+      --brand:#1ce5bf;
+      --brand-2:#0dd2ff;
+      --accent:#ffd166;
+      --shadow:0 10px 25px rgba(0,0,0,.45);
+      --ring:0 0 0 8px rgba(28,229,191,.09),0 0 0 20px rgba(13,210,255,.05);
     }
-    img{max-width:100%;height:auto}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 system-ui,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    a{color:var(--brand-2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1120px;margin:0 auto;padding:24px}
+    header{
+      position:sticky;top:0;z-index:20;background:rgba(11,15,18,.85);
+      backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid #111;box-shadow:var(--shadow)
+    }
+    .brand{display:flex;align-items:center;gap:14px;font-weight:700}
+    .brand img{width:40px;height:40px;border-radius:10px}
+    .brand span{font-size:18px;letter-spacing:.2px}
+    .nav{display:flex;gap:18px;margin-left:auto}
+    .hamburger{display:none;margin-left:auto;background:none;border:0;color:var(--text);font-size:28px;cursor:pointer}
+    .hero{
+      position:relative;
+      background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.85)),
+                 url("/assets/Bannerdbwh.png") center/cover no-repeat;
+      padding:56px 0 28px;border-bottom:1px solid #0c1116
+    }
+    h1{font-size:42px;line-height:1.12;margin:12px 0 12px}
+    p.lede{color:var(--muted);max-width:60ch;margin:0 0 18px}
+    .btn{
+      display:inline-block;background:var(--brand);color:#041316;font-weight:700;
+      padding:12px 18px;border-radius:12px;box-shadow:var(--ring);border:0
+    }
+    .section{padding:28px 0;border-top:1px solid #0e141b}
+    h2{font-size:28px;margin:0 0 16px}
+    .card{
+      background:linear-gradient(180deg,#0f1419,#0c1015);
+      border:1px solid #0f1a22;border-radius:16px;box-shadow:var(--shadow);overflow:hidden
+    }
+    .row{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center;padding:16px}
+    .thumb{width:120px;height:120px;border-radius:12px;object-fit:cover;background:#0b0f12}
+    .title{font-size:20px;margin:0}
+    .muted{color:var(--muted);margin:6px 0 0}
+    .spacer{height:10px}
+    footer{padding:36px 0;color:var(--muted);border-top:1px solid #0e141b}
+    /* mobile */
+    @media (max-width:760px){
+      .row{grid-template-columns:1fr;gap:12px}
+      .thumb{width:100%;height:180px}
+      .nav{display:none}
+      .hamburger{display:block}
+      body.open .nav{
+        position:fixed;inset:56px 12px auto 12px;display:flex;flex-direction:column;gap:12px;
+        background:#0f1419;border:1px solid #0e141b;border-radius:14px;padding:14px;box-shadow:var(--shadow)
+      }
+    }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="bar">
+  <header>
+    <div class="wrap" style="display:flex;align-items:center;gap:16px">
       <a class="brand" href="/">
-        <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" />
+        <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo">
         <span>Dragon Bones & Wizards Hats</span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
+      <nav class="nav">
         <a href="/">Home</a>
-        <a href="/stories/">Stories</a>
-        <a href="/contact.html">Contact</a>
+        <a href="/stories/index.html">Stories</a>
         <a href="/work-with-me.html">Work With Me</a>
+        <a href="/contact.html">Contact</a>
       </nav>
+      <button class="hamburger" aria-label="Menu" id="hamburger">☰</button>
     </div>
   </header>
 
   <section class="hero">
     <div class="wrap">
-      <h1>Welcome to Dragon Bones & Wizards Hats</h1>
-      <p>Original fantasy tales—written and narrated—where magic, myth, and humanity intertwine. Clean, mobile-first reading. No clutter.</p>
-      <a class="btn" href="/stories/">Explore All Stories</a>
+      <h1>Welcome to <span style="color:var(--brand)">Dragon Bones & Wizards Hats</span></h1>
+      <p class="lede">Where fantasy stories come alive — told through time, myth, and magic. Each tale is written, narrated, and crafted with care by Sheena, for dreamers who still believe in wonder.</p>
+      <a class="btn" href="/stories/index.html">Browse All Stories</a>
     </div>
   </section>
 
-  <main class="wrap">
-    <!-- Latest Story Feature (auto from /assets/stories.json) -->
+  <main class="wrap" id="main">
+    <!-- Latest story (from stories/stories.json) -->
     <section class="section" id="latest">
-      <div class="featured">
-        <img id="latest-img" class="featured-img" alt="Latest story cover" />
-        <div class="featured-body">
-          <h2>Latest Story</h2>
-          <h3><a id="latest-link" href="#" style="color:inherit;text-decoration:none"></a></h3>
-          <p id="latest-teaser"></p>
-          <div class="featured-links" id="latest-links"></div>
+      <h2>Latest Story</h2>
+      <div class="card">
+        <div class="row">
+          <img class="thumb" id="latest-thumb" alt="" />
+          <div>
+            <h3 class="title" id="latest-title"></h3>
+            <p class="muted" id="latest-desc"></p>
+            <div class="spacer"></div>
+            <a class="btn" id="latest-link" href="#">Read Now</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Showcase: Dragon Wizard Battle -->
-    <section class="section grid-2" aria-labelledby="magic-flame">
-      <div class="promo">
-        <img src="/assets/Dragon%20Wizard%20Battle.png" alt="Dragon Wizard Battle artwork" />
-        <div class="copy">
-          <h2 id="magic-flame" style="margin:0 0 8px;color:#00bfa5">The Battle of Magic and Flame</h2>
-          <p>A vivid glimpse of the world’s arcane turbulence. This showcase art sets the tone: scale, wonder, and a little danger.</p>
-        </div>
-      </div>
-
-      <div class="promo">
-        <div class="copy">
-          <h2 style="margin:0 0 8px;color:#00bfa5">About the Project</h2>
-          <p>Dragon Bones & Wizards Hats is a focused archive of stories—no blog clutter—just fiction, clean navigation, and easy links to watch or listen.</p>
-          <p style="margin-top:8px"><a href="/work-with-me.html">Work With Me</a> for sponsor collaborations that fit our values.</p>
+    <!-- Feature card with the static battle artwork -->
+    <section class="section">
+      <h2>The Battle of Magic & Flame</h2>
+      <div class="card">
+        <div class="row">
+          <img class="thumb" id="battle-thumb" alt="Dragon and wizard battle artwork" />
+          <div>
+            <p class="muted">
+              A glimpse into the world’s fiercest duel — a dragon’s flame against a wizard’s light.
+            </p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap foot">
-      <p>© <span id="year"></span> dragonbonesandwizardshats •
-        <a href="/terms-of-use.html">Terms of Use</a> •
-        <a href="/privacy-policy.html">Privacy Policy</a> •
-        <a href="/contact.html">Contact</a>
-      </p>
+    <div class="wrap">
+      © <span id="y"></span> Dragon Bones & Wizards Hats • <a href="/privacy-policy.html">Privacy</a> • <a href="/terms-of-use.html">Terms</a>
     </div>
   </footer>
 
   <script>
-    // Footer year
-    (function(){ var y=document.getElementById('year'); if(y){ y.textContent=new Date().getFullYear(); } })();
+    // Utility: safe asset URL for filenames with spaces, parentheses, etc.
+    function assetUrl(file){
+      // Always serve from /assets/
+      return "/assets/" + encodeURIComponent(file);
+    }
 
-    // Load latest story from /assets/stories.json
-    (async () => {
-      try {
-        const res = await fetch('/assets/stories.json', { cache: 'no-store' });
-        if (!res.ok) throw new Error('stories.json not found');
-        const list = await res.json();
+    // Fix the hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    hamburger.addEventListener('click', ()=> document.body.classList.toggle('open'));
+    document.addEventListener('click', (e)=>{
+      if(!e.target.closest('header')) document.body.classList.remove('open');
+    });
 
-        // Sort by date desc if date present; fallback to original order
-        const stories = Array.isArray(list) ? [...list] : [];
-        stories.sort((a,b) => (b.date||'').localeCompare(a.date||''));
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-        const s = stories[0];
-        if (!s) throw new Error('No stories found');
+    // Static battle card image (filename contains spaces)
+    const battleFilename = "Wizard dragon battle.png";
+    document.getElementById('battle-thumb').src = assetUrl(battleFilename);
 
-        // Populate featured block
-        const link = document.getElementById('latest-link');
-        const img  = document.getElementById('latest-img');
-        const te   = document.getElementById('latest-teaser');
-        const links= document.getElementById('latest-links');
+    // Load latest story from stories/stories.json
+    // Expected JSON shape:
+    // {
+    //   "stories":[
+    //     {
+    //       "slug":"the-thief-who-destroyed-time",
+    //       "title":"The Thief Who Destroyed Time (And Had to Fix It)",
+    //       "description":"Short blurb of the story...",
+    //       "image":"The Thief Who Destroyed Time (And Had to Fix It).png",
+    //       "dateAdded":"2025-10-05"
+    //     }
+    //   ]
+    // }
+    fetch("/stories/stories.json", {cache:"no-store"})
+      .then(r => r.ok ? r.json() : Promise.reject(r))
+      .then(data => {
+        if(!data || !Array.isArray(data.stories) || !data.stories.length) throw new Error("No stories");
+        // Pick latest by dateAdded (fallback to first)
+        const latest = data.stories.slice().sort((a,b)=>{
+          return new Date(b.dateAdded||0) - new Date(a.dateAdded||0);
+        })[0];
 
-        link.textContent = s.title || 'Untitled';
-        link.href        = s.page || '#';
-        te.textContent   = s.teaser || '';
-        img.src          = encodeURI(s.image || '');
-        img.alt          = (s.title ? s.title + ' cover art' : 'Story cover');
+        const title = latest.title || "Latest Story";
+        const desc  = latest.description || "";
+        const img   = latest.image || "";
+        const slug  = latest.slug || "";
 
-        links.innerHTML = '';
-        const addBtn = (href, label) => {
-          if (!href) return;
-          const a = document.createElement('a');
-          a.href = href; a.target = '_blank'; a.rel = 'noopener';
-          a.textContent = label; links.appendChild(a);
-        };
-        // Local read-now first
-        if (s.page) {
-          const read = document.createElement('a');
-          read.href = s.page; read.textContent = '📖 Read Now';
-          links.appendChild(read);
+        document.getElementById('latest-title').textContent = title;
+        document.getElementById('latest-desc').textContent  = desc;
+        document.getElementById('latest-link').href         = "/stories/" + (slug ? encodeURIComponent(slug) + ".html" : "index.html");
+
+        const thumb = document.getElementById('latest-thumb');
+        if(img){
+          thumb.src = assetUrl(img);
+          thumb.alt = title + " artwork";
+        }else{
+          thumb.alt = title;
         }
-        addBtn(s.youtube, '🎥 Watch on YouTube');
-        addBtn(s.spotify, '🎧 Listen on Spotify');
-      } catch (e) {
-        console.error(e);
-        const latest = document.getElementById('latest');
-        latest.innerHTML = '<div class="featured-body"><p style="color:#f88">Could not load latest story. Make sure <code>/assets/stories.json</code> exists.</p></div>';
-      }
-    })();
+      })
+      .catch(() => {
+        // Graceful fallback if JSON missing
+        const title = "The Thief Who Destroyed Time (And Had to Fix It)";
+        const img   = "The Thief Who Destroyed Time (And Had to Fix It).png";
+        document.getElementById('latest-title').textContent = title;
+        document.getElementById('latest-desc').textContent  = "When Raven steals Chronus’s Hourglass of Hours, tomorrow begins to unravel. To fix time, she must give up part of her own life.";
+        document.getElementById('latest-link').href         = "/stories/the-thief-who-destroyed-time.html";
+        const thumb = document.getElementById('latest-thumb');
+        thumb.src = assetUrl(img);
+        thumb.alt = title + " artwork";
+      });
   </script>
 </body>
 </html>
