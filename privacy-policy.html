@@ -4,66 +4,109 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Privacy Policy • Dragon Bones & Wizards Hats</title>
-  <meta name="description" content="Privacy Policy for dragonbonesandwizardshats.com" />
+  <meta name="description" content="Privacy Policy for Dragon Bones & Wizards Hats." />
+  <link rel="icon" href="/assets/Logodbwh.png" />
   <link rel="stylesheet" href="/assets/css/site.css" />
   <style>
-    /* Keep legal text highly readable */
-    .legal pre {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      line-height: 1.65;
-      font-size: 1rem;
-      background: rgba(0,0,0,0.25);
-      padding: 1rem;
-      border-radius: 10px;
-      border: 1px solid rgba(0,191,165,0.4);
-    }
+    /* Small page helpers */
+    .wrap{max-width:980px;margin:0 auto;padding:20px}
+    .prose p{margin:0 0 1em}
+    .muted{opacity:.75}
+    .error{color:#ff8181;background:#2a1717;border:1px solid #5a2a2a;padding:12px;border-radius:10px}
+    .menu-btn{display:none}@media(max-width:760px){.menu-btn{display:inline-block}}
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="/">
-      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
-      <span class="brand-text">Dragon Bones &amp; Wizards Hats</span>
-    </a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
-      onclick="document.querySelector('[data-collapsible]').classList.toggle('open')">☰</button>
-    <nav class="site-nav" data-collapsible>
-      <a href="/">Home</a>
-      <a href="/stories/">Stories</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/work-with-me.html">Work With Me</a>
-    </nav>
+  <!-- Header (matches site nav) -->
+  <header class="site-header" style="border-bottom:1px solid #16222a;background:rgba(0,0,0,.35)">
+    <div class="wrap" style="display:flex;align-items:center;gap:14px">
+      <a class="brand" href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit">
+        <img src="/assets/Logodbwh.png" alt="" width="32" height="32" />
+        <strong>Dragon Bones & Wizards Hats</strong>
+      </a>
+      <button class="menu-btn" id="hamburger" aria-label="Menu" aria-expanded="false" style="margin-left:auto;background:none;border:0;font-size:28px;color:inherit">☰</button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary" style="margin-left:auto;display:flex;gap:14px">
+        <a href="/">Home</a>
+        <a href="/stories/">Stories</a>
+        <a href="/work-with-me.html">Work With Me</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy-policy.html" aria-current="page">Privacy</a>
+        <a href="/terms-of-use.html">Terms</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="container legal">
+  <main class="wrap">
     <h1>Privacy Policy</h1>
-    <div id="policy"><p><em>Loading Privacy Policy…</em></p></div>
+    <p id="meta" class="muted"></p>
+    <article id="content" class="prose">
+      <p>Loading Privacy Policy…</p>
+    </article>
+    <div id="err" class="error" style="display:none"></div>
   </main>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> dragonbonesandwizardshats •
-      <a href="/terms-of-use.html">Terms of Use</a> •
-      <a href="/privacy-policy.html">Privacy Policy</a>
-    </p>
+  <footer style="border-top:1px solid #16222a;margin-top:28px">
+    <div class="wrap" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
+      <p>© <span id="y"></span> dragonbonesandwizardshats</p>
+      <p>
+        <a href="/privacy-policy.html">Privacy Policy</a> •
+        <a href="/terms-of-use.html">Terms of Use</a> •
+        <a href="/contact.html">Contact</a>
+      </p>
+    </div>
   </footer>
 
-  <script src="/assets/js/site.js"></script>
   <script>
-    (async () => {
-      const el = document.getElementById('policy');
-      try {
-        const res = await fetch('/assets/legal/privacy-policy.txt', { cache: 'no-store' });
-        if (!res.ok) throw new Error('Missing privacy-policy.txt');
-        const txt = await res.text();
+    // Mobile nav
+    (function(){
+      const btn = document.getElementById('hamburger');
+      const nav = document.getElementById('site-nav');
+      if(btn && nav){
+        btn.addEventListener('click', ()=>{
+          const open = nav.style.display !== 'none';
+          nav.style.display = open ? 'none' : 'flex';
+          btn.setAttribute('aria-expanded', String(!open));
+        });
+        // default hidden on small screens via inline style override
+        if (window.matchMedia('(max-width:760px)').matches) nav.style.display='none';
+      }
+      document.getElementById('y').textContent = new Date().getFullYear();
+    }());
 
-        // Render verbatim (no transformations) inside <pre>
-        const pre = document.createElement('pre');
-        pre.textContent = txt;
-        el.innerHTML = '';
-        el.appendChild(pre);
-      } catch (e) {
-        el.innerHTML = '<p style="color:#f88">Could not load <code>/assets/legal/privacy-policy.txt</code>.</p>';
+    // Render plain text from immutable asset (verbatim)
+    (async () => {
+      const TXT = '/assets/legal/privacy-policy.txt';
+      const out = document.getElementById('content');
+      const meta = document.getElementById('meta');
+      const err = document.getElementById('err');
+
+      try {
+        const res = await fetch(TXT, { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const text = await res.text();
+
+        // Escape HTML and convert paragraphs (blank line = new paragraph)
+        const html = text
+          .split(/\r?\n\r?\n/g)
+          .map(p => p
+            .replace(/&/g,'&amp;')
+            .replace(/</g,'&lt;')
+            .replace(/>/g,'&gt;')
+            .replace(/\r?\n/g,'<br>'))
+          .map(p => `<p>${p}</p>`)
+          .join('\n');
+
+        out.innerHTML = html;
+
+        const lm = res.headers.get('last-modified');
+        if (lm) {
+          const d = new Date(lm);
+          if (!isNaN(d)) meta.textContent = 'Last updated: ' + d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+        }
+      } catch(e) {
+        out.innerHTML = '';
+        err.style.display = 'block';
+        err.textContent = `Could not load Privacy text from ${TXT}. ${e.message}`;
       }
     })();
   </script>
