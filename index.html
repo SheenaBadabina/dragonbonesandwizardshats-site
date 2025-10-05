@@ -1,210 +1,218 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Dragon Bones & Wizards Hats</title>
-  <meta name="description" content="Original fantasy stories — myth, magic, and wonder." />
-  <link rel="icon" href="/assets/Logodbwh.png" />
+  <meta name="description" content="Original fantasy stories by Sheena — read the latest tale and explore the archive.">
+  <link rel="preload" href="/assets/Bannerdbwh.png" as="image">
+  <link rel="preload" href="/assets/Logodbwh.png" as="image">
+  <link rel="stylesheet" href="/assets/css/site.css">
   <style>
+    /* Page-specific styles; global rules stay in /assets/css/site.css */
     :root{
-      --bg:#0b0f12; --panel:#0f1419; --ink:#e6f7f3; --muted:#9fb1c1;
-      --brand:#1ee6c6; --brand2:#0dd2ff; --max:1120px;
-      --ring:0 0 0 8px rgba(30,230,198,.08),0 0 0 16px rgba(13,210,255,.05);
+      --teal:#00BFA5; --bg:#0B0F12; --surface:#0F1419; --text:#D9E1E8; --muted:#92A1AD;
+      --maxw:980px; --r:12px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
-    a{color:var(--brand2);text-decoration:none}
-    a:hover{text-decoration:underline}
-    img{max-width:100%;height:auto;display:block}
-    .wrap{max-width:var(--max);margin:0 auto;padding:20px}
-    header{
-      background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.85)), url("/assets/Bannerdbwh.png") center/cover no-repeat;
-      border-bottom:1px solid #0e141b; position:sticky; top:0; z-index:10; backdrop-filter:saturate(140%) blur(6px)
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text)}
+    body{
+      background-image:url('/assets/Bannerdbwh.png');
+      background-size:cover;
+      background-repeat:no-repeat;
+      background-attachment:fixed; /* subtle fixed parallax */
+      background-position:center top;
     }
-    .bar{display:flex;align-items:center;gap:14px;padding:14px 20px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-    .brand img{width:36px;height:36px;border-radius:8px}
-    .nav{margin-left:auto;display:flex;gap:16px}
-    .hamburger{display:none;margin-left:auto;background:none;border:0;color:var(--ink);font-size:28px;cursor:pointer}
-    @media (max-width:760px){
-      .nav{display:none}
-      .hamburger{display:block}
-      body.open .nav{
-        display:flex; position:fixed; inset:60px 12px auto 12px; flex-direction:column; gap:10px;
-        background:#0f1419; border:1px solid #0e141b; border-radius:12px; padding:12px
-      }
+    .backdrop{background:linear-gradient(180deg, rgba(11,15,18,.80), rgba(11,15,18,.92) 20%, rgba(11,15,18,.96) 60%, rgba(11,15,18,.98)); min-height:100svh;}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:16px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{width:40px;height:40px;object-fit:contain;border-radius:8px}
+    .brand .title{font-weight:700;letter-spacing:.2px}
+    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px}
+    nav a{color:var(--text);text-decoration:none;padding:8px 10px;border-radius:10px}
+    nav a:focus-visible{outline:2px solid var(--teal)}
+    .hamb{display:inline-flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,.12);padding:8px 10px;border-radius:12px;background:rgba(15,20,25,.6)}
+    .hamb span{width:22px;height:2px;background:var(--text);display:block;border-radius:2px}
+    .menu{display:none;position:absolute;right:16px;top:68px;background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:10px;box-shadow:0 10px 30px rgba(0,0,0,.35);z-index:5}
+    .menu a{display:block;padding:10px 12px}
+    .menu.open{display:block}
+    @media (min-width:720px){
+      .hamb{display:none}
+      .menu{display:block;position:static;background:transparent;border:none;box-shadow:none;padding:0}
+      .menu a{display:inline-block}
     }
-    .hero{padding:50px 0 24px}
-    h1{font-size:42px;line-height:1.12;margin:0 0 10px}
-    .lede{color:var(--muted);max-width:65ch;margin:0 0 16px}
-    .btn{display:inline-block;background:var(--brand);color:#041316;font-weight:700;padding:12px 16px;border-radius:12px;box-shadow:var(--ring);border:0}
-    .section{padding:24px 0;border-top:1px solid #0e141b}
-    h2{margin:0 0 12px;font-size:26px}
-    .card{background:linear-gradient(180deg,#11171d,#0c1116);border:1px solid #12202a;border-radius:14px;overflow:hidden}
-    .row{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;padding:16px}
-    .thumb{width:120px;height:120px;border-radius:12px;object-fit:cover;background:#0b0f12}
-    .title{margin:0 0 4px;font-size:20px}
+
+    /* Blocks */
+    .card{background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:16px}
+    .glow{box-shadow:0 0 0 0 rgba(0,191,165,0);transition:box-shadow .25s ease}
+    .glow:hover{box-shadow:0 0 24px rgba(0,191,165,.18)}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--teal);color:#00ffcc;text-decoration:none;font-weight:600;box-shadow:0 0 10px rgba(0,191,165,.25) inset, 0 0 16px rgba(0,191,165,.2)}
+    .btn:focus-visible{outline:2px solid var(--teal)}
     .muted{color:var(--muted)}
-    footer{border-top:1px solid #0e141b;margin-top:28px;padding:22px 0;color:var(--muted)}
+    .media{width:100%;border-radius:12px;display:block;object-fit:cover}
+    .two-col{display:grid;gap:16px}
+    @media (min-width:720px){.two-col{grid-template-columns:1.3fr 1fr}}
+
+    /* Latest Story */
+    .story-head{display:flex;align-items:center;gap:10px;justify-content:space-between}
+    .story-title{margin:.2rem 0 .4rem 0;font-size:1.25rem}
+    .story-desc{margin:.25rem 0 .75rem 0}
+    .story-cover{max-height:320px}
+
+    /* Showcase */
+    .showcase h2{margin:0 0 .5rem 0}
+    .showcase p{margin:.25rem 0 .8rem 0}
+
+    /* Author */
+    .author{display:grid;gap:12px;align-items:center}
+    .author img{width:92px;height:92px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,.12)}
+    @media (min-width:720px){.author{grid-template-columns:auto 1fr}}
+    .author .meta strong{display:block;margin-bottom:.25rem}
+
+    /* Footer */
+    footer{margin-top:30px;padding:18px 0;color:var(--muted);font-size:.95rem;border-top:1px solid rgba(255,255,255,.08)}
+    footer a{color:var(--text);text-decoration:none}
   </style>
 </head>
 <body>
-  <header>
-    <div class="bar wrap">
-      <a class="brand" href="/">
-        <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo">
-        <span>Dragon Bones & Wizards Hats</span>
-      </a>
-      <nav class="nav" aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/stories/">Stories</a>
-        <a href="/work-with-me.html">Work With Me</a>
+  <div class="backdrop">
+    <div class="wrap">
+
+      <!-- Header -->
+      <header aria-label="Site header">
+        <div class="brand" aria-label="Brand">
+          <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" loading="eager">
+          <div class="title">Dragon Bones & Wizards Hats</div>
+        </div>
+
+        <!-- Desktop menu -->
+        <nav class="menu" aria-label="Primary navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/stories/">Stories</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/work-with-me.html">Work With Me</a></li>
+          </ul>
+        </nav>
+
+        <!-- Hamburger (mobile) -->
+        <button class="hamb" id="hamb" aria-label="Open menu" aria-expanded="false" aria-controls="mflyout">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="mflyout" class="menu" aria-label="Mobile navigation">
+          <a href="/">Home</a>
+          <a href="/stories/">Stories</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/work-with-me.html">Work With Me</a>
+        </nav>
+      </header>
+
+      <!-- Latest Story -->
+      <section class="card glow" id="latest" aria-labelledby="latestLabel">
+        <div class="story-head">
+          <h2 id="latestLabel" style="margin:0">Latest Story</h2>
+          <small class="muted" id="latestBadge">Loading…</small>
+        </div>
+        <div class="two-col">
+          <div>
+            <img id="latestCover" class="media story-cover" alt="Latest story cover">
+          </div>
+          <div>
+            <h3 class="story-title" id="latestTitle">—</h3>
+            <p class="story-desc muted" id="latestDesc">—</p>
+            <a id="readNow" class="btn" href="#">Read now</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dragon Wizard Battle showcase -->
+      <section class="showcase card glow" style="margin-top:16px" aria-labelledby="showcaseLabel">
+        <h2 id="showcaseLabel">Dragon Wizard Battle</h2>
+        <p class="muted">A cinematic slice of the world these stories live in.</p>
+        <img class="media" src="/assets/Dragon Wizard Battle.png" alt="Dragon battling a wizard" loading="lazy">
+      </section>
+
+      <!-- Author strip (bottom, above footer) -->
+      <section class="card glow" style="margin-top:16px" aria-labelledby="authorLabel">
+        <div class="author">
+          <img src="/assets/Author.png" alt="Author portrait of Sheena" loading="lazy">
+          <div class="meta">
+            <strong id="authorLabel">About the Author</strong>
+            <p class="muted" style="margin:.25rem 0 .8rem 0">
+              Sheena is the creator, narrator, and desert wanderer behind Dragon Bones & Wizards Hats.
+              Known for <em>Sheena’s Adventures</em>, she explores Utah’s wild spaces, rockhounding and storytelling along the way.
+            </p>
+            <a class="btn" href="/work-with-me.html">Work with me</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        © <span id="year"></span> dragonbonesandwizardshats •
+        <a href="/terms-of-use.html">Terms</a> •
+        <a href="/privacy-policy.html">Privacy</a> •
         <a href="/contact.html">Contact</a>
-      </nav>
-      <button id="hamburger" class="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
+      </footer>
+
     </div>
-  </header>
-
-  <section class="hero">
-    <div class="wrap">
-      <h1>Welcome to <span style="color:var(--brand)">Dragon Bones & Wizards Hats</span></h1>
-      <p class="lede">Original fantasy tales—written and narrated—where magic, myth, and humanity intertwine. Clean, mobile-first reading. No clutter.</p>
-      <a class="btn" href="/stories/">Browse All Stories</a>
-    </div>
-  </section>
-
-  <main class="wrap">
-    <!-- Latest Story (auto from stories.json; image names with spaces/() are handled) -->
-    <section class="section" id="latest">
-      <h2>Latest Story</h2>
-      <div class="card">
-        <div class="row">
-          <img id="latest-thumb" class="thumb" alt="">
-          <div>
-            <h3 id="latest-title" class="title"></h3>
-            <p id="latest-desc" class="muted"></p>
-            <div style="height:10px"></div>
-            <a id="latest-link" class="btn" href="#">Read Now</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Showcase: static battle artwork (filename has spaces; handled in JS) -->
-    <section class="section">
-      <h2>The Battle of Magic &amp; Flame</h2>
-      <div class="card">
-        <div class="row">
-          <img id="battle-thumb" class="thumb" alt="Dragon and wizard battle artwork">
-          <div>
-            <p class="muted">A vivid glimpse of arcane turbulence — scale, wonder, and a little danger.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      © <span id="y"></span> dragonbonesandwizardshats •
-      <a href="/privacy-policy.html">Privacy Policy</a> •
-      <a href="/terms-of-use.html">Terms of Use</a> •
-      <a href="/contact.html">Contact</a>
-    </div>
-  </footer>
+  </div>
 
   <script>
-    // Toggle hamburger
-    const hb = document.getElementById('hamburger');
-    hb.addEventListener('click', () => {
-      const open = document.body.classList.toggle('open');
-      hb.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    document.addEventListener('click', (e)=>{
-      if(!e.target.closest('header')) { document.body.classList.remove('open'); hb.setAttribute('aria-expanded','false'); }
-    });
+    // Utility: safely encode paths with spaces or parentheses
+    function safe(src){ return encodeURI(src); }
 
-    // Footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Robust asset URL builder that safely handles spaces/parentheses in filenames.
-    // Accepts either a filename ("Wizard dragon battle.png") OR a path ("/assets/...png").
-    function safeAsset(pathOrName){
-      if (!pathOrName) return '';
-      // If it's an absolute URL or protocol-relative, return as-is
-      if (/^https?:\/\//i.test(pathOrName)) return pathOrName;
-      // If it starts with '/', encode ONLY the last segment (filename), not the whole path
-      if (pathOrName.startsWith('/')) {
-        const parts = pathOrName.split('/');
-        const file = parts.pop();
-        parts.push(encodeURIComponent(file));
-        return parts.join('/');
-      }
-      // Otherwise treat it as a filename in /assets/
-      return '/assets/' + encodeURIComponent(pathOrName);
+    // Mobile menu
+    const hamb = document.getElementById('hamb');
+    const mfly = document.getElementById('mflyout');
+    if(hamb){
+      hamb.addEventListener('click', ()=>{
+        const open = mfly.classList.toggle('open');
+        hamb.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
     }
 
-    // Static battle image (your filename has spaces)
-    document.getElementById('battle-thumb').src = safeAsset('/assets/Wizard dragon battle.png');
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Load latest story from stories.json (supports either location & schema)
-    (async () => {
-      async function loadJson(url){
-        try {
-          const r = await fetch(url, { cache: 'no-store' });
-          if (!r.ok) throw new Error('HTTP ' + r.status);
-          return await r.json();
-        } catch { return null; }
+    // Latest Story loader (authoritative path)
+    const STORIES_JSON = '/assets/stories.json';
+
+    function textOrDash(v){ return (v && String(v).trim().length) ? v : '—'; }
+
+    (async()=>{
+      try{
+        const r = await fetch(STORIES_JSON, {cache:'no-store'});
+        if(!r.ok) throw new Error('stories.json not found');
+        const data = await r.json();
+
+        // Newest is first entry by order (style guide)
+        const s = Array.isArray(data) ? data[0] : (data?.stories?.[0] ?? null);
+        if(!s) throw new Error('Empty stories list');
+
+        const title = s.title || 'Untitled Story';
+        const desc  = s.description || '';
+        const img   = s.image || '';
+        const link  = s.link || '#';
+
+        document.getElementById('latestBadge').textContent = 'New';
+        document.getElementById('latestTitle').textContent = title;
+        document.getElementById('latestDesc').textContent  = textOrDash(desc);
+        document.getElementById('latestCover').src         = safe(img);
+        document.getElementById('latestCover').alt         = title + ' cover';
+        document.getElementById('readNow').href            = link;
+
+      }catch(e){
+        document.getElementById('latestBadge').textContent = 'Unavailable';
+        document.getElementById('latestTitle').textContent = 'No stories found';
+        document.getElementById('latestDesc').textContent  = 'Add entries to /assets/stories.json.';
+        document.getElementById('readNow').style.display   = 'none';
+        const cover = document.getElementById('latestCover');
+        if(cover) cover.style.display = 'none';
       }
-
-      // Try both common locations you’ve used
-      const dataA = await loadJson('/assets/stories.json');
-      const dataB = dataA ? null : await loadJson('/stories/stories.json');
-      const raw = dataA ?? dataB;
-
-      // Accept either an array or an object with { stories: [...] }
-      let list = [];
-      if (Array.isArray(raw)) list = raw;
-      else if (raw && Array.isArray(raw.stories)) list = raw.stories;
-
-      if (!list.length) throw new Error('No stories in stories.json');
-
-      // Sort newest first by date/dateAdded if present; else keep order
-      const sorted = list.slice().sort((a,b)=>{
-        const da = new Date(a.date || a.dateAdded || 0).getTime();
-        const db = new Date(b.date || b.dateAdded || 0).getTime();
-        return db - da;
-      });
-      const s = sorted[0];
-
-      const title = s.title || 'Latest Story';
-      const desc  = s.teaser || s.description || '';
-      // Page: explicit "page" preferred; else build from slug
-      const page  = s.page || (s.slug ? `/stories/${encodeURIComponent(s.slug)}.html` : '#');
-      // Image: if starts with '/', leave path; else treat as filename in /assets/
-      const imgPath = s.image || s.cover || '';
-
-      // Populate UI
-      document.getElementById('latest-title').textContent = title;
-      document.getElementById('latest-desc').textContent  = desc;
-      document.getElementById('latest-link').href         = page;
-
-      const thumb = document.getElementById('latest-thumb');
-      thumb.src = safeAsset(imgPath);
-      thumb.alt = title + ' cover art';
-    })().catch(err=>{
-      console.error(err);
-      // Graceful fallback using your known first story
-      const fallbackTitle = 'The Thief Who Destroyed Time (And Had to Fix It)';
-      const fallbackImg   = '/assets/The Thief Who Destroyed Time (And Had to Fix It).png';
-      document.getElementById('latest-title').textContent = fallbackTitle;
-      document.getElementById('latest-desc').textContent  = 'When Raven steals Chronus’s Hourglass of Hours, tomorrow begins to unravel.';
-      document.getElementById('latest-link').href         = '/stories/the-thief-who-destroyed-time.html';
-      const t = document.getElementById('latest-thumb');
-      t.src = safeAsset(fallbackImg);
-      t.alt = fallbackTitle + ' cover art';
-    });
+    })();
   </script>
 </body>
 </html>
