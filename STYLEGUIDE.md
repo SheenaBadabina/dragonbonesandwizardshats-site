@@ -302,3 +302,30 @@ Dragon Bones & Wizards Hats runs as a clean static site on Cloudflare Pages, wit
 Every visual and behavioral rule lives here to ensure total consistency between future updates.
 
 *This file is authoritative. No edits to structure, color, or workflow should occur without updating this guide.*
+## JSON Smart Update System
+
+Each new story is registered in `/assets/stories.json`.  
+The homepage and Stories Index automatically load the most recent entry from this file as the featured story.
+
+When adding a new story:
+1. Create the story’s `.txt` and `.html` files in `/stories/` as usual.
+2. Add a new object to the top of `/assets/stories.json` with:
+   - `"title"` → the story’s title (matches the `.html` filename without extension)
+   - `"description"` → a short tagline for the story
+   - `"image"` → path to its artwork in `/assets/`
+   - `"link"` → path to the story’s `.html`
+   - `"youtube"` and `"spotify"` → links to external media (optional)
+
+The homepage will automatically pull and display the topmost entry from this JSON list.
+
+Example entry:
+```json
+{
+  "title": "The Thief Who Destroyed Time (And Had to Fix It)",
+  "description": "A thief steals Chronus’s hourglass and must mend the flow of time.",
+  "image": "/assets/the-thief-who-destroyed-time.png",
+  "link": "/stories/the-thief-who-destroyed-time.html",
+  "youtube": "https://youtu.be/-i-ZGzN2j-E?si=Mm5Et7MM4sAIMn3V",
+  "spotify": "https://open.spotify.com/show/3piG2nuJ2M2xjwbQ7Eu8Df"
+}
+```
