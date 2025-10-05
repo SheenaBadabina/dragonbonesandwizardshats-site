@@ -116,3 +116,20 @@ body {
     display: flex;
   }
 }
+/* Success Toast Message */
+#toast {
+  background: rgba(0, 191, 165, 0.2);
+  border: 1px solid #00bfa5;
+  color: #00ffcc;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 0 10px rgba(0, 191, 165, 0.3);
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
