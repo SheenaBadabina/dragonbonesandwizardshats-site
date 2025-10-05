@@ -4,55 +4,165 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dragon Bones & Wizards Hats</title>
-  <meta name="description" content="Fantasy stories told with heart, magic, and wonder." />
+  <meta name="description" content="Original fantasy stories told with heart, magic, and wonder." />
+  <link rel="icon" href="/assets/Logodbwh.png" />
   <link rel="stylesheet" href="/assets/css/site.css" />
+  <style>
+    :root { --ink:#d9e1e8; --muted:#92a1ad; --teal:#00bfa5; --bg:#0b0f12; --surface:#0f1419; --max:980px; }
+    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    .wrap{max-width:var(--max);margin:auto;padding:20px}
+    .site-header{border-bottom:1px solid #1c2229;background:rgba(0,0,0,.35)}
+    .brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:700}
+    .brand img{width:32px;height:32px;border-radius:8px}
+    .bar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+    .site-nav a{color:var(--muted);text-decoration:none;margin-left:14px}
+    .site-nav a:hover{color:var(--ink)}
+    .hero{background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.85)), url("/assets/Bannerdbwh.png") center/cover no-repeat; padding:64px 16px; text-align:center}
+    .hero h1{margin:0 0 8px;font-size:clamp(26px,4vw,38px)}
+    .hero p{margin:0 auto;max-width:700px;color:var(--muted)}
+    .btn{display:inline-block;margin-top:14px;padding:10px 14px;border:1px solid rgba(0,191,165,.5);border-radius:999px;color:#00ffcc;text-decoration:none;box-shadow:0 0 10px rgba(0,191,165,.3)}
+    .section{padding:24px 0}
+    .featured{display:grid;grid-template-columns:1fr;gap:16px;background:var(--surface);border:1px solid #1c2229;border-radius:12px;overflow:hidden}
+    .featured-img{width:100%;height:auto;display:block;object-fit:cover}
+    .featured-body{padding:16px}
+    .featured-body h2{margin:0 0 6px;font-size:1.25rem;color:#00bfa5}
+    .featured-body h3{margin:4px 0 8px}
+    .featured-body p{margin:0 0 10px;color:var(--ink)}
+    .featured-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+    .featured-links a{display:inline-block;padding:8px 12px;border:1px solid rgba(0,191,165,.45);border-radius:999px;text-decoration:none;color:#00ffcc}
+    .grid-2{display:grid;grid-template-columns:1fr;gap:16px}
+    .promo{background:var(--surface);border:1px solid #1c2229;border-radius:12px;overflow:hidden}
+    .promo img{width:100%;height:auto;display:block;object-fit:cover}
+    .promo .copy{padding:16px;color:var(--muted)}
+    footer{border-top:1px solid #1c2229;margin-top:32px}
+    footer .foot{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+    footer a{color:#00bfa5;text-decoration:none}
+    @media (min-width:860px){
+      .featured{grid-template-columns:1.2fr 1fr}
+      .grid-2{grid-template-columns:2fr 1fr}
+    }
+    img{max-width:100%;height:auto}
+  </style>
 </head>
 <body>
   <header class="site-header">
-    <a href="/" class="brand">
-      <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
-      <span class="brand-text">Dragon Bones & Wizards Hats</span>
-    </a>
-    <button class="nav-toggle" aria-label="Menu">☰</button>
-    <nav class="site-nav" data-collapsible>
-      <a href="/">Home</a>
-      <a href="/stories/">Stories</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/work-with-me.html">Work With Me</a>
-    </nav>
+    <div class="bar">
+      <a class="brand" href="/">
+        <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" />
+        <span>Dragon Bones & Wizards Hats</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/stories/">Stories</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/work-with-me.html">Work With Me</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="container">
-    <section class="hero" style="background: url('/assets/Bannerdbwh.png') center/cover no-repeat; padding: 6rem 1rem; text-align: center; color: #fff;">
+  <section class="hero">
+    <div class="wrap">
       <h1>Welcome to Dragon Bones & Wizards Hats</h1>
-      <p>Original fantasy tales written and narrated by Sheena — where magic, myth, and humanity intertwine.</p>
-      <a href="/stories/" class="btn">Explore All Stories</a>
-    </section>
+      <p>Original fantasy tales—written and narrated—where magic, myth, and humanity intertwine. Clean, mobile-first reading. No clutter.</p>
+      <a class="btn" href="/stories/">Explore All Stories</a>
+    </div>
+  </section>
 
-    <section class="featured">
-      <h2>Latest Story</h2>
-      <article class="featured-story">
-        <img src="/assets/The%20Thief%20Who%20Destroyed%20Time%20(And%20Had%20to%20Fix%20It).png" alt="The Thief Who Destroyed Time" class="featured-img" />
-        <div class="featured-content">
-          <h3><a href="/stories/the-thief-who-destroyed-time.html">The Thief Who Destroyed Time (And Had to Fix It)</a></h3>
-          <p>When Raven steals Chronus’s Hourglass of Hours, tomorrow begins to unravel. To set the world right, she must descend into the Underclock and pay with her own time.</p>
-          <div class="featured-links">
-            <a href="https://youtu.be/-i-ZGzN2j-E?si=Mm5Et7MM4sAIMn3V" target="_blank" rel="noopener" class="btn">🎥 Watch on YouTube</a>
-            <a href="https://open.spotify.com/show/3piG2nuJ2M2xjwbQ7Eu8Df" target="_blank" rel="noopener" class="btn">🎧 Listen on Spotify</a>
-          </div>
+  <main class="wrap">
+    <!-- Latest Story Feature (auto from /assets/stories.json) -->
+    <section class="section" id="latest">
+      <div class="featured">
+        <img id="latest-img" class="featured-img" alt="Latest story cover" />
+        <div class="featured-body">
+          <h2>Latest Story</h2>
+          <h3><a id="latest-link" href="#" style="color:inherit;text-decoration:none"></a></h3>
+          <p id="latest-teaser"></p>
+          <div class="featured-links" id="latest-links"></div>
         </div>
-      </article>
+      </div>
     </section>
 
-    <section class="promo">
-      <h2>Magic & Mayhem</h2>
-      <img src="/assets/Dragon%20Wizard%20Battle.png" alt="Dragon Wizard Battle artwork" class="promo-img" />
+    <!-- Showcase: Dragon Wizard Battle -->
+    <section class="section grid-2" aria-labelledby="magic-flame">
+      <div class="promo">
+        <img src="/assets/Dragon%20Wizard%20Battle.png" alt="Dragon Wizard Battle artwork" />
+        <div class="copy">
+          <h2 id="magic-flame" style="margin:0 0 8px;color:#00bfa5">The Battle of Magic and Flame</h2>
+          <p>A vivid glimpse of the world’s arcane turbulence. This showcase art sets the tone: scale, wonder, and a little danger.</p>
+        </div>
+      </div>
+
+      <div class="promo">
+        <div class="copy">
+          <h2 style="margin:0 0 8px;color:#00bfa5">About the Project</h2>
+          <p>Dragon Bones & Wizards Hats is a focused archive of stories—no blog clutter—just fiction, clean navigation, and easy links to watch or listen.</p>
+          <p style="margin-top:8px"><a href="/work-with-me.html">Work With Me</a> for sponsor collaborations that fit our values.</p>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> dragonbonesandwizardshats</p>
+  <footer>
+    <div class="wrap foot">
+      <p>© <span id="year"></span> dragonbonesandwizardshats •
+        <a href="/terms-of-use.html">Terms of Use</a> •
+        <a href="/privacy-policy.html">Privacy Policy</a> •
+        <a href="/contact.html">Contact</a>
+      </p>
+    </div>
   </footer>
-  <script src="/assets/js/site.js"></script>
+
+  <script>
+    // Footer year
+    (function(){ var y=document.getElementById('year'); if(y){ y.textContent=new Date().getFullYear(); } })();
+
+    // Load latest story from /assets/stories.json
+    (async () => {
+      try {
+        const res = await fetch('/assets/stories.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('stories.json not found');
+        const list = await res.json();
+
+        // Sort by date desc if date present; fallback to original order
+        const stories = Array.isArray(list) ? [...list] : [];
+        stories.sort((a,b) => (b.date||'').localeCompare(a.date||''));
+
+        const s = stories[0];
+        if (!s) throw new Error('No stories found');
+
+        // Populate featured block
+        const link = document.getElementById('latest-link');
+        const img  = document.getElementById('latest-img');
+        const te   = document.getElementById('latest-teaser');
+        const links= document.getElementById('latest-links');
+
+        link.textContent = s.title || 'Untitled';
+        link.href        = s.page || '#';
+        te.textContent   = s.teaser || '';
+        img.src          = encodeURI(s.image || '');
+        img.alt          = (s.title ? s.title + ' cover art' : 'Story cover');
+
+        links.innerHTML = '';
+        const addBtn = (href, label) => {
+          if (!href) return;
+          const a = document.createElement('a');
+          a.href = href; a.target = '_blank'; a.rel = 'noopener';
+          a.textContent = label; links.appendChild(a);
+        };
+        // Local read-now first
+        if (s.page) {
+          const read = document.createElement('a');
+          read.href = s.page; read.textContent = '📖 Read Now';
+          links.appendChild(read);
+        }
+        addBtn(s.youtube, '🎥 Watch on YouTube');
+        addBtn(s.spotify, '🎧 Listen on Spotify');
+      } catch (e) {
+        console.error(e);
+        const latest = document.getElementById('latest');
+        latest.innerHTML = '<div class="featured-body"><p style="color:#f88">Could not load latest story. Make sure <code>/assets/stories.json</code> exists.</p></div>';
+      }
+    })();
+  </script>
 </body>
 </html>
