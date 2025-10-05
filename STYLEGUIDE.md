@@ -1,42 +1,51 @@
-# Dragon Bones & Wizards Hats — Style Guide
+# Dragon Bones & Wizards Hats – Style Guide
 
-## Purpose
-Maintain a consistent look, tone, and structure for all story pages and site content.
-
----
-
-## 🧱 Layout Structure
-Each story page follows this order:
-1. **Header:** Site title and nav (consistent across all pages)
-2. **Hero section:** Story title, subtitle, and story thumbnail image
-3. **Listen/Watch buttons:** YouTube + Spotify links
-4. **Story body:** Clean typography with wide margins
-5. **Footer:** Year + navigation links
+This document defines the site’s structure, visual theme, and repeatable patterns for adding new pages or features.
 
 ---
 
-## 🎨 Theme & Design
-- **Primary color:** #009999 (teal accent)
-- **Background:** Black with teal highlights and soft gradients
-- **Font:** "Poppins" or system sans-serif
-- **Link hover:** Light teal glow
-- **Buttons:** Rounded, solid teal background, white text
-- **Images:** Max width 100%, auto height, never overflow
+## Theme
+
+- Mobile-first responsive design  
+- Background uses the banner image (`/assets/bannerdbwh.png`) as a subtle hero or background texture  
+- Color palette: teal #00BFA5 accents, dark stone #111, parchment backgrounds for story text  
+- Typography: legible serif for story content, sans-serif for UI elements  
+- Buttons and links use teal hover glow
 
 ---
 
-## 🪶 Story Card Layout (Stories Index)
-- Each story = one `<article>` block
-- Thumbnail (left) + Title + Short summary
-- Whole card clickable
+## Story Pages
 
-```html
-<article class="story-card">
-  <a href="/stories/example-story.html">
-    <img src="/assets/example-story.png" alt="Example story thumbnail" />
-    <div class="story-info">
-      <h2>Example Story Title</h2>
-      <p>Short one-line summary here.</p>
-    </div>
-  </a>
-</article>
+- Each story lives at `/stories/<slug>.html`
+- Each story pulls its text from `/assets/stories/<slug>.txt`
+- Each story must include:
+  - Title heading (`<h1>`)
+  - Story art image (`/assets/images/<slug>.png`)
+  - “Listen on Spotify” and “YouTube Video” links
+  - Footer navigation consistent with the rest of the site
+- When new stories are added:
+  1. Upload the `.txt` and image to `/assets/stories/`
+  2. Duplicate an existing story page
+  3. Update title, image, and link references
+  4. Add it to `/stories/index.html`
+
+---
+
+## Legal Pages
+
+### Purpose
+All legal documents (Terms of Use, Privacy Policy, etc.) are immutable text files loaded verbatim into their pages.
+
+### Storage
+`/assets/legal/terms-of-use.txt`  
+`/assets/legal/privacy-policy.txt`
+
+### Display Pages
+`/terms-of-use.html`  
+`/privacy-policy.html`
+
+Each `.html` page:
+- Uses the site header/footer for consistency  
+- Loads its text via JavaScript:  
+  ```js
+  fetch('/assets/legal/privacy-policy.txt')
