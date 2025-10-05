@@ -2,55 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dragon Bones & Wizards Hats</title>
-  <meta name="description" content="A clean, mobile-first archive for original fantasy stories." />
   <link rel="stylesheet" href="/assets/css/site.css" />
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="/">
-      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="72" height="72" />
-      <span class="brand-text">Dragon Bones &amp; Wizards Hats</span>
+      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
+      <span class="brand-text">Dragon Bones & Wizards Hats</span>
     </a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
       onclick="document.querySelector('[data-collapsible]').classList.toggle('open')">☰</button>
     <nav class="site-nav" data-collapsible>
+      <a href="/" class="nav-link">Home</a>
       <a href="/stories/" class="nav-link">Stories</a>
       <a href="/contact.html" class="nav-link">Contact</a>
       <a href="/work-with-me.html" class="nav-link">Work With Me</a>
     </nav>
   </header>
 
-  <main class="narrow">
-    <section class="hero">
-      <img src="/assets/Bannerdbwh.png" alt="Dragon facing wizard banner" />
-      <div class="hero-copy">
-        <h1>Dragon Bones &amp; Wizards Hats</h1>
-        <p class="lede">
-          A home for sharp, myth-soaked short fiction. Clean reading on mobile, with a single,
-          tidy archive of stories.
-        </p>
-        <p>
-          <a class="cta" href="/stories/">Read the Stories</a>
-        </p>
-      </div>
+  <main class="container">
+    <section class="intro">
+      <h1>Welcome to <span style="color:#00bfa5;">Dragon Bones & Wizards Hats</span></h1>
+      <p>Where fantasy stories come alive — told through time, myth, and magic. Each tale is written, narrated, and crafted with care by Sheena, for dreamers who still believe in wonder.</p>
     </section>
 
-    <section class="narrow" style="margin-top:1.5rem">
-      <h2>Latest</h2>
-      <a class="story-card" href="/stories/the-thief-who-destroyed-time.html">
-        <h3 class="story-title">The Thief Who Destroyed Time (And Had to Fix It)</h3>
-        <p class="story-meta">Time • Consequence • Redemption</p>
-      </a>
+    <section class="featured-story">
+      <h2>Latest Story</h2>
+      <article class="story-card">
+        <img src="/assets/TheThiefWhoDestroyedTime(AndHadtoFixIt).png" alt="The Thief Who Destroyed Time artwork" class="story-hero" />
+        <h3>The Thief Who Destroyed Time (And Had to Fix It)</h3>
+        <p>When Raven steals Chronus’s Hourglass of Hours, tomorrow begins to unravel. To fix time, she must give up part of her own life.</p>
+        <a href="/stories/the-thief-who-destroyed-time.html" class="btn">Read Now</a>
+      </article>
+    </section>
+
+    <section class="art-highlight">
+      <h2>The Battle of Magic & Flame</h2>
+      <img src="/assets/DragonWizardBattle.png" alt="Dragon and wizard battle artwork" class="story-hero" />
     </section>
   </main>
 
   <footer class="site-footer">
     <p>© <span id="year"></span> dragonbonesandwizardshats</p>
   </footer>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+
+  <script src="/assets/js/site.js"></script>
 </body>
 </html>
