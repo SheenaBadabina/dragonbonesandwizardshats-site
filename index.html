@@ -1,28 +1,244 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>🐉 DBWH Canary Page</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dragon Bones & Wizards Hats</title>
+  <meta name="description" content="Original fantasy stories by Sheena — read the latest tale and explore the archive." />
+
+  <!-- Preloads -->
+  <link rel="preload" href="/assets/Bannerdbwh.png" as="image" />
+  <link rel="preload" href="/assets/Logodbwh.png" as="image" />
+
+  <!-- Global stylesheet if present -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+
   <style>
-    body {
-      background: black;
-      color: #00BFA5;
-      font-family: system-ui, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
+    /* Page-specific styles; global rules live in /assets/css/site.css */
+    :root{
+      --teal:#00BFA5; --bg:#0B0F12; --surface:#0F1419; --text:#D9E1E8; --muted:#92A1AD;
+      --maxw:980px; --r:12px;
     }
-    h1 { font-size: 2rem; }
-    p { color: #92A1AD; }
+    html,body{margin:0;background:var(--bg);color:var(--text)}
+    body{
+      /* Subtle Fixed Parallax banner */
+      background-image:url("/assets/Bannerdbwh.png");
+      background-size:cover;
+      background-position:center top;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+    }
+    .backdrop{
+      /* soft gradient to keep text readable over the banner */
+      background:linear-gradient(180deg, rgba(11,15,18,.82), rgba(11,15,18,.94) 25%, rgba(11,15,18,.98));
+      min-height:100svh;
+    }
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:16px}
+
+    /* Header */
+    header{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 0}
+    .brand{display:flex; align-items:center; gap:10px}
+    .brand img{width:40px; height:40px; object-fit:contain; border-radius:8px}
+    .brand .title{font-weight:700; letter-spacing:.2px}
+
+    /* Nav */
+    .nav-toggle{
+      display:inline-flex; flex-direction:column; gap:4px; border:1px solid rgba(255,255,255,.12);
+      padding:8px 10px; border-radius:12px; background:rgba(15,20,25,.6)
+    }
+    .nav-toggle span{width:22px; height:2px; background:var(--text); display:block; border-radius:2px}
+    .site-nav{display:none; position:absolute; right:16px; top:68px; background:var(--surface);
+      border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:10px; box-shadow:0 10px 30px rgba(0,0,0,.35); z-index:5}
+    .site-nav a{display:block; padding:10px 12px; color:var(--text); text-decoration:none; border-radius:10px}
+    .site-nav.open{display:block}
+    @media (min-width:720px){
+      .nav-toggle{display:none}
+      .site-nav{display:block; position:static; background:transparent; border:none; box-shadow:none; padding:0}
+      .site-nav a{display:inline-block; margin-left:18px}
+    }
+
+    /* Blocks */
+    .card{background:var(--surface); border:1px solid rgba(255,255,255,.08); border-radius:var(--r); padding:16px}
+    .glow{box-shadow:0 0 0 0 rgba(0,191,165,0); transition:box-shadow .25s ease}
+    .glow:hover{box-shadow:0 0 24px rgba(0,191,165,.18)}
+    .btn{display:inline-block; padding:12px 16px; border-radius:12px; border:1px solid var(--teal);
+      color:#00ffcc; text-decoration:none; font-weight:600; box-shadow:0 0 10px rgba(0,191,165,.25) inset, 0 0 16px rgba(0,191,165,.2)}
+    .btn:focus-visible{outline:2px solid var(--teal)}
+    .muted{color:var(--muted)}
+    .media{width:100%; border-radius:12px; display:block; object-fit:cover}
+
+    .two-col{display:grid; gap:16px}
+    @media (min-width:720px){.two-col{grid-template-columns:1.25fr 1fr}}
+
+    /* Latest Story */
+    .story-head{display:flex; align-items:center; gap:10px; justify-content:space-between}
+    .story-title{margin:.2rem 0 .4rem 0; font-size:1.25rem}
+    .story-desc{margin:.25rem 0 .8rem 0}
+    .story-cover{max-height:320px}
+
+    /* Showcase */
+    .showcase h2{margin:0 0 .5rem 0}
+    .showcase p{margin:.25rem 0 .8rem 0}
+
+    /* Author */
+    .author{display:grid; gap:12px; align-items:center}
+    .author img{width:92px; height:92px; border-radius:50%; object-fit:cover; border:1px solid rgba(255,255,255,.12)}
+    @media (min-width:720px){.author{grid-template-columns:auto 1fr}}
+    .author .meta strong{display:block; margin-bottom:.25rem}
+
+    /* Footer */
+    footer{margin-top:30px; padding:18px 0; color:var(--muted); font-size:.95rem; border-top:1px solid rgba(255,255,255,.08)}
+    footer a{color:var(--text); text-decoration:none}
+
+    /* Headings spacing for hero welcome text */
+    .hero h1{font-size:clamp(1.6rem, 2.8vw + 1rem, 2.4rem); margin:.5rem 0 1rem}
+    .hero p{margin:0 0 1.1rem 0}
   </style>
 </head>
 <body>
-  <h1>🐉 CANARY PAGE ACTIVE</h1>
-  <p>If you see this, Cloudflare is serving the current GitHub build.</p>
-  <p>Commit date: <strong><script>document.write(new Date().toLocaleString())</script></strong></p>
+  <div class="backdrop">
+    <div class="wrap">
+
+      <!-- Header -->
+      <header aria-label="Site header">
+        <div class="brand" aria-label="Brand">
+          <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" loading="eager" />
+          <div class="title">Dragon Bones & Wizards Hats</div>
+        </div>
+
+        <!-- Desktop nav -->
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="/">Home</a>
+          <a href="/stories/">Stories</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/work-with-me.html">Work With Me</a>
+        </nav>
+
+        <!-- Mobile hamburger -->
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navFlyout">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="navFlyout" class="site-nav" aria-label="Mobile navigation">
+          <a href="/">Home</a>
+          <a href="/stories/">Stories</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/work-with-me.html">Work With Me</a>
+        </nav>
+      </header>
+
+      <!-- Hero intro -->
+      <section class="hero card glow" aria-labelledby="heroLabel">
+        <h1 id="heroLabel">Welcome to <span style="color:var(--teal)">Dragon Bones & Wizards Hats</span></h1>
+        <p class="muted">
+          Where fantasy stories come alive — told through time, myth, and magic. Each tale is written, narrated, and
+          crafted with care by Sheena, for dreamers who still believe in wonder.
+        </p>
+      </section>
+
+      <!-- Latest Story (JSON-powered) -->
+      <section class="card glow" id="latest" aria-labelledby="latestLabel" style="margin-top:16px">
+        <div class="story-head">
+          <h2 id="latestLabel" style="margin:0">Latest Story</h2>
+          <small class="muted" id="latestBadge">Loading…</small>
+        </div>
+        <div class="two-col">
+          <div>
+            <img id="latestCover" class="media story-cover" alt="Latest story cover" />
+          </div>
+          <div>
+            <h3 class="story-title" id="latestTitle">—</h3>
+            <p class="story-desc muted" id="latestDesc">—</p>
+            <a id="readNow" class="btn" href="#" aria-label="Read the latest story now">Read Now</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Showcase: Dragon Wizard Battle image -->
+      <section class="showcase card glow" style="margin-top:16px" aria-labelledby="showcaseLabel">
+        <h2 id="showcaseLabel">The Battle of Magic & Flame</h2>
+        <p class="muted">A cinematic slice of the world these stories live in.</p>
+        <img class="media" src="/assets/Dragon Wizard Battle.png" alt="Dragon and wizard battle artwork" loading="lazy" />
+      </section>
+
+      <!-- Author strip (bottom, above footer) -->
+      <section class="card glow" style="margin-top:16px" aria-labelledby="authorLabel">
+        <div class="author">
+          <img src="/assets/Author.png" alt="Author portrait of Sheena" loading="lazy" />
+          <div class="meta">
+            <strong id="authorLabel">About the Author</strong>
+            <p class="muted" style="margin:.25rem 0 .8rem 0">
+              Sheena is the creator, narrator, and desert wanderer behind Dragon Bones & Wizards Hats.
+              Known for <em>Sheena’s Adventures</em>, she explores wild spaces, rockhounding and storytelling along the way.
+            </p>
+            <a class="btn" href="/work-with-me.html">Work with me</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        © <span id="year"></span> dragonbonesandwizardshats •
+        <a href="/terms-of-use.html">Terms</a> •
+        <a href="/privacy-policy.html">Privacy</a> •
+        <a href="/contact.html">Contact</a>
+      </footer>
+
+    </div>
+  </div>
+
+  <script>
+    // Mobile nav toggle
+    (function(){
+      const t = document.getElementById('navToggle');
+      const fly = document.getElementById('navFlyout');
+      if(!t || !fly) return;
+      t.addEventListener('click', () => {
+        const open = fly.classList.toggle('open');
+        t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Safely encode asset paths with spaces/parentheses
+    function safe(src){ return encodeURI(src); }
+    function textOrDash(v){ return (v && String(v).trim()) ? v : '—'; }
+
+    // Latest Story loader
+    (async()=>{
+      const STORIES_JSON = '/assets/stories.json';
+      try {
+        const r = await fetch(STORIES_JSON, { cache: 'no-store' });
+        if(!r.ok) throw new Error('stories.json not found');
+        const data = await r.json();
+
+        // Newest story is first
+        const s = Array.isArray(data) ? data[0] : (data?.stories?.[0] ?? null);
+        if(!s) throw new Error('Empty stories list');
+
+        const title = s.title || 'Untitled Story';
+        const desc  = s.description || '';
+        const img   = s.image || '';
+        const link  = s.link || '#';
+
+        document.getElementById('latestBadge').textContent = 'New';
+        document.getElementById('latestTitle').textContent = title;
+        document.getElementById('latestDesc').textContent  = textOrDash(desc);
+        const cover = document.getElementById('latestCover');
+        cover.src = safe(img);
+        cover.alt = title + ' cover';
+        document.getElementById('readNow').href = link;
+
+      } catch (e) {
+        document.getElementById('latestBadge').textContent = 'Unavailable';
+        document.getElementById('latestTitle').textContent = 'No stories found';
+        document.getElementById('latestDesc').textContent  = 'Add entries to /assets/stories.json.';
+        document.getElementById('readNow').style.display   = 'none';
+        const cover = document.getElementById('latestCover');
+        if (cover) cover.style.display = 'none';
+      }
+    })();
+  </script>
 </body>
 </html>
