@@ -3,123 +3,182 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The Thief Who Destroyed Time (And Had to Fix It) • Dragon Bones & Wizards Hats</title>
-  <meta name="description" content="The final story text rendered verbatim from its locked .txt asset." />
-  <link rel="icon" href="/assets/Logodbwh.png" />
+  <title>The Thief Who Destroyed Time (And Had to Fix It) — Dragon Bones & Wizards Hats</title>
+  <meta name="description" content="Read “The Thief Who Destroyed Time (And Had to Fix It)” on Dragon Bones & Wizards Hats." />
+
+  <!-- Preloads -->
+  <link rel="preload" href="/assets/Bannerdbwh.png" as="image" />
+  <link rel="preload" href="/assets/Logodbwh.png" as="image" />
+
+  <!-- Global stylesheet -->
   <link rel="stylesheet" href="/assets/css/site.css" />
+
   <style>
-    /* Lightweight page helpers to ensure readable layout even if CSS loads late */
-    .wrap{max-width:980px;margin:0 auto;padding:20px}
-    .hero img{width:100%;height:auto;border-radius:14px}
-    .media{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 22px}
-    .btn{display:inline-block;background:#1ee6c6;color:#031614;text-decoration:none;font-weight:700;padding:10px 14px;border-radius:12px}
-    .muted{opacity:.75}
-    .error{color:#ff8181;background:#2a1717;border:1px solid #5a2a2a;padding:12px;border-radius:10px}
-    .prose p{margin:0 0 1em}
-    .menu-btn{display:none}@media(max-width:760px){.menu-btn{display:inline-block}}
+    /* Page-specific styles; global rules live in /assets/css/site.css */
+    :root{
+      --teal:#00BFA5; --bg:#0B0F12; --surface:#0F1419; --text:#D9E1E8; --muted:#92A1AD;
+      --maxw:980px; --r:12px;
+    }
+    html,body{margin:0;background:var(--bg);color:var(--text)}
+    body{
+      /* Subtle Fixed Parallax banner background */
+      background-image:url("/assets/Bannerdbwh.png");
+      background-size:cover;
+      background-position:center top;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+    }
+    .backdrop{
+      background:linear-gradient(180deg, rgba(11,15,18,.82), rgba(11,15,18,.94) 25%, rgba(11,15,18,.98));
+      min-height:100svh;
+    }
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:16px}
+
+    /* Header */
+    header{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 0}
+    .brand{display:flex; align-items:center; gap:10px}
+    .brand img{width:40px; height:40px; object-fit:contain; border-radius:8px}
+    .brand .title{font-weight:700; letter-spacing:.2px}
+
+    /* Nav */
+    .nav-toggle{
+      display:inline-flex; flex-direction:column; gap:4px; border:1px solid rgba(255,255,255,.12);
+      padding:8px 10px; border-radius:12px; background:rgba(15,20,25,.6)
+    }
+    .nav-toggle span{width:22px; height:2px; background:var(--text); display:block; border-radius:2px}
+    .site-nav{display:none; position:absolute; right:16px; top:68px; background:var(--surface);
+      border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:10px; box-shadow:0 10px 30px rgba(0,0,0,.35); z-index:5}
+    .site-nav a{display:block; padding:10px 12px; color:var(--text); text-decoration:none; border-radius:10px}
+    .site-nav.open{display:block}
+    @media (min-width:720px){
+      .nav-toggle{display:none}
+      .site-nav{display:block; position:static; background:transparent; border:none; box-shadow:none; padding:0}
+      .site-nav a{display:inline-block; margin-left:18px}
+    }
+
+    /* Story layout */
+    .card{background:var(--surface); border:1px solid rgba(255,255,255,.08); border-radius:var(--r); padding:16px}
+    .glow{box-shadow:0 0 0 0 rgba(0,191,165,0); transition:box-shadow .25s ease}
+    .glow:hover{box-shadow:0 0 24px rgba(0,191,165,.18)}
+    .muted{color:var(--muted)}
+    .media{width:100%; border-radius:12px; display:block; object-fit:cover}
+
+    .story-head{display:flex; align-items:center; justify-content:space-between; gap:10px}
+    .story-title{margin:.2rem 0 .6rem 0}
+    .story-links{display:flex; flex-wrap:wrap; gap:10px; margin:0 0 12px 0}
+    .btn{display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid var(--teal); color:#00ffcc; text-decoration:none; font-weight:600}
+
+    pre#storyText{
+      white-space:pre-wrap;
+      line-height:1.7;
+      font-family:Georgia, "Times New Roman", serif;
+      background:rgba(255,255,255,.02);
+      padding:14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    footer{margin-top:30px; padding:18px 0; color:var(--muted); font-size:.95rem; border-top:1px solid rgba(255,255,255,.08)}
+    footer a{color:var(--text); text-decoration:none}
   </style>
 </head>
 <body>
-  <!-- Site header -->
-  <header class="site-header" style="border-bottom:1px solid #16222a;background:rgba(0,0,0,.35)">
-    <div class="wrap" style="display:flex;align-items:center;gap:14px">
-      <a class="brand" href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit">
-        <img src="/assets/Logodbwh.png" alt="" width="32" height="32" />
-        <strong>Dragon Bones & Wizards Hats</strong>
-      </a>
-      <button class="menu-btn" id="hamburger" aria-label="Menu" aria-expanded="false" style="margin-left:auto;background:none;border:0;font-size:28px;color:inherit">☰</button>
-      <nav id="site-nav" class="site-nav" aria-label="Primary" style="margin-left:auto;display:flex;gap:14px">
-        <a href="/">Home</a>
-        <a href="/stories/" aria-current="page">Stories</a>
-        <a href="/work-with-me.html">Work With Me</a>
+  <div class="backdrop">
+    <div class="wrap">
+      <!-- Header -->
+      <header aria-label="Site header">
+        <div class="brand" aria-label="Brand">
+          <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" loading="eager" />
+          <div class="title">Dragon Bones & Wizards Hats</div>
+        </div>
+
+        <!-- Desktop nav -->
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="/">Home</a>
+          <a href="/stories/">Stories</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/work-with-me.html">Work With Me</a>
+        </nav>
+
+        <!-- Mobile hamburger -->
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navFlyout">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="navFlyout" class="site-nav" aria-label="Mobile navigation">
+          <a href="/">Home</a>
+          <a href="/stories/">Stories</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/work-with-me.html">Work With Me</a>
+        </nav>
+      </header>
+
+      <!-- Story -->
+      <article id="story"
+        data-text="/assets/The Thief Who Destroyed Time (And Had to Fix It).txt"
+        data-image="/assets/The Thief Who Destroyed Time (And Had to Fix It).png"
+        aria-labelledby="storyTitle"
+        class="card glow">
+
+        <div class="story-head">
+          <h1 id="storyTitle" class="story-title">The Thief Who Destroyed Time (And Had to Fix It)</h1>
+          <small class="muted">Story</small>
+        </div>
+
+        <!-- Media links (before text) -->
+        <nav class="story-links" aria-label="Media links">
+          <a class="btn" href="https://youtu.be/-i-ZGzN2j-E" target="_blank" rel="noopener">Watch on YouTube</a>
+          <a class="btn" href="https://open.spotify.com/show/3piG2nuJ2M2xjwbQ7Eu8Df" target="_blank" rel="noopener">Listen on Spotify</a>
+        </nav>
+
+        <img id="storyImage" class="media" alt="Cover — The Thief Who Destroyed Time (And Had to Fix It)" loading="lazy" />
+        <pre id="storyText">Loading…</pre>
+      </article>
+
+      <!-- Footer -->
+      <footer>
+        © <span id="year"></span> dragonbonesandwizardshats •
+        <a href="/terms-of-use.html">Terms</a> •
+        <a href="/privacy-policy.html">Privacy</a> •
         <a href="/contact.html">Contact</a>
-        <a href="/privacy-policy.html">Privacy</a>
-        <a href="/terms-of-use.html">Terms</a>
-      </nav>
+      </footer>
     </div>
-  </header>
-
-  <main class="wrap">
-    <header class="hero" style="margin-top:18px">
-      <h1>The Thief Who Destroyed Time (And Had to Fix It)</h1>
-      <!-- Artwork with spaces/parentheses handled by encodeURI fallback -->
-      <figure style="margin:12px 0 8px">
-        <img
-          id="cover"
-          src="/assets/The Thief Who Destroyed Time (And Had to Fix It).png"
-          alt="The Thief Who Destroyed Time — artwork"
-          onerror="this.src=encodeURI('/assets/The Thief Who Destroyed Time (And Had to Fix It).png')"
-          loading="eager" />
-      </figure>
-      <div class="media">
-        <a class="btn" href="https://youtu.be/-i-ZGzN2j-E?si=Mm5Et7MM4sAIMn3V" target="_blank" rel="noopener">Watch on YouTube</a>
-        <a class="btn" href="https://open.spotify.com/show/3piG2nuJ2M2xjwbQ7Eu8Df" target="_blank" rel="noopener">Listen on Spotify</a>
-      </div>
-      <p class="muted">Presented exactly as authored — pulled verbatim from the locked text asset.</p>
-    </header>
-
-    <!-- Story text rendered from immutable .txt -->
-    <article id="story" class="prose">
-      <p>Loading story…</p>
-    </article>
-    <div id="err" class="error" style="display:none"></div>
-  </main>
-
-  <footer style="border-top:1px solid #16222a;margin-top:28px">
-    <div class="wrap" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
-      <p>© <span id="y"></span> dragonbonesandwizardshats</p>
-      <p>
-        <a href="/privacy-policy.html">Privacy Policy</a> •
-        <a href="/terms-of-use.html">Terms of Use</a> •
-        <a href="/contact.html">Contact</a>
-      </p>
-    </div>
-  </footer>
+  </div>
 
   <script>
-    // Mobile nav
+    // Mobile nav toggle
     (function(){
-      const btn = document.getElementById('hamburger');
-      const nav = document.getElementById('site-nav');
-      if(btn && nav){
-        btn.addEventListener('click', ()=>{
-          const open = nav.style.display !== 'none';
-          nav.style.display = open ? 'none' : 'flex';
-          btn.setAttribute('aria-expanded', String(!open));
-        });
-        if (window.matchMedia('(max-width:760px)').matches) nav.style.display='none';
-      }
-      document.getElementById('y').textContent = new Date().getFullYear();
-    }());
+      const t = document.getElementById('navToggle');
+      const fly = document.getElementById('navFlyout');
+      if(!t || !fly) return;
+      t.addEventListener('click', () => {
+        const open = fly.classList.toggle('open');
+        t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
 
-    // Render plain text from immutable asset (verbatim)
-    (async () => {
-      const TXT = '/assets/stories/the-thief-who-destroyed-time.txt';
-      const out = document.getElementById('story');
-      const err = document.getElementById('err');
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-      try {
-        const res = await fetch(TXT, { cache: 'no-store' });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const text = await res.text();
+    // Encode helper for assets with spaces/parentheses
+    function safe(src){ return encodeURI(src); }
 
-        // Escape HTML, convert paragraphs on blank lines, preserve in-line breaks.
-        const html = text
-          .split(/\r?\n\r?\n/g)
-          .map(p => p
-            .replace(/&/g,'&amp;')
-            .replace(/</g,'&lt;')
-            .replace(/>/g,'&gt;')
-            .replace(/\r?\n/g,'<br>'))
-          .map(p => `<p>${p}</p>`)
-          .join('\n');
+    // Load story content from TXT + cover image
+    (function(){
+      const article = document.getElementById('story');
+      if(!article) return;
+      const txt = safe(article.dataset.text || '');
+      const img = safe(article.dataset.image || '');
 
-        out.innerHTML = html;
-      } catch(e) {
-        out.innerHTML = '';
-        err.style.display = 'block';
-        err.textContent = `Could not load story text from ${TXT}. ${e.message}`;
-      }
+      // Cover image
+      const cover = document.getElementById('storyImage');
+      if (img) cover.src = img;
+
+      // Text
+      const pre = document.getElementById('storyText');
+      fetch(txt, { cache: 'no-store' })
+        .then(r => r.ok ? r.text() : Promise.reject(r.status))
+        .then(t => { pre.textContent = t; })
+        .catch(() => { pre.textContent = 'Failed to load story.'; });
     })();
   </script>
 </body>
