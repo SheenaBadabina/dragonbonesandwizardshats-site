@@ -1,13 +1,8 @@
 [
   {
     "title": "The Thief Who Destroyed Time (And Had to Fix It)",
-    "slug": "the-thief-who-destroyed-time",
-    "teaser": "When Raven steals Chronus’s Hourglass of Hours, tomorrow begins to unravel. To set the world right, she must descend into the Underclock and pay with her own time.",
+    "description": "A thief steals Chronus’s hourglass and must mend the flow of time.",
     "image": "/assets/The Thief Who Destroyed Time (And Had to Fix It).png",
-    "text": "/assets/The Thief Who Destroyed Time (And Had to Fix It).txt",
-    "page": "/stories/the-thief-who-destroyed-time.html",
-    "youtube": "https://youtu.be/-i-ZGzN2j-E?si=Mm5Et7MM4sAIMn3V",
-    "spotify": "https://open.spotify.com/show/3piG2nuJ2M2xjwbQ7Eu8Df",
-    "date": "2025-10-05"
+    "link": "/stories/the-thief-who-destroyed-time.html"
   }
 ]
