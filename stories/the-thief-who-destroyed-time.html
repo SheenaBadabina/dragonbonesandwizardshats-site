@@ -5,180 +5,188 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>The Thief Who Destroyed Time (And Had to Fix It) — Dragon Bones & Wizards Hats</title>
   <meta name="description" content="Read “The Thief Who Destroyed Time (And Had to Fix It)” on Dragon Bones & Wizards Hats." />
-
-  <!-- Preloads -->
-  <link rel="preload" href="/assets/Bannerdbwh.png" as="image" />
-  <link rel="preload" href="/assets/Logodbwh.png" as="image" />
-
-  <!-- Global stylesheet -->
-  <link rel="stylesheet" href="/assets/css/site.css" />
-
+  <link rel="icon" href="/assets/Logodbwh.png" />
+  <meta name="theme-color" content="#0B0F12" />
   <style>
-    /* Page-specific styles; global rules live in /assets/css/site.css */
     :root{
-      --teal:#00BFA5; --bg:#0B0F12; --surface:#0F1419; --text:#D9E1E8; --muted:#92A1AD;
-      --maxw:980px; --r:12px;
+      --teal:#00BFA5; --bg:#0B0F12; --surface:#0F1419; --text:#D9E1E8; --muted:#92A1AD; --r:12px;
     }
-    html,body{margin:0;background:var(--bg);color:var(--text)}
-    body{
-      /* Subtle Fixed Parallax banner background */
-      background-image:url("/assets/Bannerdbwh.png");
-      background-size:cover;
-      background-position:center top;
-      background-repeat:no-repeat;
-      background-attachment:fixed;
-    }
-    .backdrop{
-      background:linear-gradient(180deg, rgba(11,15,18,.82), rgba(11,15,18,.94) 25%, rgba(11,15,18,.98));
-      min-height:100svh;
-    }
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:16px}
-
-    /* Header */
-    header{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 0}
-    .brand{display:flex; align-items:center; gap:10px}
-    .brand img{width:40px; height:40px; object-fit:contain; border-radius:8px}
-    .brand .title{font-weight:700; letter-spacing:.2px}
-
-    /* Nav */
-    .nav-toggle{
-      display:inline-flex; flex-direction:column; gap:4px; border:1px solid rgba(255,255,255,.12);
-      padding:8px 10px; border-radius:12px; background:rgba(15,20,25,.6)
-    }
-    .nav-toggle span{width:22px; height:2px; background:var(--text); display:block; border-radius:2px}
-    .site-nav{display:none; position:absolute; right:16px; top:68px; background:var(--surface);
-      border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:10px; box-shadow:0 10px 30px rgba(0,0,0,.35); z-index:5}
-    .site-nav a{display:block; padding:10px 12px; color:var(--text); text-decoration:none; border-radius:10px}
-    .site-nav.open{display:block}
-    @media (min-width:720px){
-      .nav-toggle{display:none}
-      .site-nav{display:block; position:static; background:transparent; border:none; box-shadow:none; padding:0}
-      .site-nav a{display:inline-block; margin-left:18px}
-    }
-
-    /* Story layout */
-    .card{background:var(--surface); border:1px solid rgba(255,255,255,.08); border-radius:var(--r); padding:16px}
-    .glow{box-shadow:0 0 0 0 rgba(0,191,165,0); transition:box-shadow .25s ease}
-    .glow:hover{box-shadow:0 0 24px rgba(0,191,165,.18)}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,Inter,Roboto,Arial,sans-serif}
+    a{color:var(--teal);text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .backdrop{position:fixed;inset:0;pointer-events:none;background:
+      linear-gradient(to bottom, rgba(11,15,18,.8), rgba(11,15,18,.92)),
+      url("/assets/Bannerdbwh.png") center/cover no-repeat fixed}
+    .wrap{position:relative;min-height:100dvh;padding:16px;max-width:980px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+      .brand{display:flex;align-items:center;gap:10px}
+      .brand img{width:40px;height:40px;object-fit:contain;border-radius:8px}
+      .brand .title{font-weight:700;letter-spacing:.2px;color:var(--teal)}
+      .nav-toggle{display:inline-flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,.12);
+        padding:8px 10px;border-radius:12px;background:rgba(15,20,25,.6)}
+        .nav-toggle span{width:22px;height:2px;background:var(--text);display:block;border-radius:2px}
+      .site-nav{display:none;position:absolute;right:16px;top:68px;background:var(--surface);
+        border:1px solid rgba(255,255,255,.1);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.35)}
+      .site-nav.open{display:block}
+      .site-nav a{display:block;padding:12px 16px}
+      @media (min-width:720px){
+        .nav-toggle{display:none}
+        .site-nav{display:block;position:static;background:transparent;border:none;box-shadow:none;padding:0}
+        .site-nav a{display:inline-block;margin-left:18px}
+      }
+    main{background:rgba(15,20,25,.86);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:16px}
+    h1{font-size:clamp(1.4rem, 3.2vw + .6rem, 2.2rem);margin:.25rem 0 1rem}
     .muted{color:var(--muted)}
-    .media{width:100%; border-radius:12px; display:block; object-fit:cover}
-
-    .story-head{display:flex; align-items:center; justify-content:space-between; gap:10px}
-    .story-title{margin:.2rem 0 .6rem 0}
-    .story-links{display:flex; flex-wrap:wrap; gap:10px; margin:0 0 12px 0}
-    .btn{display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid var(--teal); color:#00ffcc; text-decoration:none; font-weight:600}
-
-    pre#storyText{
-      white-space:pre-wrap;
-      line-height:1.7;
-      font-family:Georgia, "Times New Roman", serif;
-      background:rgba(255,255,255,.02);
-      padding:14px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.06);
-    }
-
-    footer{margin-top:30px; padding:18px 0; color:var(--muted); font-size:.95rem; border-top:1px solid rgba(255,255,255,.08)}
-    footer a{color:var(--text); text-decoration:none}
+    .media{border-radius:var(--r);border:1px solid rgba(255,255,255,.08);box-shadow:0 0 20px rgba(0,191,165,.18)}
+    .links{display:flex;gap:10px;flex-wrap:wrap;margin:.6rem 0 1rem}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--teal);color:#00ffcc;
+      font-weight:600;box-shadow:0 0 10px rgba(0,191,165,.35);background:rgba(0,191,165,.12)}
+    pre{white-space:pre-wrap;font:16px/1.8 Georgia,Times,serif;color:var(--text);background:rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.06);border-radius:var(--r);padding:16px}
+    footer{margin:24px 0 8px;color:var(--muted);font-size:.95rem}
+    footer a{color:var(--muted)}
   </style>
 </head>
 <body>
-  <div class="backdrop">
-    <div class="wrap">
-      <!-- Header -->
-      <header aria-label="Site header">
-        <div class="brand" aria-label="Brand">
-          <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" loading="eager" />
-          <div class="title">Dragon Bones & Wizards Hats</div>
-        </div>
+  <div class="backdrop" aria-hidden="true"></div>
+  <div class="wrap">
+    <header aria-label="Site header">
+      <div class="brand" aria-label="Brand">
+        <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" loading="eager" />
+        <div class="title">Dragon Bones & Wizards Hats</div>
+      </div>
 
-        <!-- Desktop nav -->
-        <nav class="site-nav" aria-label="Primary navigation">
-          <a href="/">Home</a>
-          <a href="/stories/">Stories</a>
-          <a href="/contact.html">Contact</a>
-          <a href="/work-with-me.html">Work With Me</a>
-        </nav>
+      <!-- Desktop nav -->
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/stories/">Stories</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/work-with-me.html">Work With Me</a>
+      </nav>
 
-        <!-- Mobile hamburger -->
-        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navFlyout">
-          <span></span><span></span><span></span>
-        </button>
-        <nav id="navFlyout" class="site-nav" aria-label="Mobile navigation">
-          <a href="/">Home</a>
-          <a href="/stories/">Stories</a>
-          <a href="/contact.html">Contact</a>
-          <a href="/work-with-me.html">Work With Me</a>
-        </nav>
-      </header>
+      <!-- Mobile toggle -->
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navFlyout" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="navFlyout" class="site-nav" aria-label="Mobile navigation">
+        <a href="/">Home</a>
+        <a href="/stories/">Stories</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/work-with-me.html">Work With Me</a>
+      </nav>
+    </header>
 
-      <!-- Story -->
+    <main>
       <article id="story"
+        data-title="The Thief Who Destroyed Time (And Had to Fix It)"
         data-text="/assets/The Thief Who Destroyed Time (And Had to Fix It).txt"
         data-image="/assets/The Thief Who Destroyed Time (And Had to Fix It).png"
-        aria-labelledby="storyTitle"
-        class="card glow">
+        data-youtube="https://youtu.be/-i-ZGzN2j-E"
+        data-spotify="https://open.spotify.com/show/3piG2nuJ2M2xjwbQ7Eu8Df">
 
-        <div class="story-head">
-          <h1 id="storyTitle" class="story-title">The Thief Who Destroyed Time (And Had to Fix It)</h1>
-          <small class="muted">Story</small>
+        <h1 id="storyTitle">Loading…</h1>
+        <div class="links" id="mediaLinks" style="display:none">
+          <a id="yt" class="btn" target="_blank" rel="noopener">Watch on YouTube</a>
+          <a id="sp" class="btn" target="_blank" rel="noopener">Listen on Spotify</a>
         </div>
-
-        <!-- Media links (before text) -->
-        <nav class="story-links" aria-label="Media links">
-          <a class="btn" href="https://youtu.be/-i-ZGzN2j-E" target="_blank" rel="noopener">Watch on YouTube</a>
-          <a class="btn" href="https://open.spotify.com/show/3piG2nuJ2M2xjwbQ7Eu8Df" target="_blank" rel="noopener">Listen on Spotify</a>
-        </nav>
-
-        <img id="storyImage" class="media" alt="Cover — The Thief Who Destroyed Time (And Had to Fix It)" loading="lazy" />
+        <img id="storyImage" class="media" alt="Story cover" loading="eager" />
+        <p class="muted" id="storyDeck" style="margin:.5rem 0 1rem"></p>
         <pre id="storyText">Loading…</pre>
       </article>
+    </main>
 
-      <!-- Footer -->
-      <footer>
-        © <span id="year"></span> dragonbonesandwizardshats •
-        <a href="/terms-of-use.html">Terms</a> •
-        <a href="/privacy-policy.html">Privacy</a> •
-        <a href="/contact.html">Contact</a>
-      </footer>
-    </div>
+    <footer>
+      © <span id="year"></span> dragonbonesandwizardshats •
+      <a href="/terms-of-use.html">Terms</a> •
+      <a href="/privacy-policy.html">Privacy</a> •
+      <a href="/contact.html">Contact</a>
+    </footer>
   </div>
 
   <script>
-    // Mobile nav toggle
+    // Mobile nav
     (function(){
       const t = document.getElementById('navToggle');
       const fly = document.getElementById('navFlyout');
       if(!t || !fly) return;
       t.addEventListener('click', () => {
         const open = fly.classList.toggle('open');
-        t.setAttribute('aria-expanded', open ? 'true' : 'false');
+        t.setAttribute('aria-expanded', open ? 'true':'false');
       });
     })();
 
     // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Encode helper for assets with spaces/parentheses
-    function safe(src){ return encodeURI(src); }
-
-    // Load story content from TXT + cover image
     (function(){
-      const article = document.getElementById('story');
-      if(!article) return;
-      const txt = safe(article.dataset.text || '');
-      const img = safe(article.dataset.image || '');
+      const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+    })();
 
-      // Cover image
-      const cover = document.getElementById('storyImage');
-      if (img) cover.src = img;
+    // Story loader with smart fallbacks and URI safety
+    (async function(){
+      const el = document.getElementById('story');
+      const title = el.dataset.title?.trim() || 'Story';
+      const imgPath = el.dataset.image;
+      const primaryTxt = el.dataset.text;
 
-      // Text
-      const pre = document.getElementById('storyText');
-      fetch(txt, { cache: 'no-store' })
-        .then(r => r.ok ? r.text() : Promise.reject(r.status))
-        .then(t => { pre.textContent = t; })
-        .catch(() => { pre.textContent = 'Failed to load story.'; });
+      // Helpers
+      const safe = p => encodeURI(p).replace(/#/g,'%23');
+      const slug = s => s.toLowerCase()
+        .replace(/[^a-z0-9\s-()]/g,'')
+        .replace(/\s+/g,'-')
+        .replace(/-+/g,'-')
+        .trim();
+
+      // Build candidate text paths if the first one fails
+      const s = slug(title);
+      const candidates = [
+        primaryTxt,
+        `/assets/stories/${title}.txt`,
+        `/assets/stories/${s}.txt`,
+        `/assets/${title}.txt`,
+        `/assets/${s}.txt`
+      ].filter(Boolean);
+
+      // Set image (best-effort)
+      const img = document.getElementById('storyImage');
+      if (imgPath) {
+        img.src = safe(imgPath);
+        img.alt = title + ' cover';
+      }
+
+      // Media links (optional)
+      const mediaWrap = document.getElementById('mediaLinks');
+      const yt = el.dataset.youtube, sp = el.dataset.spotify;
+      if ((yt && yt.startsWith('http')) || (sp && sp.startsWith('http'))) {
+        mediaWrap.style.display = 'flex';
+        if (yt) { const a=document.getElementById('yt'); a.href = yt; }
+        if (sp) { const a=document.getElementById('sp'); a.href = sp; }
+      }
+
+      // Title now, text after fetch
+      const titleEl = document.getElementById('storyTitle');
+      titleEl.textContent = title;
+
+      // Optional deck line if you later add one in stories.json
+      document.getElementById('storyDeck').textContent = '';
+
+      async function tryFetch(paths){
+        for (const p of paths){
+          try{
+            const r = await fetch(safe(p), { cache:'no-store' });
+            if (r.ok) return await r.text();
+          }catch(_e){}
+        }
+        throw new Error('All text paths failed: ' + JSON.stringify(paths));
+      }
+
+      try{
+        const text = await tryFetch(candidates);
+        document.getElementById('storyText').textContent = text;
+      }catch(e){
+        document.getElementById('storyText').textContent =
+          'Sorry—this story text could not be loaded. Double-check the TXT exists at one of:\n' +
+          candidates.join('\n');
+      }
     })();
   </script>
 </body>
