@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact • Dragon Bones & Wizards Hats</title>
   <meta name="description" content="Get in touch about stories, collaborations, or sponsorships." />
-
+  <link rel="icon" href="/assets/Logodbwh.png" />
   <style>
     :root{
       --bg:#0e1114; --surface:#14191f; --text:#eaf7f5;
@@ -16,8 +16,9 @@
     a{color:var(--teal);text-decoration:none}
     .wrap{max-width:980px;margin:0 auto;padding:22px}
     .card{background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:16px}
-    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--teal);color:#00ffcc;font-weight:600;box-shadow:0 0 10px rgba(0,191,165,.18)}
-    .btn:hover{transform:translateY(-1px)}
+    .card.glow{box-shadow:0 0 10px rgba(0,191,165,.18)}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--teal);color:#003a31;background:var(--teal);font-weight:700;box-shadow:0 0 10px rgba(0,191,165,.22)}
+    .btn:active{transform:translateY(1px)}
     header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
     .brand{display:flex;align-items:center;gap:10px}
     .brand img{width:40px;height:40px;object-fit:contain;border-radius:8px}
@@ -37,13 +38,18 @@
     }
     label{display:block;font-weight:600;margin:0 0 8px}
     textarea{min-height:160px; resize:vertical}
-    /* nice spacing between fields */
+
+    /* clean spacing between fields */
     .field{margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,.08)}
     .field:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
 
+    /* inline confirmation styles */
+    #contact-status.card.error{border-color:rgba(255,80,80,.55); box-shadow:0 0 0 2px rgba(255,80,80,.12)}
     footer{margin:26px 0 12px; color:var(--muted)}
     .cf{margin:8px 0 14px}
   </style>
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
   <div class="wrap">
@@ -77,11 +83,11 @@
     <!-- Page -->
     <main class="card">
       <h1>Contact</h1>
-      <p class="muted">Have a question, collaboration idea, or just want to say hi? Use the form below or email me directly at
+      <p class="muted">Have a question, collaboration idea, or just want to say hi? Use the form below or email me at
         <a href="mailto:contact@dragonbonesandwizardshats.com">contact@dragonbonesandwizardshats.com</a>.
       </p>
 
-      <form action="/contact-submit" method="POST" novalidate>
+      <form id="contactForm" action="/contact-submit" method="POST" novalidate>
         <div class="field">
           <label for="name">Your Name</label>
           <input id="name" name="name" autocomplete="name" required />
@@ -101,6 +107,9 @@
           <div class="cf-turnstile" data-sitekey="0x4AAAAAAB5FNe_UcvnVUpud" data-theme="dark"></div>
         </div>
 
+        <!-- Inline status (hidden until used) -->
+        <div id="contact-status" class="card glow" role="status" aria-live="polite" style="display:none;margin-top:12px"></div>
+
         <button class="btn" type="submit">Send Message</button>
       </form>
     </main>
@@ -108,16 +117,15 @@
     <footer>
       © <span id="year"></span> dragonbonesandwizardshats •
       <a href="/terms-of-use.html">Terms</a> •
-      <a href="/privacy-policy.html">Privacy</a>
+      <a href="/privacy-policy.html">Privacy</a> •
+      <a href="/contact.html">Contact</a>
     </footer>
   </div>
 
-  <!-- Turnstile -->
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
-  <!-- Small JS: mobile nav + footer year -->
+  <!-- Small JS: mobile nav + footer year + inline submit -->
   <script>
     (function(){
+      // mobile nav
       const t=document.getElementById('navToggle');
       const fly=document.getElementById('navFlyout');
       if(t && fly){
@@ -126,7 +134,57 @@
           t.setAttribute('aria-expanded', open?'true':'false');
         });
       }
+      // year
       const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+
+      // inline confirmation
+      const form = document.getElementById('contactForm');
+      const statusBox = document.getElementById('contact-status');
+      if(!form || !statusBox) return;
+
+      function show(box, html, ok){
+        box.style.display = 'block';
+        box.innerHTML = html;
+        box.classList.toggle('error', !ok);
+        try { box.focus({preventScroll:true}); } catch(_){}
+        box.scrollIntoView({block:'center', behavior:'smooth'});
+      }
+
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const btn = form.querySelector('[type="submit"]');
+        if(btn){ btn.disabled = true; btn.setAttribute('aria-busy','true'); }
+
+        // token check
+        const tokenEl = form.querySelector('input[name="cf-turnstile-response"]');
+        if(!tokenEl || !tokenEl.value){
+          show(statusBox, '<p>⚠️ Please complete the verification and try again.</p>', false);
+          if(btn){ btn.disabled = false; btn.removeAttribute('aria-busy'); }
+          return;
+        }
+
+        try{
+          const res = await fetch(form.action || '/contact-submit', {
+            method: form.method || 'POST',
+            body: new FormData(form),
+            headers: { 'Accept':'application/json' }
+          });
+
+          if(res.ok){
+            show(statusBox, '<p>✅ Thanks! Your message was sent. I’ll reply within ~3 business days.</p>', true);
+            form.reset();
+            if (window.turnstile) try { turnstile.reset(); } catch(_){}
+            form.style.display = 'none';
+          } else {
+            const msg = await res.text().catch(()=> '');
+            show(statusBox, `<p>❌ Something went wrong (${res.status}). ${msg || 'Please try again soon.'}</p>`, false);
+          }
+        } catch(err){
+          show(statusBox, `<p>❌ Network error. Please try again. (${err?.message||'Unknown error'})</p>`, false);
+        } finally {
+          if(btn){ btn.disabled = false; btn.removeAttribute('aria-busy'); }
+        }
+      });
     })();
   </script>
 </body>
