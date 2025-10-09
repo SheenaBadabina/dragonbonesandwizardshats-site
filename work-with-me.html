@@ -4,106 +4,174 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Work With Me • Dragon Bones & Wizards Hats</title>
-  <link rel="stylesheet" href="/assets/css/site.css" />
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <meta name="description" content="Sponsorships and collaborations with Dragon Bones & Wizards Hats." />
+
+  <style>
+    :root{
+      --bg:#0e1114; --surface:#14191f; --text:#eaf7f5;
+      --muted:rgba(234,247,245,.72); --teal:#00ffcc; --r:14px
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
+    a{color:var(--teal);text-decoration:none}
+    .wrap{max-width:980px;margin:0 auto;padding:22px}
+    .card{background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:16px}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--teal);color:#00ffcc;font-weight:600;box-shadow:0 0 10px rgba(0,191,165,.18)}
+    .btn:hover{transform:translateY(-1px)}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{width:40px;height:40px;object-fit:contain;border-radius:8px}
+    .brand .title{font-weight:700;letter-spacing:.2px;color:#00ffcc}
+    .site-nav a{display:inline-block;margin-left:18px}
+    .nav-toggle{display:inline-flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,.12);padding:8px 10px;border-radius:12px;background:rgba(15,20,25,.6)}
+    .nav-toggle span{width:22px;height:2px;background:var(--text);display:block;border-radius:2px}
+    .site-nav{display:none;position:absolute;right:16px;top:68px;background:var(--surface);border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 26px rgba(0,0,0,.3);padding:10px;border-radius:14px}
+    .site-nav.open{display:block}
+    @media (min-width:720px){ .nav-toggle{display:none}.site-nav{display:block;position:static;background:transparent;border:none;box-shadow:none;padding:0} }
+
+    h1{font-size:clamp(1.6rem,3vw,2.2rem);margin:10px 0 14px}
+    h2{margin:18px 0 10px}
+    .muted{color:var(--muted)}
+    input, textarea, select{
+      width:100%; background:#0c1014; color:var(--text); border:1px solid rgba(255,255,255,.12);
+      border-radius:12px; padding:12px; outline:none
+    }
+    label{display:block;font-weight:600;margin:0 0 8px}
+    textarea{min-height:120px; resize:vertical}
+    .row{display:grid;gap:12px}
+    @media(min-width:760px){ .row-2{grid-template-columns:1fr 1fr} }
+    /* field grouping for better breathing room */
+    .field{margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,.08)}
+    .field:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    .check{display:flex;align-items:center;gap:10px;margin:.35rem 0}
+    .section{margin:16px 0 6px;font-weight:700;opacity:.9}
+    footer{margin:26px 0 12px; color:var(--muted)}
+    .cf{margin:8px 0 14px}
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="/">
-      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
-      <span class="brand-text">Dragon Bones & Wizards Hats</span>
-    </a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
-      onclick="document.querySelector('[data-collapsible]').classList.toggle('open')">☰</button>
-    <nav class="site-nav" data-collapsible>
-      <a href="/" class="nav-link">Home</a>
-      <a href="/stories/" class="nav-link">Stories</a>
-      <a href="/contact.html" class="nav-link">Contact</a>
-      <a href="/work-with-me.html" class="nav-link">Work With Me</a>
-    </nav>
-  </header>
-
-  <main class="container">
-    <h1>Work With Me</h1>
-    <p>Dragon Bones & Wizards Hats is where imagination meets storytelling.  
-    If your brand celebrates creativity, wonder, or fantasy-themed products — let's collaborate on a story that truly resonates.</p>
-
-    <h2>Brand Alignment & Content Rules</h2>
-    <ul class="rules">
-      <li><b>Family-friendly only.</b> No adult content or products.</li>
-      <li>No alcohol, tobacco, or psychoactive products.</li>
-      <li>No gambling, get-rich-quick, or misleading claims.</li>
-      <li>Best fit: fantasy art, gaming, writing tools, storytelling software, creative communities, audio tech, AI art, or adventure brands.</li>
-      <li>Samples, access, or media kits should be provided ≥ 2 weeks pre-campaign.</li>
-      <li>Honest feedback only — authenticity matters more than polish.</li>
-    </ul>
-
-    <form class="form" method="post" action="/functions/sponsor-submit">
-      <div class="grid-2">
-        <label>Company Name <input required name="company" /></label>
-        <label>Contact Person <input required name="contact" /></label>
-      </div>
-      <div class="grid-2">
-        <label>Email <input required type="email" name="email" /></label>
-        <label>Website <input type="url" name="website" placeholder="https://..." /></label>
-      </div>
-      <label>Product / Service <input required name="product" /></label>
-      <label>Why it fits Dragon Bones & Wizards Hats <textarea required name="fit" rows="3"></textarea></label>
-
-      <fieldset class="checks">
-        <legend>Preferred Promotion Type</legend>
-        <label><input type="checkbox" name="promo" value="mention"> Mention (10–20 s)</label>
-        <label><input type="checkbox" name="promo" value="segment"> Integrated segment (60–90 s)</label>
-        <label><input type="checkbox" name="promo" value="full"> Full-episode integration</label>
-      </fieldset>
-
-      <div class="grid-2">
-        <label>Timeline <input name="timeline" placeholder="Target date or window" /></label>
-        <label>Budget Range
-          <select required name="budget">
-            <option value="">Select…</option>
-            <option>Under $500</option>
-            <option>$500 – $1,500</option>
-            <option>$1,500 – $3,000</option>
-            <option>$3,000+</option>
-          </select>
-        </label>
+  <div class="wrap">
+    <!-- Header -->
+    <header aria-label="Site header">
+      <div class="brand" aria-label="Brand">
+        <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" loading="eager" />
+        <div class="title">Dragon Bones & Wizards Hats</div>
       </div>
 
-      <fieldset class="checks">
-        <legend>Deliverables</legend>
-        <label><input type="checkbox" name="deliverables" value="link"> Link in description</label>
-        <label><input type="checkbox" name="deliverables" value="pinned"> Pinned comment</label>
-        <label><input type="checkbox" name="deliverables" value="short"> Short clip (15–30 s)</label>
-        <label><input type="checkbox" name="deliverables" value="social"> Social media mention</label>
-      </fieldset>
+      <!-- Desktop nav -->
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/stories/">Stories</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/work-with-me.html" aria-current="page">Work With Me</a>
+      </nav>
 
-      <fieldset class="checks">
-        <legend>Product Access</legend>
-        <label><input type="checkbox" name="access" value="sample"> Physical sample provided</label>
-        <label><input type="checkbox" name="access" value="demo"> Digital access / demo account</label>
-      </fieldset>
+      <!-- Mobile nav -->
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="navFlyout" class="site-nav" aria-label="Mobile navigation">
+        <a href="/">Home</a><br />
+        <a href="/stories/">Stories</a><br />
+        <a href="/contact.html">Contact</a><br />
+        <a href="/work-with-me.html" aria-current="page">Work With Me</a>
+      </nav>
+    </header>
 
-      <label>Required Talking Points? <textarea name="talking_points" rows="3"></textarea></label>
-      <label>Anything to avoid mentioning? <textarea name="notsay" rows="2"></textarea></label>
+    <!-- Page -->
+    <main class="card">
+      <h1>Work With Me</h1>
+      <p class="muted">Brands and creators: fill this out to explore a collaboration or sponsorship. I usually reply within 3 business days from
+        <a href="mailto:contact@dragonbonesandwizardshats.com">contact@dragonbonesandwizardshats.com</a>.
+      </p>
 
-      <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0vOSqh9kDdb7s_"></div>
-      <button class="btn" type="submit">Submit Collaboration Request</button>
-      <p class="muted">You’ll get a reply within 3 business days from <a href="mailto:contact@dragonbonesandwizardshats.com">contact@dragonbonesandwizardshats.com</a>.</p>
-    </form>
+      <form action="/sponsor-submit" method="POST" novalidate>
+        <div class="field">
+          <label for="brand">Brand / Service</label>
+          <input id="brand" name="brand" required />
+        </div>
 
-    <div id="toast" class="card" style="display:none;margin-top:16px">Thanks! Your request was sent.</div>
-  </main>
+        <div class="row row-2 field">
+          <div>
+            <div class="section">Preferred Promotion Type</div>
+            <label class="check"><input type="checkbox" name="promo_mention" value="mention"> Mention (10–20 s)</label>
+            <label class="check"><input type="checkbox" name="promo_integrated" value="integrated"> Integrated segment (60–90 s)</label>
+            <label class="check"><input type="checkbox" name="promo_full" value="full"> Full-episode integration</label>
+          </div>
+          <div>
+            <div class="section">Timeline</div>
+            <select name="timeline">
+              <option value="">Select…</option>
+              <option>ASAP</option><option>1–2 weeks</option><option>2–4 weeks</option><option>Next available</option>
+            </select>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> dragonbonesandwizardshats</p>
-  </footer>
+            <div class="section" style="margin-top:12px">Budget Range</div>
+            <select name="budget">
+              <option value="">Select…</option>
+              <option>$500–$1,000</option>
+              <option>$1,000–$2,500</option>
+              <option>$2,500–$5,000</option>
+              <option>$5,000+</option>
+            </select>
+          </div>
+        </div>
 
-  <script src="/assets/js/site.js"></script>
+        <div class="row row-2 field">
+          <div>
+            <div class="section">Deliverables</div>
+            <label class="check"><input type="checkbox" name="deliv_link" value="link"> Link in description</label>
+            <label class="check"><input type="checkbox" name="deliv_pinned" value="pinned"> Pinned comment</label>
+            <label class="check"><input type="checkbox" name="deliv_short" value="short"> Short clip (15–30 s)</label>
+            <label class="check"><input type="checkbox" name="deliv_social" value="social"> Social media mention</label>
+          </div>
+          <div>
+            <div class="section">Product Access</div>
+            <label class="check"><input type="checkbox" name="access_physical" value="physical"> Physical sample provided</label>
+            <label class="check"><input type="checkbox" name="access_digital" value="digital"> Digital access / demo account</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="talk">Required Talking Points?</label>
+          <textarea id="talk" name="talking_points" placeholder="Anything specific I should cover?"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="avoid">Anything to avoid mentioning?</label>
+          <textarea id="avoid" name="avoid"></textarea>
+        </div>
+
+        <div class="cf">
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAB5FNe_UcvnVUpud" data-theme="dark"></div>
+        </div>
+
+        <button class="btn" type="submit">Submit Collaboration Request</button>
+      </form>
+    </main>
+
+    <footer>
+      © <span id="year"></span> dragonbonesandwizardshats •
+      <a href="/terms-of-use.html">Terms</a> •
+      <a href="/privacy-policy.html">Privacy</a>
+    </footer>
+  </div>
+
+  <!-- Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <!-- Small JS: mobile nav + footer year -->
   <script>
-    if (new URLSearchParams(location.search).get('sent')==='1') {
-      document.getElementById('toast').style.display='block';
-    }
+    (function(){
+      const t=document.getElementById('navToggle');
+      const fly=document.getElementById('navFlyout');
+      if(t && fly){
+        t.addEventListener('click',()=>{
+          const open = fly.classList.toggle('open');
+          t.setAttribute('aria-expanded', open?'true':'false');
+        });
+      }
+      const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+    })();
   </script>
 </body>
 </html>
