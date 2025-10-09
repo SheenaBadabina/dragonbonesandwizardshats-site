@@ -5,121 +5,57 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Work With Me • Dragon Bones & Wizards Hats</title>
   <meta name="description" content="Sponsorship & collaboration requests for Dragon Bones & Wizards Hats." />
+  <link rel="icon" href="/assets/Logodbwh.png" />
 
-  <!-- Fonts & base variables -->
   <style>
     :root{
-      --bg:#0f1114;        /* backdrop */
-      --surface:#14181d;   /* cards */
-      --text:#e8f0f1;      /* primary text */
-      --muted:#b9c4c7;     /* muted text */
-      --teal:#00ffc8;      /* accent */
-      --ring:12px;         /* corner radius */
-      --shadow:0 0 10px rgba(0,191,165,.18);
-      --outline:1px solid rgba(255,255,255,.08);
-      --border:1px solid rgba(255,255,255,.10);
+      --bg:#0f1114; --surface:#14181d; --text:#e8f0f1; --muted:#b9c4c7; --teal:#00ffc8;
+      --ring:14px; --shadow:0 0 10px rgba(0,191,165,.18); --outline:1px solid rgba(255,255,255,.08); --border:1px solid rgba(255,255,255,.10)
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{
-      margin:0;
-      color:var(--text);
-      background:var(--bg);
-      font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
-    }
-
-    /* Layout */
-    .wrap{max-width:980px; margin:0 auto; padding:20px}
-    header{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; padding:10px 0;
-    }
-    .brand{display:flex; align-items:center; gap:10px}
-    .brand img{width:40px; height:40px; object-fit:contain; border-radius:8px}
-    .brand .title{font-weight:700; letter-spacing:.2px; color:var(--teal)}
-    nav a{color:var(--text); text-decoration:none; margin-left:18px}
+    body{margin:0;color:var(--text);background:var(--bg);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,"Noto Sans"}
+    a{color:var(--teal);text-decoration:none}
+    .wrap{max-width:980px;margin:0 auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{width:40px;height:40px;object-fit:contain;border-radius:8px}
+    .brand .title{font-weight:700;letter-spacing:.2px;color:var(--teal)}
+    nav a{color:var(--text);margin-left:18px}
     nav a:hover{color:var(--teal)}
 
-    /* Cards / buttons */
-    .card{
-      background:var(--surface);
-      border:var(--outline);
-      border-radius:var(--ring);
-      padding:18px;
-      box-shadow:var(--shadow);
-    }
-    .btn{
-      display:inline-block;
-      padding:12px 16px;
-      border-radius:12px;
-      border:1px solid var(--teal);
-      color:#003a31;
-      background:var(--teal);
-      text-decoration:none;
-      font-weight:600;
-      box-shadow:0 0 10px rgba(0,191,165,.24);
-      transition:transform .05s ease;
-    }
+    .card{background:var(--surface);border:var(--outline);border-radius:var(--ring);padding:18px;box-shadow:var(--shadow)}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--teal);color:#003a31;background:var(--teal);font-weight:700;box-shadow:0 0 10px rgba(0,191,165,.24)}
     .btn:active{transform:translateY(1px)}
 
-    h1{margin:0 0 .75rem 0; font-size:clamp(1.6rem, 2.8vw + 1rem, 2.2rem)}
-    h2{margin:0 0 .5rem 0; font-size:1.125rem}
+    h1{margin:0 0 .75rem 0;font-size:clamp(1.6rem,2.8vw + 1rem,2.2rem)}
+    h2{margin:0 0 .5rem 0;font-size:1.125rem}
     .muted{color:var(--muted)}
 
-    /* Form */
-    form{display:grid; gap:18px}
-    .field{display:grid; gap:8px}
+    form{display:grid;gap:18px}
+    .field{display:grid;gap:8px}
     label.block{font-weight:600}
-    input[type="text"],
-    input[type="email"],
-    textarea,
-    select{
-      width:100%;
-      color:var(--text);
-      background:#0e1216;
-      border:var(--border);
-      border-radius:10px;
-      padding:12px 14px;
-      outline:none;
+    input[type="text"],input[type="email"],textarea,select{
+      width:100%;color:var(--text);background:#0e1216;border:var(--border);border-radius:10px;padding:12px 14px;outline:none
     }
-    textarea{min-height:140px; resize:vertical}
+    textarea{min-height:120px;resize:vertical}
 
-    /* Checkbox alignment — single left column */
-    .checklist{
-      display:grid;
-      gap:10px;
-      /* each row is 1 checkbox column + 1 label column */
-      grid-template-columns: 1.25rem 1fr;
-      align-items:center;
-    }
-    .checklist input[type="checkbox"]{
-      /* align box itself */
-      width:18px; height:18px; margin:0;
-      justify-self:start;
-    }
-    .checklist .lbl{
-      line-height:1.35;
-    }
+    .two{display:grid;gap:18px}
+    @media(min-width:840px){.two{grid-template-columns:1fr 1fr}}
 
-    /* Two column sections on large screens */
-    .two{
-      display:grid; gap:18px;
-    }
-    @media (min-width:840px){
-      .two{grid-template-columns:1fr 1fr}
-    }
+    /* aligned single-column checklists */
+    .checklist{display:grid;gap:10px;grid-template-columns:1.25rem 1fr;align-items:center}
+    .checklist input[type="checkbox"]{width:18px;height:18px;margin:0;justify-self:start}
+    .checklist .lbl{line-height:1.35}
 
-    footer{
-      margin:28px 0 10px;
-      color:var(--muted);
-      text-align:left;
-      font-size:.95rem;
-    }
-    footer a{color:var(--text)}
-    footer a:hover{color:var(--teal)}
+    /* inline status styles */
+    #work-status.card.error{border-color:rgba(255,80,80,.55); box-shadow:0 0 0 2px rgba(255,80,80,.12)}
+
+    footer{margin:28px 0 10px;color:var(--muted);font-size:.95rem}
+    footer a{color:var(--text)} footer a:hover{color:var(--teal)}
   </style>
 
-  <!-- Turnstile (site key is public) -->
+  <!-- Turnstile -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
@@ -137,17 +73,14 @@
       </nav>
     </header>
 
-    <!-- Page Title -->
+    <!-- Intro -->
     <section class="card" style="margin-top:10px">
       <h1>Work With Me</h1>
-      <p class="muted" style="margin:.25rem 0 0">
-        Brands & collaborators: fill this in to start a sponsorship or integration. I’ll reply within 3 business days.
-      </p>
+      <p class="muted" style="margin:.25rem 0 0">Brands & collaborators: fill this in to start a sponsorship or integration. I’ll reply within 3 business days.</p>
     </section>
 
     <!-- Form -->
-    <form class="card" style="margin-top:16px" action="/sponsor-submit" method="POST" novalidate>
-      <!-- Contact basics -->
+    <form id="workForm" class="card" style="margin-top:16px" action="/sponsor-submit" method="POST" novalidate>
       <div class="two">
         <div class="field">
           <label for="brand" class="block">Brand / Service</label>
@@ -159,7 +92,6 @@
         </div>
       </div>
 
-      <!-- Preferred Promotion Type -->
       <section class="card" style="margin:0; padding:16px">
         <h2>Preferred Promotion Type</h2>
         <div class="checklist" role="group" aria-label="Preferred promotion type">
@@ -174,13 +106,12 @@
         </div>
       </section>
 
-      <!-- Timeline + Budget -->
       <div class="two">
         <div class="field">
           <label for="timeline" class="block">Timeline</label>
           <select id="timeline" name="timeline" required>
             <option value="" selected disabled>Select…</option>
-            <option>Asap</option>
+            <option>ASAP</option>
             <option>Within 2 weeks</option>
             <option>Within 1 month</option>
             <option>Flexible</option>
@@ -198,7 +129,6 @@
         </div>
       </div>
 
-      <!-- Deliverables -->
       <section class="card" style="margin:0; padding:16px">
         <h2>Deliverables</h2>
         <div class="checklist" role="group" aria-label="Deliverables">
@@ -216,7 +146,6 @@
         </div>
       </section>
 
-      <!-- Product Access -->
       <section class="card" style="margin:0; padding:16px">
         <h2>Product Access</h2>
         <div class="checklist" role="group" aria-label="Product access">
@@ -228,7 +157,6 @@
         </div>
       </section>
 
-      <!-- Free text fields -->
       <div class="field">
         <label for="talk" class="block">Required Talking Points?</label>
         <textarea id="talk" name="talk" placeholder="Anything specific I should cover?"></textarea>
@@ -239,7 +167,6 @@
         <textarea id="avoid" name="avoid" placeholder="Sensitive topics, competitor mentions, etc."></textarea>
       </div>
 
-      <!-- Contact details -->
       <div class="two">
         <div class="field">
           <label for="contactName" class="block">Your Name</label>
@@ -251,16 +178,14 @@
         </div>
       </div>
 
-      <!-- Turnstile -->
+      <!-- Inline status (hidden until used) -->
+      <div id="work-status" class="card" role="status" aria-live="polite" style="display:none;margin-top:4px"></div>
+
       <div class="field">
         <label class="block">Verification</label>
-        <div class="cf-turnstile"
-             data-sitekey="0x4AAAAAAB5FNe_UcvnVUpud"
-             data-theme="dark">
-        </div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAB5FNe_UcvnVUpud" data-theme="dark"></div>
       </div>
 
-      <!-- Submit -->
       <div>
         <button class="btn" type="submit">Submit Collaboration Request</button>
       </div>
@@ -279,11 +204,58 @@
     </footer>
   </div>
 
+  <!-- Small JS: footer year + inline submit -->
   <script>
-    // Auto-update footer year
     (function(){
-      const y = document.getElementById('year');
-      if (y) y.textContent = new Date().getFullYear();
+      const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+
+      // inline confirmation
+      const form = document.getElementById('workForm');
+      const statusBox = document.getElementById('work-status');
+      if(!form || !statusBox) return;
+
+      function show(box, html, ok){
+        box.style.display = 'block';
+        box.innerHTML = html;
+        box.classList.toggle('error', !ok);
+        try { box.focus({preventScroll:true}); } catch(_){}
+        box.scrollIntoView({block:'center', behavior:'smooth'});
+      }
+
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const btn = form.querySelector('[type="submit"]');
+        if(btn){ btn.disabled = true; btn.setAttribute('aria-busy','true'); }
+
+        // token check
+        const tokenEl = form.querySelector('input[name="cf-turnstile-response"]');
+        if(!tokenEl || !tokenEl.value){
+          show(statusBox, '<p>⚠️ Please complete the verification and try again.</p>', false);
+          if(btn){ btn.disabled = false; btn.removeAttribute('aria-busy'); }
+          return;
+        }
+
+        try{
+          const res = await fetch(form.action || '/sponsor-submit', {
+            method: form.method || 'POST',
+            body: new FormData(form),
+            headers: { 'Accept':'application/json' }
+          });
+          if(res.ok){
+            show(statusBox, '<p>✅ Thanks! Your collaboration request was sent. I’ll get back to you within ~3 business days.</p>', true);
+            form.reset();
+            if (window.turnstile) try { turnstile.reset(); } catch(_){}
+            form.style.display = 'none';
+          } else {
+            const msg = await res.text().catch(()=> '');
+            show(statusBox, `<p>❌ Something went wrong (${res.status}). ${msg || 'Please try again soon.'}</p>`, false);
+          }
+        } catch(err){
+          show(statusBox, `<p>❌ Network error. Please try again. (${err?.message||'Unknown error'})</p>`, false);
+        } finally {
+          if(btn){ btn.disabled = false; btn.removeAttribute('aria-busy'); }
+        }
+      });
     })();
   </script>
 </body>
