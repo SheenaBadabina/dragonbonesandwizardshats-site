@@ -4,50 +4,130 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact • Dragon Bones & Wizards Hats</title>
-  <link rel="stylesheet" href="/assets/css/site.css" />
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <meta name="description" content="Get in touch about stories, collaborations, or sponsorships." />
+
+  <style>
+    :root{
+      --bg:#0e1114; --surface:#14191f; --text:#eaf7f5;
+      --muted:rgba(234,247,245,.72); --teal:#00ffcc; --r:14px
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
+    a{color:var(--teal);text-decoration:none}
+    .wrap{max-width:980px;margin:0 auto;padding:22px}
+    .card{background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:16px}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--teal);color:#00ffcc;font-weight:600;box-shadow:0 0 10px rgba(0,191,165,.18)}
+    .btn:hover{transform:translateY(-1px)}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{width:40px;height:40px;object-fit:contain;border-radius:8px}
+    .brand .title{font-weight:700;letter-spacing:.2px;color:#00ffcc}
+    .site-nav a{display:inline-block;margin-left:18px}
+    .nav-toggle{display:inline-flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,.12);padding:8px 10px;border-radius:12px;background:rgba(15,20,25,.6)}
+    .nav-toggle span{width:22px;height:2px;background:var(--text);display:block;border-radius:2px}
+    .site-nav{display:none;position:absolute;right:16px;top:68px;background:var(--surface);border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 26px rgba(0,0,0,.3);padding:10px;border-radius:14px}
+    .site-nav.open{display:block}
+    @media (min-width:720px){ .nav-toggle{display:none}.site-nav{display:block;position:static;background:transparent;border:none;box-shadow:none;padding:0} }
+
+    h1{font-size:clamp(1.6rem,3vw,2.2rem);margin:10px 0 14px}
+    .muted{color:var(--muted)}
+    input, textarea, select{
+      width:100%; background:#0c1014; color:var(--text); border:1px solid rgba(255,255,255,.12);
+      border-radius:12px; padding:12px; outline:none
+    }
+    label{display:block;font-weight:600;margin:0 0 8px}
+    textarea{min-height:160px; resize:vertical}
+    /* nice spacing between fields */
+    .field{margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,.08)}
+    .field:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+
+    footer{margin:26px 0 12px; color:var(--muted)}
+    .cf{margin:8px 0 14px}
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="/">
-      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
-      <span class="brand-text">Dragon Bones & Wizards Hats</span>
-    </a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
-      onclick="document.querySelector('[data-collapsible]').classList.toggle('open')">☰</button>
-    <nav class="site-nav" data-collapsible>
-      <a href="/" class="nav-link">Home</a>
-      <a href="/stories/" class="nav-link">Stories</a>
-      <a href="/contact.html" class="nav-link">Contact</a>
-      <a href="/work-with-me.html" class="nav-link">Work With Me</a>
-    </nav>
-  </header>
+  <div class="wrap">
+    <!-- Header -->
+    <header aria-label="Site header">
+      <div class="brand" aria-label="Brand">
+        <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" loading="eager" />
+        <div class="title">Dragon Bones & Wizards Hats</div>
+      </div>
 
-  <main class="container">
-    <h1>Contact</h1>
-    <p>Have a question, collaboration idea, or just want to say hi? Use the form below or email me directly at <a href="mailto:contact@dragonbonesandwizardshats.com">contact@dragonbonesandwizardshats.com</a>.</p>
+      <!-- Desktop nav -->
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/stories/">Stories</a>
+        <a href="/contact.html" aria-current="page">Contact</a>
+        <a href="/work-with-me.html">Work With Me</a>
+      </nav>
 
-    <form class="form" method="post" action="/functions/contact-submit">
-      <label>Your Name <input required name="name" /></label>
-      <label>Email Address <input required type="email" name="email" /></label>
-      <label>Message <textarea required name="message" rows="5"></textarea></label>
+      <!-- Mobile nav -->
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="navFlyout" class="site-nav" aria-label="Mobile navigation">
+        <a href="/">Home</a><br />
+        <a href="/stories/">Stories</a><br />
+        <a href="/contact.html" aria-current="page">Contact</a><br />
+        <a href="/work-with-me.html">Work With Me</a>
+      </nav>
+    </header>
 
-      <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0vOSqh9kDdb7s_"></div>
-      <button class="btn" type="submit">Send Message</button>
-    </form>
+    <!-- Page -->
+    <main class="card">
+      <h1>Contact</h1>
+      <p class="muted">Have a question, collaboration idea, or just want to say hi? Use the form below or email me directly at
+        <a href="mailto:contact@dragonbonesandwizardshats.com">contact@dragonbonesandwizardshats.com</a>.
+      </p>
 
-    <div id="toast" class="card" style="display:none;margin-top:16px;">Thanks! Your message has been sent.</div>
-  </main>
+      <form action="/contact-submit" method="POST" novalidate>
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input id="name" name="name" autocomplete="name" required />
+        </div>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> dragonbonesandwizardshats</p>
-  </footer>
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
 
-  <script src="/assets/js/site.js"></script>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <div class="cf">
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAB5FNe_UcvnVUpud" data-theme="dark"></div>
+        </div>
+
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+    </main>
+
+    <footer>
+      © <span id="year"></span> dragonbonesandwizardshats •
+      <a href="/terms-of-use.html">Terms</a> •
+      <a href="/privacy-policy.html">Privacy</a>
+    </footer>
+  </div>
+
+  <!-- Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <!-- Small JS: mobile nav + footer year -->
   <script>
-    if (new URLSearchParams(location.search).get('sent') === '1') {
-      document.getElementById('toast').style.display = 'block';
-    }
+    (function(){
+      const t=document.getElementById('navToggle');
+      const fly=document.getElementById('navFlyout');
+      if(t && fly){
+        t.addEventListener('click',()=>{
+          const open = fly.classList.toggle('open');
+          t.setAttribute('aria-expanded', open?'true':'false');
+        });
+      }
+      const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+    })();
   </script>
 </body>
 </html>
