@@ -4,50 +4,123 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Work With Me • Dragon Bones & Wizards Hats</title>
-  <meta name="description" content="Sponsorships and collaborations with Dragon Bones & Wizards Hats." />
+  <meta name="description" content="Sponsorship & collaboration requests for Dragon Bones & Wizards Hats." />
 
+  <!-- Fonts & base variables -->
   <style>
     :root{
-      --bg:#0e1114; --surface:#14191f; --text:#eaf7f5;
-      --muted:rgba(234,247,245,.72); --teal:#00ffcc; --r:14px
+      --bg:#0f1114;        /* backdrop */
+      --surface:#14181d;   /* cards */
+      --text:#e8f0f1;      /* primary text */
+      --muted:#b9c4c7;     /* muted text */
+      --teal:#00ffc8;      /* accent */
+      --ring:12px;         /* corner radius */
+      --shadow:0 0 10px rgba(0,191,165,.18);
+      --outline:1px solid rgba(255,255,255,.08);
+      --border:1px solid rgba(255,255,255,.10);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
-    a{color:var(--teal);text-decoration:none}
-    .wrap{max-width:980px;margin:0 auto;padding:22px}
-    .card{background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:16px}
-    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--teal);color:#00ffcc;font-weight:600;box-shadow:0 0 10px rgba(0,191,165,.18)}
-    .btn:hover{transform:translateY(-1px)}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand img{width:40px;height:40px;object-fit:contain;border-radius:8px}
-    .brand .title{font-weight:700;letter-spacing:.2px;color:#00ffcc}
-    .site-nav a{display:inline-block;margin-left:18px}
-    .nav-toggle{display:inline-flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,.12);padding:8px 10px;border-radius:12px;background:rgba(15,20,25,.6)}
-    .nav-toggle span{width:22px;height:2px;background:var(--text);display:block;border-radius:2px}
-    .site-nav{display:none;position:absolute;right:16px;top:68px;background:var(--surface);border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 26px rgba(0,0,0,.3);padding:10px;border-radius:14px}
-    .site-nav.open{display:block}
-    @media (min-width:720px){ .nav-toggle{display:none}.site-nav{display:block;position:static;background:transparent;border:none;box-shadow:none;padding:0} }
-
-    h1{font-size:clamp(1.6rem,3vw,2.2rem);margin:10px 0 14px}
-    h2{margin:18px 0 10px}
-    .muted{color:var(--muted)}
-    input, textarea, select{
-      width:100%; background:#0c1014; color:var(--text); border:1px solid rgba(255,255,255,.12);
-      border-radius:12px; padding:12px; outline:none
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      background:var(--bg);
+      font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
     }
-    label{display:block;font-weight:600;margin:0 0 8px}
-    textarea{min-height:120px; resize:vertical}
-    .row{display:grid;gap:12px}
-    @media(min-width:760px){ .row-2{grid-template-columns:1fr 1fr} }
-    /* field grouping for better breathing room */
-    .field{margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,.08)}
-    .field:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-    .check{display:flex;align-items:center;gap:10px;margin:.35rem 0}
-    .section{margin:16px 0 6px;font-weight:700;opacity:.9}
-    footer{margin:26px 0 12px; color:var(--muted)}
-    .cf{margin:8px 0 14px}
+
+    /* Layout */
+    .wrap{max-width:980px; margin:0 auto; padding:20px}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:10px 0;
+    }
+    .brand{display:flex; align-items:center; gap:10px}
+    .brand img{width:40px; height:40px; object-fit:contain; border-radius:8px}
+    .brand .title{font-weight:700; letter-spacing:.2px; color:var(--teal)}
+    nav a{color:var(--text); text-decoration:none; margin-left:18px}
+    nav a:hover{color:var(--teal)}
+
+    /* Cards / buttons */
+    .card{
+      background:var(--surface);
+      border:var(--outline);
+      border-radius:var(--ring);
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+    .btn{
+      display:inline-block;
+      padding:12px 16px;
+      border-radius:12px;
+      border:1px solid var(--teal);
+      color:#003a31;
+      background:var(--teal);
+      text-decoration:none;
+      font-weight:600;
+      box-shadow:0 0 10px rgba(0,191,165,.24);
+      transition:transform .05s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+
+    h1{margin:0 0 .75rem 0; font-size:clamp(1.6rem, 2.8vw + 1rem, 2.2rem)}
+    h2{margin:0 0 .5rem 0; font-size:1.125rem}
+    .muted{color:var(--muted)}
+
+    /* Form */
+    form{display:grid; gap:18px}
+    .field{display:grid; gap:8px}
+    label.block{font-weight:600}
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select{
+      width:100%;
+      color:var(--text);
+      background:#0e1216;
+      border:var(--border);
+      border-radius:10px;
+      padding:12px 14px;
+      outline:none;
+    }
+    textarea{min-height:140px; resize:vertical}
+
+    /* Checkbox alignment — single left column */
+    .checklist{
+      display:grid;
+      gap:10px;
+      /* each row is 1 checkbox column + 1 label column */
+      grid-template-columns: 1.25rem 1fr;
+      align-items:center;
+    }
+    .checklist input[type="checkbox"]{
+      /* align box itself */
+      width:18px; height:18px; margin:0;
+      justify-self:start;
+    }
+    .checklist .lbl{
+      line-height:1.35;
+    }
+
+    /* Two column sections on large screens */
+    .two{
+      display:grid; gap:18px;
+    }
+    @media (min-width:840px){
+      .two{grid-template-columns:1fr 1fr}
+    }
+
+    footer{
+      margin:28px 0 10px;
+      color:var(--muted);
+      text-align:left;
+      font-size:.95rem;
+    }
+    footer a{color:var(--text)}
+    footer a:hover{color:var(--teal)}
   </style>
+
+  <!-- Turnstile (site key is public) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
   <div class="wrap">
@@ -57,120 +130,160 @@
         <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" loading="eager" />
         <div class="title">Dragon Bones & Wizards Hats</div>
       </div>
-
-      <!-- Desktop nav -->
       <nav class="site-nav" aria-label="Primary navigation">
         <a href="/">Home</a>
         <a href="/stories/">Stories</a>
         <a href="/contact.html">Contact</a>
-        <a href="/work-with-me.html" aria-current="page">Work With Me</a>
-      </nav>
-
-      <!-- Mobile nav -->
-      <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="navFlyout" class="site-nav" aria-label="Mobile navigation">
-        <a href="/">Home</a><br />
-        <a href="/stories/">Stories</a><br />
-        <a href="/contact.html">Contact</a><br />
-        <a href="/work-with-me.html" aria-current="page">Work With Me</a>
       </nav>
     </header>
 
-    <!-- Page -->
-    <main class="card">
+    <!-- Page Title -->
+    <section class="card" style="margin-top:10px">
       <h1>Work With Me</h1>
-      <p class="muted">Brands and creators: fill this out to explore a collaboration or sponsorship. I usually reply within 3 business days from
+      <p class="muted" style="margin:.25rem 0 0">
+        Brands & collaborators: fill this in to start a sponsorship or integration. I’ll reply within 3 business days.
+      </p>
+    </section>
+
+    <!-- Form -->
+    <form class="card" style="margin-top:16px" action="/sponsor-submit" method="POST" novalidate>
+      <!-- Contact basics -->
+      <div class="two">
+        <div class="field">
+          <label for="brand" class="block">Brand / Service</label>
+          <input id="brand" name="brand" type="text" placeholder="Your company or product name" required />
+        </div>
+        <div class="field">
+          <label for="why" class="block">Why it fits</label>
+          <input id="why" name="why" type="text" placeholder="Why this is a good fit for the audience" />
+        </div>
+      </div>
+
+      <!-- Preferred Promotion Type -->
+      <section class="card" style="margin:0; padding:16px">
+        <h2>Preferred Promotion Type</h2>
+        <div class="checklist" role="group" aria-label="Preferred promotion type">
+          <input id="pt-mention" name="promotion[]" value="mention" type="checkbox" />
+          <label class="lbl" for="pt-mention">Mention (10–20 s)</label>
+
+          <input id="pt-integrated" name="promotion[]" value="integrated" type="checkbox" />
+          <label class="lbl" for="pt-integrated">Integrated segment (60–90 s)</label>
+
+          <input id="pt-full" name="promotion[]" value="full-episode" type="checkbox" />
+          <label class="lbl" for="pt-full">Full-episode integration</label>
+        </div>
+      </section>
+
+      <!-- Timeline + Budget -->
+      <div class="two">
+        <div class="field">
+          <label for="timeline" class="block">Timeline</label>
+          <select id="timeline" name="timeline" required>
+            <option value="" selected disabled>Select…</option>
+            <option>Asap</option>
+            <option>Within 2 weeks</option>
+            <option>Within 1 month</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="budget" class="block">Budget Range</label>
+          <select id="budget" name="budget" required>
+            <option value="" selected disabled>Select…</option>
+            <option>$500–$1,000</option>
+            <option>$1,000–$2,500</option>
+            <option>$2,500–$5,000</option>
+            <option>$5,000+</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Deliverables -->
+      <section class="card" style="margin:0; padding:16px">
+        <h2>Deliverables</h2>
+        <div class="checklist" role="group" aria-label="Deliverables">
+          <input id="deliv-link" name="deliverables[]" value="link-in-description" type="checkbox" />
+          <label class="lbl" for="deliv-link">Link in description</label>
+
+          <input id="deliv-pinned" name="deliverables[]" value="pinned-comment" type="checkbox" />
+          <label class="lbl" for="deliv-pinned">Pinned comment</label>
+
+          <input id="deliv-short" name="deliverables[]" value="short-clip" type="checkbox" />
+          <label class="lbl" for="deliv-short">Short clip (15–30 s)</label>
+
+          <input id="deliv-social" name="deliverables[]" value="social-mention" type="checkbox" />
+          <label class="lbl" for="deliv-social">Social media mention</label>
+        </div>
+      </section>
+
+      <!-- Product Access -->
+      <section class="card" style="margin:0; padding:16px">
+        <h2>Product Access</h2>
+        <div class="checklist" role="group" aria-label="Product access">
+          <input id="pa-physical" name="product_access[]" value="physical-sample" type="checkbox" />
+          <label class="lbl" for="pa-physical">Physical sample provided</label>
+
+          <input id="pa-digital" name="product_access[]" value="digital-access" type="checkbox" />
+          <label class="lbl" for="pa-digital">Digital access / demo account</label>
+        </div>
+      </section>
+
+      <!-- Free text fields -->
+      <div class="field">
+        <label for="talk" class="block">Required Talking Points?</label>
+        <textarea id="talk" name="talk" placeholder="Anything specific I should cover?"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="avoid" class="block">Anything to avoid mentioning?</label>
+        <textarea id="avoid" name="avoid" placeholder="Sensitive topics, competitor mentions, etc."></textarea>
+      </div>
+
+      <!-- Contact details -->
+      <div class="two">
+        <div class="field">
+          <label for="contactName" class="block">Your Name</label>
+          <input id="contactName" name="name" type="text" placeholder="Jane Smith" required />
+        </div>
+        <div class="field">
+          <label for="contactEmail" class="block">Email Address</label>
+          <input id="contactEmail" name="email" type="email" placeholder="you@brand.com" required />
+        </div>
+      </div>
+
+      <!-- Turnstile -->
+      <div class="field">
+        <label class="block">Verification</label>
+        <div class="cf-turnstile"
+             data-sitekey="0x4AAAAAAB5FNe_UcvnVUpud"
+             data-theme="dark">
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div>
+        <button class="btn" type="submit">Submit Collaboration Request</button>
+      </div>
+
+      <p class="muted" style="margin:0">
+        You’ll get a reply within 3 business days from
         <a href="mailto:contact@dragonbonesandwizardshats.com">contact@dragonbonesandwizardshats.com</a>.
       </p>
-
-      <form action="/sponsor-submit" method="POST" novalidate>
-        <div class="field">
-          <label for="brand">Brand / Service</label>
-          <input id="brand" name="brand" required />
-        </div>
-
-        <div class="row row-2 field">
-          <div>
-            <div class="section">Preferred Promotion Type</div>
-            <label class="check"><input type="checkbox" name="promo_mention" value="mention"> Mention (10–20 s)</label>
-            <label class="check"><input type="checkbox" name="promo_integrated" value="integrated"> Integrated segment (60–90 s)</label>
-            <label class="check"><input type="checkbox" name="promo_full" value="full"> Full-episode integration</label>
-          </div>
-          <div>
-            <div class="section">Timeline</div>
-            <select name="timeline">
-              <option value="">Select…</option>
-              <option>ASAP</option><option>1–2 weeks</option><option>2–4 weeks</option><option>Next available</option>
-            </select>
-
-            <div class="section" style="margin-top:12px">Budget Range</div>
-            <select name="budget">
-              <option value="">Select…</option>
-              <option>$500–$1,000</option>
-              <option>$1,000–$2,500</option>
-              <option>$2,500–$5,000</option>
-              <option>$5,000+</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="row row-2 field">
-          <div>
-            <div class="section">Deliverables</div>
-            <label class="check"><input type="checkbox" name="deliv_link" value="link"> Link in description</label>
-            <label class="check"><input type="checkbox" name="deliv_pinned" value="pinned"> Pinned comment</label>
-            <label class="check"><input type="checkbox" name="deliv_short" value="short"> Short clip (15–30 s)</label>
-            <label class="check"><input type="checkbox" name="deliv_social" value="social"> Social media mention</label>
-          </div>
-          <div>
-            <div class="section">Product Access</div>
-            <label class="check"><input type="checkbox" name="access_physical" value="physical"> Physical sample provided</label>
-            <label class="check"><input type="checkbox" name="access_digital" value="digital"> Digital access / demo account</label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="talk">Required Talking Points?</label>
-          <textarea id="talk" name="talking_points" placeholder="Anything specific I should cover?"></textarea>
-        </div>
-
-        <div class="field">
-          <label for="avoid">Anything to avoid mentioning?</label>
-          <textarea id="avoid" name="avoid"></textarea>
-        </div>
-
-        <div class="cf">
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAB5FNe_UcvnVUpud" data-theme="dark"></div>
-        </div>
-
-        <button class="btn" type="submit">Submit Collaboration Request</button>
-      </form>
-    </main>
+    </form>
 
     <footer>
       © <span id="year"></span> dragonbonesandwizardshats •
       <a href="/terms-of-use.html">Terms</a> •
-      <a href="/privacy-policy.html">Privacy</a>
+      <a href="/privacy-policy.html">Privacy</a> •
+      <a href="/contact.html">Contact</a>
     </footer>
   </div>
 
-  <!-- Turnstile -->
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
-  <!-- Small JS: mobile nav + footer year -->
   <script>
+    // Auto-update footer year
     (function(){
-      const t=document.getElementById('navToggle');
-      const fly=document.getElementById('navFlyout');
-      if(t && fly){
-        t.addEventListener('click',()=>{
-          const open = fly.classList.toggle('open');
-          t.setAttribute('aria-expanded', open?'true':'false');
-        });
-      }
-      const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
     })();
   </script>
 </body>
