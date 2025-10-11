@@ -3,32 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
   <title>Never Trick-or-Treat at the Last House • Dragon Bones & Wizards Hats</title>
-  <meta name="description" content="Halloween Special — Never Trick-or-Treat at the Last House." />
-
-  <!-- Global site CSS + JS (keeps header/menu/theme consistent) -->
+  <meta name="description" content="Halloween Special" />
+  <link rel="icon" href="/assets/Logodbwh.png" />
   <link rel="stylesheet" href="/assets/css/site.css" />
   <script defer src="/assets/js/site.js"></script>
-
-  <!-- Minimal page-local helpers (safe per style guide) -->
   <style>
-    .story-hero {
-      margin: 0 auto 1.25rem;
-      display: block;
-      max-width: 100%;
-      height: auto;            /* responsive image per guide */
-      border-radius: 12px;
-      box-shadow: 0 0 14px rgba(0,191,165,.25);
-    }
-    .story-meta { color: #92A1AD; margin-top: .25rem; }
-    .links { display: flex; gap: .75rem; flex-wrap: wrap; margin: .75rem 0 1.25rem; }
-    /* Use the global .btn; ensure readable contrast on this page */
-    .btn { border-radius: 10px; padding: .7rem 1.1rem; border: 1px solid #00BFA5; }
+    /* Page-local safety only; global look comes from site.css */
+    .story-hero { margin: 1rem 0 0; }
+    .story-hero img { display:block; max-width:100%; height:auto; border-radius:12px; }
+    .story-meta { color:#92A1AD; margin: .25rem 0 1rem; }
+    pre#storyText { white-space: pre-wrap; font-family: Georgia, Times, serif; }
+    .story-actions { margin: 0 0 1rem; }
   </style>
 </head>
 <body>
-  <!-- Header (matches the rest of the site) -->
   <header class="site-header">
     <a href="/" class="brand">
       <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
@@ -44,21 +33,22 @@
   </header>
 
   <main class="container">
+    <h1>Never Trick-or-Treat at the Last House</h1>
+    <p class="story-meta">Halloween Special</p>
+
+    <div class="story-actions">
+      <a class="btn" target="_blank" rel="noopener"
+         href="https://youtube.com/shorts/lga-yZrbQag?si=YPXLPnN12JQYYs7M">Watch on YouTube</a>
+    </div>
+
+    <section class="story-hero">
+      <img id="storyImage"
+           src="/assets/knock-if-you-dare-halloween-special.png"
+           alt="Never Trick-or-Treat at the Last House cover" />
+    </section>
+
     <article id="story"
-      data-text="/assets/prose/never-trick-or-treat-at-the-last-house.txt"
-      data-image="/assets/knock-if-you-dare-halloween-special.png">
-
-      <h1>Never Trick-or-Treat at the Last House</h1>
-      <div class="story-meta">Halloween Special</div>
-
-      <div class="links">
-        <a class="btn" target="_blank" rel="noopener"
-           href="https://youtube.com/shorts/lga-yZrbQag?si=YPXLPnN12JQYYs7M">Watch on YouTube</a>
-      </div>
-
-      <img id="storyImage" class="story-hero" alt="Knock if you dare Halloween Special">
-
-      <!-- Prose (loaded from TXT verbatim) -->
+             data-text="/assets/prose/never-trick-or-treat-at-the-last-house.txt">
       <pre id="storyText">Loading…</pre>
     </article>
   </main>
@@ -67,21 +57,16 @@
     <p>© <span id="year"></span> dragonbonesandwizardshats</p>
   </footer>
 
-  <!-- TXT + image loader (per Style Guide) -->
   <script>
+    // Load prose from TXT (source of truth), cache-busted
     (function () {
-      const a = document.getElementById('story');
-      const txt = encodeURI(a.dataset.text);
-      const img = encodeURI(a.dataset.image);
-      const imgEl = document.getElementById('storyImage');
-      const pre = document.getElementById('storyText');
-
-      imgEl.src = img;
+      const el = document.getElementById('story');
+      const txt = el.dataset.text + '?cb=' + Date.now();
       fetch(txt, { cache: 'no-store' })
         .then(r => r.ok ? r.text() : Promise.reject(r.status))
-        .then(t => { pre.textContent = t; })
-        .catch(() => { pre.textContent = 'Failed to load story.'; });
-    })();
+        .then(t => { document.getElementById('storyText').textContent = t; })
+        .catch(() => { document.getElementById('storyText').textContent = 'Failed to load story.'; });
+    }());
   </script>
 </body>
 </html>
