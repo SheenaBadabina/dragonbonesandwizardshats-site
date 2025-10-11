@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Never Trick-or-Treat at the Last House • Dragon Bones & Wizards Hats</title>
+
+  <meta name="description" content="Halloween Special — Never Trick-or-Treat at the Last House." />
+  <meta property="og:title" content="Never Trick-or-Treat at the Last House" />
+  <meta property="og:description" content="Halloween Special — Never Trick-or-Treat at the Last House." />
+  <meta property="og:image" content="/assets/knock-if-you-dare-halloween-special.png" />
+
+  <link rel="icon" href="/assets/Logodbwh.png" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+
+  <style>
+    .hero img { width: 100%; border-radius: 12px; box-shadow: 0 0 18px rgba(0,191,165,.18); }
+    .cta-row { display:flex; gap:12px; flex-wrap:wrap; margin:.75rem 0 1rem; }
+    .btn {
+      display:inline-block;
+      padding:12px 18px;
+      border:1px solid #00bfa5;
+      border-radius:12px;
+      font-weight:700;
+      text-decoration:none;
+      color:#00bfa5;
+      background:transparent;
+      transition:all .2s ease;
+    }
+    .btn:hover {
+      color:#fff;
+      background:#00bfa5;
+      border-color:#00bfa5;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="brand">
+      <img src="/assets/Logodbwh.png" class="logo" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
+      <span class="brand-text">Dragon Bones & Wizards Hats</span>
+    </a>
+    <button id="navToggle" class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav id="navFlyout" class="site-nav" data-collapsible>
+      <a href="/">Home</a>
+      <a href="/stories/">Stories</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/work-with-me.html">Work With Me</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Never Trick-or-Treat at the Last House</h1>
+      <p class="muted">Halloween Special</p>
+
+      <div class="cta-row">
+        <a class="btn glow" href="https://youtube.com/shorts/lga-yZrbQag?si=YPXLPnN12JQYYs7M" target="_blank" rel="noopener">
+          Watch on YouTube
+        </a>
+      </div>
+
+      <div class="hero">
+        <img src="/assets/knock-if-you-dare-halloween-special.png" alt="Knock If You Dare — Halloween Special" loading="eager" />
+      </div>
+    </section>
+
+    <section class="card prose" id="story" style="margin-top:16px">
+      <p class="muted">Loading story…</p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> dragonbonesandwizardshats
+  </footer>
+
+  <script>
+    document.getElementById('navToggle').addEventListener('click',()=>{
+      document.getElementById('navFlyout').classList.toggle('open');
+    });
+    document.getElementById('year').textContent=new Date().getFullYear();
+
+    (async()=>{
+      const el=document.getElementById('story');
+      try{
+        const res=await fetch('/assets/prose/never-trick-or-treat-at-the-last-house.txt',{cache:'no-store'});
+        const txt=await res.text();
+        el.innerHTML=txt.split(/\n{2,}/).map(p=>`<p>${p}</p>`).join('');
+      }catch{
+        el.innerHTML='<p class="muted">Story failed to load.</p>';
+      }
+    })();
+  </script>
+</body>
+</html>
