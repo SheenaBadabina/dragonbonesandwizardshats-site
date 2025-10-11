@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Never Trick-or-Treat at the Last House • Dragon Bones & Wizards Hats</title>
+
+  <!-- Base styles -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+
+  <!-- Social/SEO -->
+  <meta name="description" content="Never Trick-or-Treat at the Last House. A Halloween special YouTube Short." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Never Trick-or-Treat at the Last House" />
+  <meta property="og:description" content="A Halloween special YouTube Short." />
+  <meta property="og:image" content="/assets/knock-if-you-dare-halloween-special.png" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Never Trick-or-Treat at the Last House" />
+  <meta property="twitter:description" content="A Halloween special YouTube Short." />
+  <meta property="twitter:image" content="/assets/knock-if-you-dare-halloween-special.png" />
+
+  <style>
+    .hero-media{margin:.75rem 0;border-radius:12px;overflow:hidden;box-shadow:0 0 16px rgba(0,191,165,.25)}
+    .hero-media img{display:block;width:100%;height:auto}
+    .cta-row{display:flex;gap:.75rem;flex-wrap:wrap}
+    .btn{display:inline-block;padding:.8rem 1.1rem;border-radius:12px;border:1px solid var(--teal,#00bfa5);text-decoration:none;font-weight:700}
+    .btn:hover{box-shadow:0 0 14px rgba(0,191,165,.25)}
+    .btn-primary{background:rgba(0,191,165,.12)}
+    .card{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1rem;margin-top:1rem;box-shadow:0 0 12px rgba(0,191,165,.2)}
+    .story p{line-height:1.7;margin:.9rem 0}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <a href="/" class="brand">
+      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" loading="eager" />
+      <span class="brand-text">Dragon Bones & Wizards Hats</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="site-nav" data-collapsible>
+      <a href="/">Home</a>
+      <a href="/stories/">Stories</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/work-with-me.html">Work With Me</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Never Trick-or-Treat at the Last House</h1>
+      <p class="muted">Halloween Special</p>
+
+      <div class="cta-row" style="margin:.5rem 0 1rem">
+        <a class="btn btn-primary" href="https://youtube.com/shorts/lga-yZrbQag?si=YPXLPnN12JQYYs7M" target="_blank" rel="noopener" aria-label="Watch on YouTube">Watch on YouTube</a>
+      </div>
+
+      <figure class="hero-media">
+        <img src="/assets/knock-if-you-dare-halloween-special.png"
+             alt="Knock If You Dare — Halloween Special cover" loading="eager" />
+      </figure>
+    </section>
+
+    <!-- Prose (optional). If the .txt is empty/missing, this section hides. -->
+    <section id="storyCard" class="card story" style="display:none">
+      <div id="prose"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> dragonbonesandwizardshats</p>
+  </footer>
+
+  <script src="/assets/js/site.js" defer></script>
+  <script>
+    (async () => {
+      try {
+        const res = await fetch('/assets/prose/knock-if-you-dare-halloween-special.txt', { cache:'no-cache' });
+        if (!res.ok) return;
+        const raw = (await res.text()).trim();
+        if (!raw) return; // empty file: keep hidden
+
+        const prose = document.getElementById('prose');
+        // Split on blank lines into paragraphs
+        raw.split(/\r?\n\r?\n+/).forEach(block => {
+          const p = document.createElement('p');
+          p.textContent = block.replace(/\r?\n/g, ' ');
+          prose.appendChild(p);
+        });
+        document.getElementById('storyCard').style.display = '';
+      } catch (_) { /* silently ignore; video-only page still works */ }
+    })();
+  </script>
+</body>
+</html>
