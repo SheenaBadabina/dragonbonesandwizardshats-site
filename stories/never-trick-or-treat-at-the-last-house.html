@@ -1,28 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Never Trick-or-Treat at the Last House • Dragon Bones & Wizards Hats</title>
   <meta name="description" content="Halloween special from Dragon Bones & Wizards Hats — Never Trick-or-Treat at the Last House." />
   <link rel="icon" href="/assets/Logodbwh.png" />
   <link rel="stylesheet" href="/assets/css/site.css" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Never Trick-or-Treat at the Last House" />
-  <meta property="og:description" content="Halloween special — Never Trick-or-Treat at the Last House." />
+  <meta property="og:description" content="A Halloween special story from Dragon Bones & Wizards Hats." />
   <meta property="og:image" content="/assets/knock-if-you-dare-halloween-special.png" />
   <meta property="og:url" content="https://dragonbonesandwizardshats.com/stories/never-trick-or-treat-at-the-last-house.html" />
 </head>
+
 <body>
-  <!-- Header (global) -->
   <header class="site-header">
     <a href="/" class="brand">
       <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
       <span class="brand-text">Dragon Bones & Wizards Hats</span>
     </a>
-    <!-- Three-bar hamburger per theme -->
     <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -35,16 +33,15 @@
   </header>
 
   <main class="container">
-    <!-- Story module per STYLEGUIDE: TXT is source of truth, media links before prose -->
     <article id="story"
       data-text="/assets/Never Trick-or-Treat at the Last House.txt"
       data-image="/assets/knock-if-you-dare-halloween-special.png">
-
+      
       <nav class="story-links">
         <a href="https://youtube.com/shorts/lga-yZrbQag?si=YPXLPnN12JQYYs7M" target="_blank" rel="noopener">Watch on YouTube</a>
       </nav>
 
-      <img id="storyImage" alt="Never Trick-or-Treat at the Last House cover">
+      <img id="storyImage" alt="Never Trick-or-Treat at the Last House cover" style="max-width:100%;height:auto;object-fit:cover;">
       <pre id="storyText">Loading…</pre>
     </article>
   </main>
@@ -57,39 +54,25 @@
   </footer>
 
   <script>
-    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile nav toggle (matches global behavior)
-    (function(){
-      const t = document.getElementById('navToggle');
-      const fly = document.getElementById('navFlyout');
-      if(!t || !fly) return;
-      t.addEventListener('click', () => {
-        const open = fly.classList.toggle('open');
-        t.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    })();
+    const navToggle = document.getElementById('navToggle');
+    const navFlyout = document.getElementById('navFlyout');
+    navToggle.addEventListener('click', () => {
+      const open = navFlyout.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
 
-    // STYLEGUIDE story loader (TXT as source of truth)
-    (function(){
-      const a = document.getElementById('story');
-      const txt = encodeURI(a.dataset.text);
-      const img = encodeURI(a.dataset.image);
-      const imgEl = document.getElementById('storyImage');
-      imgEl.src = img;
-      imgEl.loading = 'eager';
-      imgEl.style.maxWidth = '100%';
-      imgEl.style.height = 'auto';
-      fetch(txt, { cache: 'no-store' })
-        .then(r => r.ok ? r.text() : Promise.reject(r.status))
-        .then(t => { document.getElementById('storyText').textContent = t; })
-        .catch(() => { document.getElementById('storyText').textContent = 'Failed to load story.'; });
-    })();
+    const a = document.getElementById('story');
+    const txt = encodeURI(a.dataset.text);
+    const img = encodeURI(a.dataset.image);
+    document.getElementById('storyImage').src = img;
+    fetch(txt, { cache: 'no-store' })
+      .then(r => r.ok ? r.text() : Promise.reject(r.status))
+      .then(t => { document.getElementById('storyText').textContent = t; })
+      .catch(() => { document.getElementById('storyText').textContent = 'Failed to load story.'; });
   </script>
 
-  <!-- Global scripts -->
   <script src="/assets/js/site.js"></script>
 </body>
 </html>
-```0
