@@ -4,69 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Never Trick-or-Treat at the Last House • Dragon Bones & Wizards Hats</title>
-  <meta name="description" content="Halloween special story from Dragon Bones & Wizards Hats — Never Trick-or-Treat at the Last House." />
+  <meta name="description" content="Halloween special from Dragon Bones & Wizards Hats — Never Trick-or-Treat at the Last House." />
+  <link rel="icon" href="/assets/Logodbwh.png" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
 
-  <link rel="stylesheet" href="/assets/css/main.css" />
-
-  <style>
-    .watch-btn {
-      display: inline-block;
-      background-color: transparent;
-      color: #00f0c8;
-      border: 2px solid #00f0c8;
-      border-radius: 8px;
-      padding: 10px 18px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      margin-bottom: 1rem;
-    }
-    .watch-btn:hover {
-      background-color: #00f0c8;
-      color: #000;
-    }
-
-    /* Hamburger menu fix */
-    .menu-toggle {
-      cursor: pointer;
-      display: inline-block;
-      width: 24px;
-      height: 18px;
-      position: relative;
-    }
-    .menu-toggle span {
-      background: #00f0c8;
-      display: block;
-      position: absolute;
-      height: 3px;
-      width: 100%;
-      border-radius: 9px;
-      opacity: 1;
-      left: 0;
-      transition: all 0.25s ease-in-out;
-    }
-    .menu-toggle span:nth-child(1) {
-      top: 0;
-    }
-    .menu-toggle span:nth-child(2) {
-      top: 7px;
-    }
-    .menu-toggle span:nth-child(3) {
-      top: 14px;
-    }
-  </style>
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Never Trick-or-Treat at the Last House" />
+  <meta property="og:description" content="Halloween special — Never Trick-or-Treat at the Last House." />
+  <meta property="og:image" content="/assets/knock-if-you-dare-halloween-special.png" />
+  <meta property="og:url" content="https://dragonbonesandwizardshats.com/stories/never-trick-or-treat-at-the-last-house.html" />
 </head>
 <body>
+  <!-- Header (global) -->
   <header class="site-header">
-    <div class="logo">
-      <a href="/">🐉 Dragon Bones & Wizards Hats</a>
-    </div>
-    <div class="menu-toggle" id="menuToggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav id="navMenu" class="hidden">
+    <a href="/" class="brand">
+      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
+      <span class="brand-text">Dragon Bones & Wizards Hats</span>
+    </a>
+    <!-- Three-bar hamburger per theme -->
+    <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="navFlyout" class="site-nav" data-collapsible>
       <a href="/">Home</a>
       <a href="/stories/">Stories</a>
       <a href="/contact.html">Contact</a>
@@ -74,30 +34,62 @@
     </nav>
   </header>
 
-  <main class="story-page">
-    <article>
-      <h1>Never Trick-or-Treat at the Last House</h1>
-      <p class="story-subtitle">Halloween Special</p>
+  <main class="container">
+    <!-- Story module per STYLEGUIDE: TXT is source of truth, media links before prose -->
+    <article id="story"
+      data-text="/assets/Never Trick-or-Treat at the Last House.txt"
+      data-image="/assets/knock-if-you-dare-halloween-special.png">
 
-      <a href="https://youtube.com/shorts/lga-yZrbQag?si=YPXLPnN12JQYYs7M" class="watch-btn" target="_blank">
-        Watch on YouTube
-      </a>
+      <nav class="story-links">
+        <a href="https://youtube.com/shorts/lga-yZrbQag?si=YPXLPnN12JQYYs7M" target="_blank" rel="noopener">Watch on YouTube</a>
+      </nav>
 
-      <img src="/assets/images/knock-if-you-dare-halloween-special.png" alt="Knock if you dare Halloween Special" class="story-image"/>
-
-      <p>The house at the end of Maple Street only appears on Halloween.</p>
-      <p>Emma knows this because her mother told her never to knock on its door. Every October 31st, she tells herself she’ll skip it. Every year, she doesn’t.</p>
-      <p>Inside, the house smells like caramel and dust. A single bowl of candy sits on a wooden table, waiting. But when Emma reaches for it, the lights flicker—and the candy moves first.</p>
+      <img id="storyImage" alt="Never Trick-or-Treat at the Last House cover">
+      <pre id="storyText">Loading…</pre>
     </article>
   </main>
 
+  <footer class="site-footer">
+    © <span id="year"></span> dragonbonesandwizardshats •
+    <a href="/terms-of-use.html">Terms</a> •
+    <a href="/privacy-policy.html">Privacy</a> •
+    <a href="/contact.html">Contact</a>
+  </footer>
+
   <script>
-    // Simple hamburger menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('hidden');
-    });
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle (matches global behavior)
+    (function(){
+      const t = document.getElementById('navToggle');
+      const fly = document.getElementById('navFlyout');
+      if(!t || !fly) return;
+      t.addEventListener('click', () => {
+        const open = fly.classList.toggle('open');
+        t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+
+    // STYLEGUIDE story loader (TXT as source of truth)
+    (function(){
+      const a = document.getElementById('story');
+      const txt = encodeURI(a.dataset.text);
+      const img = encodeURI(a.dataset.image);
+      const imgEl = document.getElementById('storyImage');
+      imgEl.src = img;
+      imgEl.loading = 'eager';
+      imgEl.style.maxWidth = '100%';
+      imgEl.style.height = 'auto';
+      fetch(txt, { cache: 'no-store' })
+        .then(r => r.ok ? r.text() : Promise.reject(r.status))
+        .then(t => { document.getElementById('storyText').textContent = t; })
+        .catch(() => { document.getElementById('storyText').textContent = 'Failed to load story.'; });
+    })();
   </script>
+
+  <!-- Global scripts -->
+  <script src="/assets/js/site.js"></script>
 </body>
 </html>
+```0
