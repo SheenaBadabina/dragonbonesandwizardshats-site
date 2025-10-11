@@ -4,116 +4,61 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Stories • Dragon Bones & Wizards Hats</title>
-  <meta name="description" content="Read all stories from Dragon Bones & Wizards Hats — cinematic fantasy tales about time, magic, and mystery." />
-  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
 
   <style>
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background-color: #0a0a0a;
-      color: #eaeaea;
+    /* Page-local layout only (doesn't touch global theme) */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
     }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-      border-bottom: 1px solid #111;
-      background: #000;
-    }
-
-    header a {
-      color: #00f0c8;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .menu-toggle {
-      cursor: pointer;
-      display: inline-block;
-      width: 24px;
-      height: 18px;
-      position: relative;
-    }
-
-    .menu-toggle span {
-      background: #00f0c8;
-      display: block;
-      position: absolute;
-      height: 3px;
-      width: 100%;
-      border-radius: 9px;
-      left: 0;
-      transition: all 0.25s ease-in-out;
-    }
-
-    .menu-toggle span:nth-child(1) { top: 0; }
-    .menu-toggle span:nth-child(2) { top: 7px; }
-    .menu-toggle span:nth-child(3) { top: 14px; }
-
-    nav a {
-      display: inline-block;
-      margin-left: 1rem;
-      color: #00f0c8;
-      text-decoration: none;
-    }
-
-    main {
-      padding: 1.5rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
     .story-card {
-      background: #111;
-      border-radius: 14px;
-      padding: 1.25rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 0 12px rgba(0,240,200,0.08);
-    }
-
-    .story-card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 0.75rem;
-    }
-
-    .story-card h2 {
-      color: #fff;
-      margin-bottom: 0.25rem;
-    }
-
-    .story-card p {
-      margin: 0.25rem 0 0.75rem;
-      color: #ccc;
-    }
-
-    .read-btn {
-      display: inline-block;
-      border: 2px solid #00f0c8;
-      color: #00f0c8;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-weight: 600;
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      padding: 0.75rem;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.35);
+      box-shadow: 0 0 12px rgba(0,191,165,0.2);
       text-decoration: none;
-      transition: all 0.3s ease;
+      color: inherit;
     }
-
-    .read-btn:hover {
-      background-color: #00f0c8;
-      color: #000;
+    .story-card img {
+      width: 96px;
+      height: 96px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,191,165,0.25);
+    }
+    .story-card h2 {
+      margin: 0 0 0.25rem 0;
+      font-size: 1.1rem;
+      color: #00bfa5;
+    }
+    .story-card p {
+      margin: 0;
+      color: #e6e6e6;
+      line-height: 1.5;
+      font-size: 0.98rem;
+    }
+    @media (min-width: 720px) {
+      .story-grid { grid-template-columns: repeat(2, 1fr); }
+      .story-card { grid-template-columns: 140px 1fr; }
+      .story-card img { width: 140px; height: 140px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <a href="/">🐉 Dragon Bones & Wizards Hats</a>
-    <div class="menu-toggle" id="menuToggle">
-      <span></span><span></span><span></span>
-    </div>
-    <nav id="navMenu" class="hidden">
+  <header class="site-header">
+    <a href="/" class="brand">
+      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
+      <span class="brand-text">Dragon Bones & Wizards Hats</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <nav class="site-nav" data-collapsible>
       <a href="/">Home</a>
       <a href="/stories/">Stories</a>
       <a href="/contact.html">Contact</a>
@@ -121,39 +66,52 @@
     </nav>
   </header>
 
-  <main>
+  <main class="container">
     <h1>Stories</h1>
+    <p class="muted">Tales of dragons, time, and magic—crafted for people who still believe in wonder.</p>
 
-    <!-- Newest first -->
+    <section class="story-grid">
 
-    <div class="story-card">
-      <h2>Never Trick-or-Treat at the Last House</h2>
-      <p>Halloween Special</p>
-      <a href="/stories/never-trick-or-treat-at-the-last-house.html" class="read-btn">Read Story</a>
-      <img src="/assets/images/knock-if-you-dare-halloween-special.png" alt="Never Trick-or-Treat at the Last House">
-    </div>
+      <!-- NEWEST FIRST -->
 
-    <div class="story-card">
-      <h2>The Wizard’s Shadow</h2>
-      <p>Never look at a wizard’s shadow.</p>
-      <a href="/stories/the-wizards-shadow.html" class="read-btn">Read Story</a>
-      <img src="/assets/images/the-wizards-shadow-cover.png" alt="The Wizard’s Shadow">
-    </div>
+      <!-- Never Trick-or-Treat at the Last House -->
+      <a class="story-card" href="/stories/never-trick-or-treat-at-the-last-house.html">
+        <img src="/assets/knock-if-you-dare-halloween-special.png"
+             alt="Never Trick-or-Treat at the Last House thumbnail" />
+        <div>
+          <h2>Never Trick-or-Treat at the Last House</h2>
+          <p>Halloween Special</p>
+        </div>
+      </a>
 
-    <div class="story-card">
-      <h2>The Thief Who Stole Tomorrow</h2>
-      <p>Time is a promise you can’t keep forever.</p>
-      <a href="/stories/the-thief-who-stole-tomorrow.html" class="read-btn">Read Story</a>
-      <img src="/assets/images/the-thief-who-stole-tomorrow-cover.png" alt="The Thief Who Stole Tomorrow">
-    </div>
+      <!-- The Wizard’s Shadow -->
+      <a class="story-card" href="/stories/the-wizards-shadow.html">
+        <img src="/assets/the-wizards-shadow-cover-1920x1080.png"
+             alt="The Wizard’s Shadow thumbnail" />
+        <div>
+          <h2>The Wizard’s Shadow</h2>
+          <p>Never look at a wizard’s shadow.</p>
+        </div>
+      </a>
+
+      <!-- The Thief Who Destroyed Time (And Had to Fix It) -->
+      <a class="story-card" href="/stories/the-thief-who-destroyed-time.html">
+        <img src="/assets/The%20Thief%20Who%20Destroyed%20Time%20(And%20Had%20to%20Fix%20It).png"
+             alt="The Thief Who Destroyed Time (And Had to Fix It) thumbnail" />
+        <div>
+          <h2>The Thief Who Destroyed Time (And Had to Fix It)</h2>
+          <p>When Raven steals Chronus’s Hourglass of Hours, tomorrow starts to unravel. To set the world right,
+             she must descend into the Underclock and pay with the only currency time respects.</p>
+        </div>
+      </a>
+
+    </section>
   </main>
 
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('hidden');
-    });
-  </script>
+  <footer class="site-footer">
+    <p>© <span id="year"></span> dragonbonesandwizardshats</p>
+  </footer>
+
+  <script src="/assets/js/site.js"></script>
 </body>
 </html>
