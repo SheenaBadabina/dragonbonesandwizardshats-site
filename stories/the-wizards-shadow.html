@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Wizard’s Shadow • Dragon Bones & Wizards Hats</title>
+  <meta name="description" content="Never Look at a Wizard’s Shadow." />
+  <link rel="icon" href="/assets/Logodbwh.png" />
+  <meta property="og:title" content="The Wizard’s Shadow" />
+  <meta property="og:description" content="Never Look at a Wizard’s Shadow." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="/assets/the-wizards-shadow-cover-1920x1080.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Wizard’s Shadow" />
+  <meta name="twitter:description" content="Never Look at a Wizard’s Shadow." />
+  <meta name="twitter:image" content="/assets/the-wizards-shadow-cover-1920x1080.png" />
+  <style>
+    :root{--bg:#0b0f12;--surface:#12171b;--text:#dfe7ea;--muted:#9fb0b8;--teal:#00ffcc;--r:16px}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif}
+    a{color:var(--teal);text-decoration:none}
+    .wrap{max-width:900px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{width:40px;height:40px;border-radius:8px;object-fit:contain}
+    .title{font-weight:700;letter-spacing:.2px}
+    nav a{margin-left:18px}
+    .card{background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:16px}
+    .glow{box-shadow:0 0 0 rgba(0,191,165,0);transition:box-shadow .25s ease}
+    .glow:hover{box-shadow:0 0 24px rgba(0,191,165,.18)}
+    h1{font-size:clamp(1.6rem,2.8vw + .4rem,2.4rem);margin:0 0 .25rem 0}
+    .muted{color:var(--muted)}
+    .btns{display:flex;gap:12px;flex-wrap:wrap;margin:.75rem 0 1.25rem}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--teal);box-shadow:0 0 10px rgba(0,191,165,.16) inset;color:#00ffcc;font-weight:600}
+    .media{width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.08);object-fit:cover}
+    article{margin-top:18px}
+    article p{margin:.9rem 0}
+    footer{margin:36px 0 12px;text-align:left;color:var(--muted)}
+    .hero{display:grid;gap:16px}
+    @media (min-width:780px){.hero{grid-template-columns:1.15fr .85fr;align-items:start}}
+    .sr-only{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Header -->
+    <header aria-label="Site header">
+      <div class="brand" aria-label="Brand">
+        <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" loading="eager" />
+        <div class="title">Dragon Bones & Wizards Hats</div>
+      </div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/stories/">Stories</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/work-with-me.html">Work With Me</a>
+      </nav>
+    </header>
+
+    <!-- Hero / Title -->
+    <section class="card glow hero" aria-labelledby="title">
+      <div>
+        <h1 id="title">The Wizard’s Shadow</h1>
+        <p class="muted" id="tagline">Never Look at a Wizard’s Shadow.</p>
+        <div class="btns">
+          <a class="btn" href="https://youtube.com/shorts/7l4LnuCrLb4?si=TEFteLK5aJvWB86W" target="_blank" rel="noopener"
+             aria-label="Watch on YouTube">Watch on YouTube</a>
+        </div>
+      </div>
+      <div>
+        <img class="media" src="/assets/the-wizards-shadow-cover-1920x1080.png"
+             alt="The Wizard’s Shadow cover" loading="eager" />
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section class="card glow" style="margin-top:16px" aria-labelledby="storyLabel">
+      <h2 id="storyLabel" class="sr-only">Story</h2>
+      <article id="story"></article>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      © <span id="year"></span> dragonbonesandwizardshats •
+      <a href="/terms-of-use.html">Terms</a> •
+      <a href="/privacy-policy.html">Privacy</a> •
+      <a href="/contact.html">Contact</a>
+    </footer>
+  </div>
+
+  <script>
+    // Auto year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fetch TXT -> paragraphs (verbatim, preserving line breaks)
+    (async () => {
+      const toHtml = (txt) => {
+        const parts = txt.replace(/\r\n/g,"\n").split(/\n\s*\n/);
+        return parts.map(p=>{
+          const lines = p.split("\n").map(l=>l
+            .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"));
+          return `<p>${lines.join("<br>")}</p>`;
+        }).join("\n");
+      };
+      try{
+        const res = await fetch("/assets/The Wizard’s Shadow.txt?v="+Date.now(), {cache:"no-store"});
+        if(!res.ok) throw new Error("Missing TXT");
+        const txt = await res.text();
+        document.getElementById("story").innerHTML = toHtml(txt);
+      }catch(e){
+        document.getElementById("story").innerHTML =
+          `<p class="muted">Story text not found. Make sure <code>/assets/The Wizard’s Shadow.txt</code> exists.</p>`;
+        console.error(e);
+      }
+    })();
+  </script>
+</body>
+</html>
