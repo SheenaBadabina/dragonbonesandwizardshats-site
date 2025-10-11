@@ -4,114 +4,141 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>The Wizard’s Shadow • Dragon Bones & Wizards Hats</title>
+
+  <!-- SEO / Social -->
   <meta name="description" content="Never Look at a Wizard’s Shadow." />
-  <link rel="icon" href="/assets/Logodbwh.png" />
   <meta property="og:title" content="The Wizard’s Shadow" />
   <meta property="og:description" content="Never Look at a Wizard’s Shadow." />
   <meta property="og:type" content="article" />
   <meta property="og:image" content="/assets/the-wizards-shadow-cover-1920x1080.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The Wizard’s Shadow" />
-  <meta name="twitter:description" content="Never Look at a Wizard’s Shadow." />
-  <meta name="twitter:image" content="/assets/the-wizards-shadow-cover-1920x1080.png" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="The Wizard’s Shadow" />
+  <meta property="twitter:description" content="Never Look at a Wizard’s Shadow." />
+  <meta property="twitter:image" content="/assets/the-wizards-shadow-cover-1920x1080.png" />
+
+  <link rel="icon" href="/assets/Logodbwh.png" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+
   <style>
-    :root{--bg:#0b0f12;--surface:#12171b;--text:#dfe7ea;--muted:#9fb0b8;--teal:#00ffcc;--r:16px}
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif}
-    a{color:var(--teal);text-decoration:none}
-    .wrap{max-width:900px;margin:0 auto;padding:24px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand img{width:40px;height:40px;border-radius:8px;object-fit:contain}
-    .title{font-weight:700;letter-spacing:.2px}
-    nav a{margin-left:18px}
-    .card{background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:16px}
-    .glow{box-shadow:0 0 0 rgba(0,191,165,0);transition:box-shadow .25s ease}
-    .glow:hover{box-shadow:0 0 24px rgba(0,191,165,.18)}
-    h1{font-size:clamp(1.6rem,2.8vw + .4rem,2.4rem);margin:0 0 .25rem 0}
-    .muted{color:var(--muted)}
-    .btns{display:flex;gap:12px;flex-wrap:wrap;margin:.75rem 0 1.25rem}
-    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--teal);box-shadow:0 0 10px rgba(0,191,165,.16) inset;color:#00ffcc;font-weight:600}
-    .media{width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.08);object-fit:cover}
-    article{margin-top:18px}
-    article p{margin:.9rem 0}
-    footer{margin:36px 0 12px;text-align:left;color:var(--muted)}
-    .hero{display:grid;gap:16px}
-    @media (min-width:780px){.hero{grid-template-columns:1.15fr .85fr;align-items:start}}
-    .sr-only{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    /* Page-local polish */
+    .hero { margin: 1rem 0 0; }
+    .hero img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 0 18px rgba(0,191,165,.18); }
+    .cta-row { display:flex; gap:12px; flex-wrap:wrap; margin:.75rem 0 1rem; }
+    .btn { display:inline-block; padding:12px 18px; border:1px solid var(--teal, #00bfa5); border-radius:12px; font-weight:700; text-decoration:none; }
+    .card { background:rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:16px; box-shadow:0 0 12px rgba(0,191,165,.2); }
+    .prose p { margin: 0 0 1rem 0; line-height:1.7; }
+    /* Header: ensure markup matches the JS toggler */
+    .site-header { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 0; }
+    .brand { display:flex; align-items:center; gap:10px; text-decoration:none; }
+    .brand .logo { width:40px; height:40px; object-fit:contain; border-radius:8px; }
+    .brand .brand-text { font-weight:700; letter-spacing:.2px; }
+    .nav-toggle { display:inline-flex; flex-direction:column; gap:4px; border:1px solid rgba(255,255,255,.12); padding:8px 10px; border-radius:12px; background:rgba(15,20,25,.6); }
+    .nav-toggle span { width:22px; height:2px; background:var(--text, #e6e6e6); border-radius:2px; display:block; }
+    .site-nav { display:none; position:absolute; right:16px; top:68px; background:var(--surface, #0f1419); border:1px solid rgba(255,255,255,.1); box-shadow:0 6px 26px rgba(0,0,0,.45); padding:10px; border-radius:12px; }
+    .site-nav a { display:block; padding:10px 12px; text-decoration:none; border-radius:8px; }
+    .site-nav a:hover { background:rgba(255,255,255,.06); }
+    .site-nav.open { display:block; }
+    @media (min-width: 720px) {
+      .nav-toggle { display:none; }
+      .site-nav { display:block; position:static; background:transparent; border:none; box-shadow:none; padding:0; }
+      .site-nav a { display:inline-block; margin-left:18px; padding:6px 8px; }
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <!-- Header -->
-    <header aria-label="Site header">
-      <div class="brand" aria-label="Brand">
-        <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" loading="eager" />
-        <div class="title">Dragon Bones & Wizards Hats</div>
-      </div>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="/">Home</a>
-        <a href="/stories/">Stories</a>
+  <div class="backdrop">
+    <div class="wrap">
+
+      <!-- Header (fixed markup for hamburger) -->
+      <header class="site-header" aria-label="Site header">
+        <a href="/" class="brand" aria-label="Brand">
+          <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" loading="eager" />
+          <div class="brand-text">Dragon Bones & Wizards Hats</div>
+        </a>
+
+        <!-- Hamburger -->
+        <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navFlyout">
+          <span></span><span></span><span></span>
+        </button>
+
+        <!-- Flyout -->
+        <nav id="navFlyout" class="site-nav" data-collapsible aria-label="Primary navigation">
+          <a href="/">Home</a>
+          <a href="/stories/">Stories</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/work-with-me.html">Work With Me</a>
+        </nav>
+      </header>
+
+      <main class="container">
+        <section class="card">
+          <h1 style="margin:0 0 .35rem 0">The Wizard’s Shadow</h1>
+          <p class="muted" style="margin:.15rem 0 1rem 0">Never Look at a Wizard’s Shadow.</p>
+
+          <div class="cta-row">
+            <a class="btn glow" href="https://youtube.com/shorts/7l4LnuCrLb4?si=TEFteLK5aJvWB86W" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+              Watch on YouTube
+            </a>
+          </div>
+
+          <div class="hero">
+            <img src="/assets/the-wizards-shadow-cover-1920x1080.png" alt="The Wizard’s Shadow cover image" loading="eager" />
+          </div>
+        </section>
+
+        <!-- Story body -->
+        <section class="card prose" style="margin-top:16px" id="story">
+          <p class="muted">Loading story…</p>
+        </section>
+      </main>
+
+      <footer>
+        © <span id="year"></span> dragonbonesandwizardshats •
+        <a href="/terms-of-use.html">Terms</a> •
+        <a href="/privacy-policy.html">Privacy</a> •
         <a href="/contact.html">Contact</a>
-        <a href="/work-with-me.html">Work With Me</a>
-      </nav>
-    </header>
+      </footer>
 
-    <!-- Hero / Title -->
-    <section class="card glow hero" aria-labelledby="title">
-      <div>
-        <h1 id="title">The Wizard’s Shadow</h1>
-        <p class="muted" id="tagline">Never Look at a Wizard’s Shadow.</p>
-        <div class="btns">
-          <a class="btn" href="https://youtube.com/shorts/7l4LnuCrLb4?si=TEFteLK5aJvWB86W" target="_blank" rel="noopener"
-             aria-label="Watch on YouTube">Watch on YouTube</a>
-        </div>
-      </div>
-      <div>
-        <img class="media" src="/assets/the-wizards-shadow-cover-1920x1080.png"
-             alt="The Wizard’s Shadow cover" loading="eager" />
-      </div>
-    </section>
-
-    <!-- Story -->
-    <section class="card glow" style="margin-top:16px" aria-labelledby="storyLabel">
-      <h2 id="storyLabel" class="sr-only">Story</h2>
-      <article id="story"></article>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      © <span id="year"></span> dragonbonesandwizardshats •
-      <a href="/terms-of-use.html">Terms</a> •
-      <a href="/privacy-policy.html">Privacy</a> •
-      <a href="/contact.html">Contact</a>
-    </footer>
+    </div>
   </div>
 
-  <script>
-    // Auto year
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- Site-wide JS -->
+  <script src="/assets/js/site.js" defer></script>
 
-    // Fetch TXT -> paragraphs (verbatim, preserving line breaks)
+  <!-- Inline fallback toggler: ensures hamburger works even if site.js is cached/missing -->
+  <script>
+    (function() {
+      const t = document.getElementById('navToggle');
+      const fly = document.getElementById('navFlyout');
+      if (!t || !fly) return;
+      t.addEventListener('click', () => {
+        const open = fly.classList.toggle('open');
+        t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+  </script>
+
+  <!-- Fetch the story text (path matches where you saved the .txt) -->
+  <script>
     (async () => {
-      const toHtml = (txt) => {
-        const parts = txt.replace(/\r\n/g,"\n").split(/\n\s*\n/);
-        return parts.map(p=>{
-          const lines = p.split("\n").map(l=>l
-            .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"));
-          return `<p>${lines.join("<br>")}</p>`;
-        }).join("\n");
-      };
-      try{
-        const res = await fetch("/assets/The Wizard’s Shadow.txt?v="+Date.now(), {cache:"no-store"});
-        if(!res.ok) throw new Error("Missing TXT");
+      const el = document.getElementById('story');
+      const safe = s => (s ?? '').toString();
+      try {
+        // Adjust this path only if you moved the file.
+        const res = await fetch('/assets/prose/the-wizards-shadow.txt', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Fetch failed: ' + res.status);
         const txt = await res.text();
-        document.getElementById("story").innerHTML = toHtml(txt);
-      }catch(e){
-        document.getElementById("story").innerHTML =
-          `<p class="muted">Story text not found. Make sure <code>/assets/The Wizard’s Shadow.txt</code> exists.</p>`;
-        console.error(e);
+
+        // Convert simple newlines to paragraphs
+        const parts = txt.split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
+        el.innerHTML = parts.map(p => `<p>${safe(p).replace(/\n/g,'<br>')}</p>`).join('\n');
+      } catch (err) {
+        el.innerHTML = `<p class="muted">Sorry, the story failed to load. Please try again in a moment.</p>`;
+        console.error(err);
       }
+      // Footer year
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
     })();
   </script>
 </body>
