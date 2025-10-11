@@ -5,28 +5,39 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>The Wizard’s Shadow • Dragon Bones & Wizards Hats</title>
   <meta name="description" content="Never Look at a Wizard’s Shadow." />
-  <link rel="icon" href="/assets/Logodbwh.png" />
-  <link rel="stylesheet" href="/assets/css/site.css" />
 
-  <meta property="og:type" content="article" />
+  <!-- Site styles & scripts (shared theme + hamburger) -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <script defer src="/assets/js/site.js"></script>
+
+  <!-- Open Graph -->
   <meta property="og:title" content="The Wizard’s Shadow" />
   <meta property="og:description" content="Never Look at a Wizard’s Shadow." />
+  <meta property="og:type" content="article" />
   <meta property="og:image" content="/assets/the-wizards-shadow-cover-1920x1080.png" />
-  <meta property="og:url" content="https://dragonbonesandwizardshats.com/stories/the-wizards-shadow.html" />
+
+  <!-- Page-local guardrails that match the style guide -->
+  <style>
+    .story-hero { margin-top: 84px; } /* clear fixed header */
+    .story-header { background: rgba(0,0,0,0.35); border-radius: 12px; padding: 1rem 1rem 0.25rem; box-shadow: 0 0 12px rgba(0,191,165,0.18); }
+    .story-header h1 { margin: 0 0 .25rem; }
+    .story-sub { color: #92A1AD; margin: 0 0 .75rem; }
+    .btn { display:inline-block; padding:.75rem 1.1rem; border-radius:10px; border:1px solid #00BFA5; color:#0B0F12; background:#00BFA5; font-weight:600; text-decoration:none; box-shadow:0 0 10px rgba(0,191,165,.25); }
+    .btn:hover { filter:brightness(1.05); }
+    .story-cover { width:100%; height:auto; display:block; border-radius:12px; box-shadow:0 0 16px rgba(0,191,165,.2); }
+    #storyText { white-space:pre-wrap; font-family: Georgia, "Times New Roman", serif; color:#D9E1E8; background: rgba(0,0,0,0.35); padding:1rem; border-radius:12px; line-height:1.7; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 1rem 2rem; }
+  </style>
 </head>
 <body>
+  <!-- Shared header -->
   <header class="site-header">
     <a href="/" class="brand">
       <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
       <span class="brand-text">Dragon Bones & Wizards Hats</span>
     </a>
-
-    <!-- Three-bar hamburger (consistent) -->
-    <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav id="navFlyout" class="site-nav" data-collapsible>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <nav class="site-nav" data-collapsible>
       <a href="/">Home</a>
       <a href="/stories/">Stories</a>
       <a href="/contact.html">Contact</a>
@@ -34,24 +45,23 @@
     </nav>
   </header>
 
-  <main class="container">
-    <section class="card glow">
+  <main class="container story-hero">
+    <section class="story-header">
       <h1>The Wizard’s Shadow</h1>
-      <p class="muted">Never Look at a Wizard’s Shadow.</p>
-
-      <a class="btn" href="https://youtube.com/shorts/7l4LnuCrLb4?si=TEFteLK5aJvWB86W" target="_blank" rel="noopener">
-        Watch on YouTube
-      </a>
-
-      <div style="margin-top:1rem">
-        <img class="media" src="/assets/the-wizards-shadow-cover-1920x1080.png"
-             alt="The Wizard’s Shadow cover" loading="eager" />
-      </div>
+      <p class="story-sub">Never Look at a Wizard’s Shadow.</p>
+      <p><a class="btn" href="https://youtube.com/shorts/7l4LnuCrLb4?si=TEFteLK5aJvWB86W" target="_blank" rel="noopener">Watch on YouTube</a></p>
     </section>
 
-    <section class="card glow" id="proseCard" style="margin-top:16px">
-      <div id="prose" class="story-body"></div>
-    </section>
+    <figure style="margin:1rem 0 1.25rem;">
+      <img class="story-cover" src="/assets/the-wizards-shadow-cover-1920x1080.png" alt="The Wizard’s Shadow cover image" />
+    </figure>
+
+    <!-- TXT-driven prose (source of truth) -->
+    <article id="story"
+      data-text="/assets/The%20Wizard%E2%80%99s%20Shadow.txt"
+      data-image="/assets/the-wizards-shadow-cover-1920x1080.png">
+      <pre id="storyText">Loading…</pre>
+    </article>
   </main>
 
   <footer class="site-footer">
@@ -59,29 +69,16 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    (function(){
-      const t = document.getElementById('navToggle');
-      const fly = document.getElementById('navFlyout');
-      if (!t || !fly) return;
-      t.addEventListener('click', () => {
-        const open = fly.classList.toggle('open');
-        t.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    })();
-
-    (async function(){
-      try{
-        const res = await fetch('/assets/the-wizards-shadow.txt');
-        if(!res.ok) throw new Error('Text not found');
-        const text = await res.text();
-        document.getElementById('prose').textContent = text;
-      }catch(e){
-        document.getElementById('prose').textContent = '—';
-      }
-    })();
+    // Load prose from TXT per StyleGuide
+    (function () {
+      const a = document.getElementById('story');
+      const txt = a ? a.dataset.text : null;
+      if (!txt) return;
+      fetch(txt, { cache: 'no-store' })
+        .then(r => r.ok ? r.text() : Promise.reject(r.status))
+        .then(t => { document.getElementById('storyText').textContent = t; })
+        .catch(() => { document.getElementById('storyText').textContent = 'Failed to load story.'; });
+    }());
   </script>
-  <script src="/assets/js/site.js"></script>
 </body>
 </html>
