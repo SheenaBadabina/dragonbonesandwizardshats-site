@@ -4,19 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Stories • Dragon Bones & Wizards Hats</title>
+
+  <link rel="icon" href="/assets/Logodbwh.png" />
   <link rel="stylesheet" href="/assets/css/site.css" />
 
   <style>
-    /* Local layout for the stories list */
+    /* Page-local layout for the list */
     .story-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1rem}
     .story-card{display:grid;grid-template-columns:96px 1fr;gap:.75rem;align-items:start;
-      padding:.75rem;border-radius:10px;background:rgba(0,0,0,.35);
-      box-shadow:0 0 12px rgba(0,191,165,.2);text-decoration:none;color:inherit}
-    .story-card:focus,.story-card:hover{outline:none;box-shadow:0 0 16px rgba(0,191,165,.33)}
+      padding:.9rem;border-radius:12px;background:rgba(0,0,0,.35);
+      box-shadow:0 0 12px rgba(0,191,165,.20);text-decoration:none;color:inherit}
+    .story-card:hover{box-shadow:0 0 18px rgba(0,191,165,.33)}
     .story-card img{width:96px;height:96px;object-fit:cover;border-radius:8px;
       box-shadow:0 0 10px rgba(0,191,165,.25)}
     .story-card h2{margin:0 0 .25rem 0;font-size:1.1rem;color:#00bfa5}
-    .story-card p{margin:0;color:#e6e6e6;line-height:1.5;font-size:.98rem}
+    .story-card p{margin:0;color:#e6e6e6;line-height:1.55;font-size:.98rem}
     @media (min-width:720px){
       .story-grid{grid-template-columns:repeat(2,1fr)}
       .story-card{grid-template-columns:140px 1fr}
@@ -25,14 +27,13 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header class="site-header">
     <a href="/" class="brand">
       <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
       <span class="brand-text">Dragon Bones & Wizards Hats</span>
     </a>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
-    <nav class="site-nav" data-collapsible>
+    <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav id="navFlyout" class="site-nav" data-collapsible>
       <a href="/">Home</a>
       <a href="/stories/">Stories</a>
       <a href="/contact.html">Contact</a>
@@ -46,32 +47,30 @@
 
     <section class="story-grid">
 
-      <!-- NEWEST FIRST -->
-
-      <!-- 1) Never Trick-or-Treat at the Last House (Halloween special) -->
-      <a class="story-card" href="/stories/knock-if-you-dare-halloween-special.html" aria-label="Read Never Trick-or-Treat at the Last House">
+      <!-- 1) NEWEST — Halloween Special -->
+      <a class="story-card" href="/stories/never-trick-or-treat-at-the-last-house.html">
         <img src="/assets/knock-if-you-dare-halloween-special.png"
-             alt="Never Trick-or-Treat at the Last House thumbnail" loading="lazy" />
+             alt="Never Trick-or-Treat at the Last House thumbnail" />
         <div>
           <h2>Never Trick-or-Treat at the Last House</h2>
-          <p>A Halloween special. Some doors are better left unanswered—especially the last one on the block.</p>
+          <p>Halloween special: a house that appears only on October 31—and a rule every kid should fear breaking.</p>
         </div>
       </a>
 
-      <!-- 2) Never Look at a Wizard’s Shadow -->
-      <a class="story-card" href="/stories/the-wizards-shadow.html" aria-label="Read Never Look at a Wizard’s Shadow">
+      <!-- 2) The Wizard’s Shadow -->
+      <a class="story-card" href="/stories/the-wizards-shadow.html">
         <img src="/assets/the-wizards-shadow-cover-1920x1080.png"
-             alt="Never Look at a Wizard’s Shadow thumbnail" loading="lazy" />
+             alt="The Wizard’s Shadow thumbnail" />
         <div>
-          <h2>Never Look at a Wizard’s Shadow</h2>
+          <h2>The Wizard’s Shadow</h2>
           <p>A wizard’s shadow hides more than darkness — it hides the truth that even light must fear.</p>
         </div>
       </a>
 
-      <!-- 3) The Thief Who Destroyed Time (And Had to Fix It) -->
-      <a class="story-card" href="/stories/the-thief-who-destroyed-time.html" aria-label="Read The Thief Who Destroyed Time (And Had to Fix It)">
+      <!-- 3) The Thief Who Destroyed Time -->
+      <a class="story-card" href="/stories/the-thief-who-destroyed-time.html">
         <img src="/assets/The%20Thief%20Who%20Destroyed%20Time%20(And%20Had%20to%20Fix%20It).png"
-             alt="The Thief Who Destroyed Time (And Had to Fix It) thumbnail" loading="lazy" />
+             alt="The Thief Who Destroyed Time (And Had to Fix It) thumbnail" />
         <div>
           <h2>The Thief Who Destroyed Time (And Had to Fix It)</h2>
           <p>When Raven steals Chronus’s Hourglass of Hours, tomorrow starts to unravel. To set the world right,
@@ -86,6 +85,21 @@
     <p>© <span id="year"></span> dragonbonesandwizardshats</p>
   </footer>
 
-  <script src="/assets/js/site.js" defer></script>
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle (local fallback if site.js isn’t present)
+    (function(){
+      const t = document.getElementById('navToggle');
+      const fly = document.getElementById('navFlyout');
+      if(!t || !fly) return;
+      t.addEventListener('click', () => {
+        const open = fly.classList.toggle('open');
+        t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+  </script>
+  <script src="/assets/js/site.js"></script>
 </body>
 </html>
