@@ -136,22 +136,39 @@
 
       <section class="feature">
         <h2>The Battle of Magic & Flame</h2>
-        <p>A glimpse of the world behind every story.</p>
-        <img
-          src="/assets/Wizard dragon battle.png"
-          alt="Wizard and dragon locked in battle"
-          loading="lazy"
-        />
+
+        <!-- Make the tagline a link to About -->
+        <p>
+          <a href="/about.html" aria-label="Read about the world behind every story on the About page">
+            A glimpse of the world behind every story.
+          </a>
+        </p>
+
+        <!-- Make the big image a link to About -->
+        <a href="/about.html" aria-label="Go to About the Author">
+          <img
+            src="/assets/Wizard dragon battle.png"
+            alt="Wizard and dragon locked in battle"
+            loading="lazy"
+          />
+        </a>
       </section>
 
       <section class="author">
-        <img src="/assets/Author.png" alt="Sheena portrait" />
-        <h3>About the Author</h3>
-        <p>
+        <!-- Make the portrait a link to About -->
+        <a href="/about.html" aria-label="About the Author">
+          <img src="/assets/Author.png" alt="Sheena portrait" />
+        </a>
+
+        <!-- Replace heading with teal button that links to About -->
+        <a href="/about.html" class="btn-primary" aria-label="Read About the Author">About the Author</a>
+
+        <p style="margin-top:1rem">
           Sheena is the author, narrator, and creator of <em>Dragon Bones & Wizards Hats</em>. Known for her
           cinematic storytelling and Utah desert adventures, she brings worlds of wonder to life.
         </p>
-        <a href="/work-with-me.html" class="btn-primary">Work With Me</a>
+
+        <a href="/work-with-me.html" class="btn-primary" style="margin-top:0.5rem">Work With Me</a>
       </section>
     </main>
 
