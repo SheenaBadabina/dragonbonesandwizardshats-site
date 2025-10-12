@@ -1,17 +1,55 @@
-Sheena is the creator, designer, and storyteller behind *Dragon Bones & Wizards Hats* — a world woven from pixels, poetry, and persistence. Every story, image, and line of code that lives here was imagined, built, and refined by her. What began as a spark of curiosity grew into a full-fledged universe of fantasy, technology, and heart.
+Sheena is the creator, designer, and storyteller behind *Dragon Bones & Wizards Hats*.
 
-From a young age, Sheena has been obsessed with the fantastic — dragons soaring across skies, wizards whispering truths older than stars, and worlds that shimmer at the edge of imagination. That fascination never faded. Instead, it evolved into a creative practice that blends classic storytelling with cutting-edge tools. She doesn’t just write; she crafts. She builds immersive experiences where language, sound, art, and emotion converge.
+Every story. Every image. Every line of code.
 
-Every image on this site was generated, edited, or envisioned by Sheena herself — a process that fuses art direction, AI image generation, and post-editing until the final picture feels alive. Every story is written and voiced by her, shaped through months of worldbuilding, narration, and cinematic timing. She also obsessively engineers the *sound* of each piece — hand-selecting sound effects, layering ambient textures, and shaping original musical compositions to capture the tone of every moment. Sometimes she writes her own melodies; other times she guides generative AI to compose music that resonates with her world’s emotional core. For Sheena, audio isn’t background — it’s half the magic.
+All of it — woven from pixels, poetry, and persistence. What began as a spark of curiosity grew into something more. A universe. Fantasy and technology. Heart and magic. A world that shimmers at the edge of imagination.
 
-She doesn’t use generative AI as a shortcut, but as a collaborator — a magical brush that helps translate thoughts into light, voice, and motion. Every tool she uses is guided by intuition, humanity, and the same creative curiosity that powered her first stories as a child.
+From a young age, Sheena has been obsessed with the fantastic. Dragons soaring across skies. Wizards whispering truths older than stars. Worlds that pulse with wonder and consequence. That fascination never faded. Instead, it evolved. It became a creative practice that blends classic storytelling with cutting-edge tools. She doesn't just write. She crafts. She builds immersive experiences where language, sound, art, and emotion converge into something alive.
 
-Beyond the fantasy realms, Sheena is the adventurer behind Sheena’s Adventures — a project born from her love of the Utah desert. There, she explores geology, rockhounding, and wild landscapes, capturing the raw beauty of the real world through film and photography. Her YouTube channel shares those journeys with viewers around the world, blending scientific wonder with personal storytelling. The same sense of awe that drives her field adventures often finds its way into the mythic deserts, cliffs, and skies of *Dragon Bones & Wizards Hats*.
+Every image on this site was generated, edited, envisioned by Sheena herself — a process that fuses art direction, AI image generation, and obsessive post-editing until the final picture breathes. Every story is written and voiced by her. Shaped through months of worldbuilding. Narration. Cinematic timing. And she obsessively engineers the *sound* of each piece — hand-selecting sound effects, layering ambient textures, shaping original musical compositions to capture the tone of every moment. Sometimes she writes her own melodies. Other times she guides generative AI to compose music that resonates with her world's emotional core.
 
-Sheena’s fascination extends beyond the living world — into the deep time of Utah’s ancient past. She is endlessly inspired by dinosaurs and the prehistoric worlds that once thrived where she now walks. The Cretaceous period, the Jurassic sands, the ancient seabeds and volcanic plains — all of it sparks her imagination. She often envisions what life might have been like in those eras, and how the echoes of that distant world still whisper through the red rocks and fossils she finds. Her curiosity also stretches forward in time to the ancestral Puebloans and cliff dwellers, whose stories and artistry remain etched into the canyons of the Southwest.
+For Sheena, audio isn't background.
 
-Sheena’s creativity doesn’t stop there. She’s quietly building ambitious projects like AI Sheena — a digital reflection of her storytelling style — and VibeScript, an evolving AI platform that helps people bring their ideas to life through voice and language. Both projects are still in development, but they share a common heartbeat: the belief that creativity should be accessible, empowering, and deeply human.
+It's half the magic.
 
-To Sheena, *Dragon Bones & Wizards Hats* isn’t just a website or a series. It’s an act of imagination made visible — a way to give back to the world in stories that shimmer with wonder, consequence, and magic. Every line of dialogue, every glowing rune, every echo of a dragon’s breath, and every perfectly-timed musical swell is a love letter to creativity itself.
+She doesn't use generative AI as a shortcut. She uses it as a collaborator — a magical brush that helps translate thoughts into light, voice, and motion. Every tool she uses is guided by intuition, humanity, and the same creative curiosity that powered her first stories as a child.
 
-She believes storytelling is a gift — a way to leave behind something beautiful, something that might inspire others to build their own worlds, write their own spells, and chase their own dragons.
+Beyond the fantasy realms, Sheena is the adventurer behind *Sheena's Adventures* — a project born from her love of the Utah desert. There, she explores geology, rockhounding, and wild landscapes. She captures the raw beauty of the real world through film and photography. Her YouTube channel shares those journeys with viewers around the world, blending scientific wonder with personal storytelling. The same sense of awe that drives her field adventures often finds its way into the mythic deserts, cliffs, and skies of *Dragon Bones & Wizards Hats*.
+
+Her fascination extends beyond the living world — into the deep time of Utah's ancient past. She is endlessly inspired by dinosaurs and the prehistoric worlds that once thrived where she now walks. The Cretaceous period. The Jurassic sands. Ancient seabeds and volcanic plains. All of it sparks her imagination. She often envisions what life might have been like in those eras, and how the echoes of that distant world still whisper through the red rocks and fossils she finds. Her curiosity stretches forward in time too — to the ancestral Puebloans and cliff dwellers, whose stories and artistry remain etched into the canyons of the Southwest.
+
+Sheena's creativity doesn't stop there. She's quietly building ambitious projects like *AI Sheena* — a digital reflection of her storytelling style — and *VibeScript*, an evolving AI platform that helps people bring their ideas to life through voice and language. Both projects are still in development, but they share a common heartbeat: the belief that creativity should be accessible, empowering, and deeply human.
+
+To Sheena, *Dragon Bones & Wizards Hats* isn't just a website or a series.
+
+It's an act of imagination made visible.
+
+A way to give back to the world in stories that shimmer with wonder, consequence, and magic. Every line of dialogue. Every glowing rune. Every echo of a dragon's breath. Every perfectly-timed musical swell. All of it — a love letter to creativity itself.
+
+She believes storytelling is a gift. A way to leave behind something beautiful. Something that might inspire others to build their own worlds, write their own spells, and chase their own dragons.
+
+---
+
+Sheena doesn't just build fantasy realms.
+
+She builds *websites*.
+
+Every site she creates is crafted from the ground up — pixel by pixel, line by line, with the same obsessive attention to detail that breathes life into dragons and wizards. She codes by hand. Designs with purpose. Understands how to make a digital presence feel *alive*. User experience. Visual storytelling. Technical precision. All of it woven together like a spell.
+
+Whether you need a portfolio that shimmers. A business site that commands attention. A creative platform that captures your voice and makes it sing. Sheena brings the same artistry to every project. Modern web technologies. Responsive design. Experiences that work beautifully across every device. From concept to launch, she handles it all.
+
+This isn't template work. This isn't cookie-cutter design.
+
+This is bespoke digital craftsmanship. Built with care. Built to last.
+
+If you're looking for someone who treats your project like it matters — because it *does* — Sheena is ready to help you build something extraordinary. Something that feels like *yours*. Something that stands apart from the noise.
+
+Ready to create something magical?
+
+Reach out. Let's talk about your vision.
+
+---
+
+Because some things are worth creating.
+
+And some stories are worth telling.
