@@ -146,7 +146,8 @@
     <div class="toast" id="toast">Thanks! Your request was sent.</div>
 
     <section class="card">
-      <form action="/functions/website-request" method="POST" novalidate>
+      <!-- ✅ fixed action route -->
+      <form action="/functions/website-build-submit" method="POST" novalidate>
         <!-- Contact -->
         <h2 class="section-title">Basics</h2>
         <div class="row row-2">
@@ -192,7 +193,7 @@
           <input id="siteOther" name="siteOther" type="text" placeholder="Describe your idea" />
         </div>
 
-        <!-- Pages / Features -->
+        <!-- Pages / Budget -->
         <div class="row row-2">
           <div>
             <label for="pages">How many pages?</label>
@@ -217,6 +218,7 @@
           </div>
         </div>
 
+        <!-- Features -->
         <h2 class="section-title">Features</h2>
         <div class="options grid-3" role="group" aria-label="Features">
           <label class="option"><input type="checkbox" name="features" value="Contact form" />Contact form</label>
@@ -302,4 +304,4 @@
     }
   </script>
 </body>
-</html>
+                                                                                                                </html>
