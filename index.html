@@ -73,8 +73,10 @@
         text-decoration: none;
         font-weight: 600;
         box-shadow: 0 0 10px rgba(0, 191, 165, 0.3);
+        text-align: center;
       }
       .btn-primary:hover { filter: brightness(0.95); }
+      .btn-lg { padding: 1rem 1.6rem; font-size: 1.05rem; }
 
       .feature { text-align: center; background: var(--bg); padding: 3rem 1rem 4rem; }
       .feature h2 { color: var(--teal); margin-bottom: 1rem; }
@@ -87,10 +89,17 @@
       }
 
       .author { text-align: center; padding: 3rem 1rem 4rem; background: var(--surface); }
-      .author img {
-        width: 140px; height: 140px; border-radius: 50%; object-fit: cover;
-        margin-bottom: 1rem; border: 2px solid var(--teal);
+      /* Force portrait and button to stack and center */
+      .author .headshot {
+        display: block;
+        width: 140px; height: 140px;
+        margin: 0 auto 0.75rem;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid var(--teal);
       }
+      .author .headshot img { width: 100%; height: 100%; object-fit: cover; }
+      .author .about-btn { display: inline-block; margin: 0.5rem auto 0; }
 
       .site-footer {
         background: var(--bg);
@@ -137,14 +146,15 @@
       <section class="feature">
         <h2>The Battle of Magic & Flame</h2>
 
-        <!-- Make the tagline a link to About -->
+        <!-- Tagline turned into a big teal button -->
         <p>
-          <a href="/about.html" aria-label="Read about the world behind every story on the About page">
+          <a class="btn-primary btn-lg" href="/about.html"
+             aria-label="Read about the world behind every story on the About page">
             A glimpse of the world behind every story.
           </a>
         </p>
 
-        <!-- Make the big image a link to About -->
+        <!-- Big image links to About -->
         <a href="/about.html" aria-label="Go to About the Author">
           <img
             src="/assets/Wizard dragon battle.png"
@@ -155,13 +165,14 @@
       </section>
 
       <section class="author">
-        <!-- Make the portrait a link to About -->
-        <a href="/about.html" aria-label="About the Author">
+        <!-- Portrait centered above the About button -->
+        <a href="/about.html" class="headshot" aria-label="About the Author">
           <img src="/assets/Author.png" alt="Sheena portrait" />
         </a>
 
-        <!-- Replace heading with teal button that links to About -->
-        <a href="/about.html" class="btn-primary" aria-label="Read About the Author">About the Author</a>
+        <a href="/about.html" class="btn-primary about-btn" aria-label="Read About the Author">
+          About the Author
+        </a>
 
         <p style="margin-top:1rem">
           Sheena is the author, narrator, and creator of <em>Dragon Bones & Wizards Hats</em>. Known for her
@@ -189,7 +200,7 @@
       // LATEST STORY: derive from Stories index (Option B)
       (function () {
         const target = document.getElementById("latestStory");
-        const url = "/stories/?" + Date.now(); // cache-bust to avoid stale HTML
+        const url = "/stories/?" + Date.now(); // cache-bust
 
         fetch(url, { cache: "no-store" })
           .then((r) => (r.ok ? r.text() : Promise.reject(r.status)))
