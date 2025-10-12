@@ -133,3 +133,7 @@ body {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* Footer link theme */
+.site-footer a,
+.site-footer a:visited { color:#00bfa5; text-decoration:none; }
+.site-footer a:hover { text-decoration:underline; color:#00ffcc; }
