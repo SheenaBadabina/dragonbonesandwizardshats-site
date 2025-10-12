@@ -76,10 +76,18 @@
         text-align: center;
       }
       .btn-primary:hover { filter: brightness(0.95); }
-      .btn-lg { padding: 1rem 1.6rem; font-size: 1.05rem; }
 
-      .feature { text-align: center; background: var(--bg); padding: 3rem 1rem 4rem; }
+      .feature {
+        text-align: center;
+        background: var(--bg);
+        padding: 3rem 1rem 4rem;
+      }
       .feature h2 { color: var(--teal); margin-bottom: 1rem; }
+      .feature p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0.5rem auto 1.5rem;
+      }
       .feature img {
         width: 100%;
         max-width: 720px;
@@ -89,7 +97,6 @@
       }
 
       .author { text-align: center; padding: 3rem 1rem 4rem; background: var(--surface); }
-      /* Force portrait and button to stack and center */
       .author .headshot {
         display: block;
         width: 140px; height: 140px;
@@ -114,7 +121,6 @@
   </head>
 
   <body>
-    <!-- Header matches Stories page structure; styles come from site.css -->
     <header class="site-header">
       <a href="/" class="brand">
         <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
@@ -145,16 +151,7 @@
 
       <section class="feature">
         <h2>The Battle of Magic & Flame</h2>
-
-        <!-- Tagline turned into a big teal button -->
-        <p>
-          <a class="btn-primary btn-lg" href="/about.html"
-             aria-label="Read about the world behind every story on the About page">
-            A glimpse of the world behind every story.
-          </a>
-        </p>
-
-        <!-- Big image links to About -->
+        <p>A glimpse of the world behind every story.</p>
         <a href="/about.html" aria-label="Go to About the Author">
           <img
             src="/assets/Wizard dragon battle.png"
@@ -165,7 +162,6 @@
       </section>
 
       <section class="author">
-        <!-- Portrait centered above the About button -->
         <a href="/about.html" class="headshot" aria-label="About the Author">
           <img src="/assets/Author.png" alt="Sheena portrait" />
         </a>
@@ -194,13 +190,11 @@
     </footer>
 
     <script>
-      // Footer year
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // LATEST STORY: derive from Stories index (Option B)
       (function () {
         const target = document.getElementById("latestStory");
-        const url = "/stories/?" + Date.now(); // cache-bust
+        const url = "/stories/?" + Date.now();
 
         fetch(url, { cache: "no-store" })
           .then((r) => (r.ok ? r.text() : Promise.reject(r.status)))
