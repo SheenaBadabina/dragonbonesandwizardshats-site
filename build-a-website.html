@@ -1,0 +1,338 @@
+<!-- /build-a-website.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Have me build your website — custom, fast, human-crafted sites with a cinematic touch." />
+  <title>Have Me Build Your Website • Dragon Bones & Wizards Hats</title>
+
+  <!-- Global theme + behavior -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <script defer src="/assets/js/site.js"></script>
+
+  <!-- Page-local styles (layout + animated code ring only) -->
+  <style>
+    :root{
+      --teal:#00bfa5; --bg:#0b0f12; --surface:#0f1419; --text:#d9e1e8; --muted:#92a1ad;
+    }
+    body{ background:var(--bg); color:var(--text); line-height:1.7; }
+    main{ padding-top:80px; }
+
+    .hero{
+      background: var(--surface);
+      padding: 2.25rem 1rem 2.5rem;
+      text-align: center;
+    }
+    .hero h1{ margin:.75rem 0 .25rem; font-size:1.9rem; color:var(--teal); }
+    .hero p.lede{ margin:.25rem auto 1.25rem; max-width:760px; color:var(--muted); }
+
+    /* Avatar with animated code ring */
+    .avatar-wrap{
+      position:relative; width:min(72vw, 320px); aspect-ratio:1/1; margin:0 auto 1rem;
+      border-radius:50%; overflow:visible;
+    }
+    .avatar{
+      position:relative; width:100%; height:100%; border-radius:50%; overflow:hidden;
+      border:3px solid var(--teal); box-shadow:0 0 20px rgba(0,191,165,.25), inset 0 0 20px rgba(0,191,165,.15);
+    }
+    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    /* Rotating SVG text ring */
+    .code-ring{
+      position:absolute; inset:-12px; pointer-events:none;
+      filter: drop-shadow(0 0 6px rgba(0,191,165,.35));
+      animation:spin 12s linear infinite;
+    }
+    .glow-ring{
+      position:absolute; inset:-18px; border-radius:50%;
+      box-shadow:0 0 24px rgba(0,191,165,.35), 0 0 56px rgba(0,191,165,.25) inset;
+      pointer-events:none;
+      animation:pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes spin{ to{ transform:rotate(360deg); } }
+    @keyframes pulse{
+      0%,100%{ box-shadow:0 0 20px rgba(0,191,165,.28), 0 0 40px rgba(0,191,165,.18) inset; }
+      50%{ box-shadow:0 0 32px rgba(0,191,165,.45), 0 0 70px rgba(0,191,165,.32) inset; }
+    }
+    @media (prefers-reduced-motion:reduce){
+      .code-ring,.glow-ring{ animation:none; }
+    }
+
+    .cta-row{
+      display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; margin-top:.5rem;
+    }
+    .btn-primary{
+      display:inline-block; background:var(--teal); color:#00110e;
+      text-decoration:none; font-weight:600; border-radius:10px;
+      padding:.9rem 1.35rem; box-shadow:0 0 10px rgba(0,191,165,.3);
+    }
+    .btn-primary:hover{ filter:brightness(.96); }
+
+    .content{ max-width:980px; margin:0 auto; padding:2rem 1rem 3rem; }
+
+    .card{
+      background:var(--surface); border-radius:12px; padding:1.1rem 1rem;
+      box-shadow:0 0 15px rgba(0,191,165,.18);
+    }
+    .grid{ display:grid; gap:1rem; }
+    @media(min-width:760px){
+      .grid-2{ grid-template-columns:1fr 1fr; }
+    }
+    .section-title{ color:var(--teal); margin:1.25rem 0 .5rem; font-size:1.45rem; }
+
+    /* Form */
+    form label{ display:block; font-weight:600; margin:.45rem 0 .25rem; }
+    form .hint{ color:var(--muted); font-size:.93rem; margin:.1rem 0 .35rem; }
+    input[type="text"],input[type="email"],select,textarea{
+      width:100%; background:#0b1014; color:var(--text);
+      border:1px solid #12343a; border-radius:10px; padding:.7rem .8rem;
+    }
+    textarea{ min-height:140px; resize:vertical; }
+    .check-row{ display:flex; flex-wrap:wrap; gap:.6rem 1rem; }
+    .check-row label{ font-weight:500; display:inline-flex; gap:.45rem; align-items:center; }
+    .actions{ margin-top:1rem; display:flex; gap:.7rem; align-items:center; }
+    .required{ color:#ffa6a6; font-weight:600; margin-left:.25rem; }
+
+    /* Toast (style also exists in site.css; kept compatible) */
+    #toast {
+      background: rgba(0,191,165,0.20);
+      border: 1px solid #00bfa5;
+      color: #00ffcc;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 500;
+      box-shadow: 0 0 10px rgba(0,191,165,0.3);
+      animation: fadeIn .6s ease-out;
+      margin-bottom:1rem;
+    }
+    @keyframes fadeIn { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;} }
+
+    .muted{ color:var(--muted); }
+    .collapsible summary{ cursor:pointer; color:var(--teal); font-weight:600; }
+    .collapsible{ background:rgba(0,0,0,.25); border:1px solid #113c37; border-radius:10px; padding:.75rem 1rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Global header (matches Stories page) -->
+  <header class="site-header">
+    <a href="/" class="brand">
+      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
+      <span class="brand-text">Dragon Bones & Wizards Hats</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <nav class="site-nav" data-collapsible>
+      <a href="/">Home</a>
+      <a href="/stories/">Stories</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/work-with-me.html">Work With Me</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="avatar-wrap" aria-hidden="true">
+        <div class="avatar">
+          <img src="/assets/sheena-nerdy-programmer-copper-code-1000x1000.png" alt="Sheena in copper blouse with gold code inlay" />
+        </div>
+
+        <!-- SVG text ring (animated) -->
+        <svg class="code-ring" viewBox="0 0 100 100" aria-hidden="true">
+          <defs>
+            <path id="r" d="M50,50 m-44,0 a44,44 0 1,0 88,0 a44,44 0 1,0 -88,0" />
+          </defs>
+          <text font-size="5" fill="#00e1c8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">
+            <textPath href="#r" startOffset="0%">
+              const let () => {} [] <> /* render() */ import async await if (ctx) return; 0 1 0 1 0 1
+            </textPath>
+          </text>
+        </svg>
+        <div class="glow-ring" aria-hidden="true"></div>
+      </div>
+
+      <h1>Have Me Build Your Website</h1>
+      <p class="lede">Custom, fast, human-crafted sites—designed, written, and shipped with care.</p>
+
+      <div class="cta-row">
+        <a class="btn-primary" href="#request">Start Your Request</a>
+        <a class="btn-primary" href="#process">See Process</a>
+      </div>
+    </section>
+
+    <section class="content grid grid-2">
+      <!-- What you get -->
+      <div class="card">
+        <h2 class="section-title">What You Get</h2>
+        <ul>
+          <li>Clean, accessible HTML/CSS/JS</li>
+          <li>Cloudflare Pages hosting</li>
+          <li>Performance-focused & mobile-first</li>
+          <li>Optional AI-assisted imagery & copy</li>
+          <li>Simple maintenance—no heavy CMS required (unless you want one)</li>
+        </ul>
+        <details id="process" class="collapsible" style="margin-top:.75rem">
+          <summary>Process (Discovery → Launch)</summary>
+          <p class="muted" style="margin:.5rem 0 0">
+            Discovery → Proposal → Build → Review → Launch → Support. Assets are emailed after kickoff.
+          </p>
+        </details>
+      </div>
+
+      <!-- Request form -->
+      <div class="card" id="request">
+        <div id="toast" style="display:none;">Thanks! I’ll reply within 1–2 business days.</div>
+
+        <h2 class="section-title">Start Your Request</h2>
+        <form action="/functions/website-build-submit" method="post" novalidate>
+          <!-- Contact -->
+          <label for="name">Your Name<span class="required">*</span></label>
+          <input id="name" name="name" type="text" required />
+
+          <label for="email">Email<span class="required">*</span></label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required />
+
+          <label for="company">Company / Organization</label>
+          <input id="company" name="company" type="text" />
+
+          <!-- Domain -->
+          <label for="domain_current">Current Domain</label>
+          <input id="domain_current" name="domain_current" type="text" placeholder="example.com" />
+          <div class="hint">If you already own one.</div>
+
+          <label>Do you need a domain?</label>
+          <div class="check-row" role="group" aria-label="Domain needed">
+            <label><input type="radio" name="domain_needed" value="yes"> Yes</label>
+            <label><input type="radio" name="domain_needed" value="no"> No</label>
+            <label><input type="radio" name="domain_needed" value="unsure" checked> Unsure</label>
+          </div>
+
+          <!-- Site type -->
+          <label>Type of Site</label>
+          <div class="check-row">
+            <label><input type="checkbox" name="site_type" value="portfolio"> Portfolio</label>
+            <label><input type="checkbox" name="site_type" value="personal/author"> Personal/Author</label>
+            <label><input type="checkbox" name="site_type" value="small-business"> Small business</label>
+            <label><input type="checkbox" name="site_type" value="nonprofit"> Nonprofit</label>
+            <label><input type="checkbox" name="site_type" value="blog"> Blog</label>
+            <label><input type="checkbox" name="site_type" value="ecommerce"> e-commerce</label>
+            <label><input type="checkbox" name="site_type" value="booking/scheduling"> Booking</label>
+            <label><input type="checkbox" name="site_type" value="landing-page"> Landing page</label>
+            <label><input type="checkbox" name="site_type" value="other"> Other</label>
+          </div>
+          <label for="site_type_other">If “Other,” what did you have in mind?</label>
+          <input id="site_type_other" name="site_type_other" type="text" />
+
+          <!-- Pages -->
+          <label for="pages_estimate">How many pages?</label>
+          <select id="pages_estimate" name="pages_estimate">
+            <option>1</option><option>2–3</option><option>4–6</option><option>7–10</option><option>10+</option>
+          </select>
+
+          <!-- Features -->
+          <label>Features</label>
+          <div class="check-row">
+            <label><input type="checkbox" name="feature" value="contact_form"> Contact form</label>
+            <label><input type="checkbox" name="feature" value="email_newsletter"> Email newsletter</label>
+            <label><input type="checkbox" name="feature" value="audio_podcast"> Audio / Podcast</label>
+            <label><input type="checkbox" name="feature" value="video_embed"> Video embeds</label>
+            <label><input type="checkbox" name="feature" value="gallery"> Gallery</label>
+            <label><input type="checkbox" name="feature" value="map"> Map</label>
+            <label><input type="checkbox" name="feature" value="faq"> FAQ</label>
+            <label><input type="checkbox" name="feature" value="legal_pages"> Legal pages</label>
+            <label><input type="checkbox" name="feature" value="other"> Other</label>
+          </div>
+          <label for="features_other_text">If “Other,” list any special features</label>
+          <input id="features_other_text" name="features_other_text" type="text" />
+
+          <!-- Content & images -->
+          <label>Content readiness</label>
+          <div class="check-row">
+            <label><input type="radio" name="content_status" value="have_copy"> I have my copy</label>
+            <label><input type="radio" name="content_status" value="need_help_writing"> Need help writing</label>
+            <label><input type="radio" name="content_status" value="mix" checked> A mix</label>
+          </div>
+
+          <label>Images & artwork</label>
+          <div class="check-row">
+            <label><input type="radio" name="images_status" value="have_images"> I have images</label>
+            <label><input type="radio" name="images_status" value="need_ai_images"> Please generate images</label>
+            <label><input type="radio" name="images_status" value="mix" checked> A mix</label>
+          </div>
+          <div class="hint">If we move forward, you can email me assets directly for staging.</div>
+
+          <!-- Budget & timeline -->
+          <label for="budget">Budget</label>
+          <select id="budget" name="budget">
+            <option>&lt;$500</option><option>$500–$1,500</option>
+            <option>$1,500–$3,000</option><option>$3,000+</option><option>unsure</option>
+          </select>
+
+          <label for="timeline">Timeline</label>
+          <select id="timeline" name="timeline">
+            <option>rush (&lt;2 weeks)</option><option>2–4 weeks</option>
+            <option>1–2 months</option><option>flexible</option>
+          </select>
+
+          <!-- Description -->
+          <label for="message">Brief description of the project<span class="required">*</span></label>
+          <textarea id="message" name="message" required placeholder="Goals, vibe, references, special pages…"></textarea>
+
+          <!-- Consent & honeypot -->
+          <label>
+            <input type="checkbox" name="agree_contact" value="yes" required />
+            You can email me about this request.<span class="required">*</span>
+          </label>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute; left:-5000px; opacity:0;" aria-hidden="true" />
+
+          <!-- Turnstile -->
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0vOSqh9kDdb7s_"></div>
+
+          <div class="actions">
+            <button class="btn-primary" type="submit">Send Request</button>
+            <span class="muted">I typically reply within 1–2 business days.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      © <span id="year"></span> dragonbonesandwizardshats •
+      <a href="/work-with-me.html">Work With Me</a> •
+      <a href="/terms-of-use.html">Terms</a> •
+      <a href="/privacy-policy.html">Privacy</a> •
+      <a href="/contact.html">Contact</a>
+    </p>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Toast on ?sent=1
+    const params = new URLSearchParams(location.search);
+    if (params.get('sent') === '1') {
+      const t = document.getElementById('toast');
+      if (t) t.style.display = 'block';
+    }
+
+    // Simple client-side required checks
+    document.querySelector('form')?.addEventListener('submit', (e) => {
+      const f = e.currentTarget;
+      const required = ['name','email','message'];
+      for (const id of required) {
+        const el = f.querySelector('#' + id);
+        if (!el || !el.value.trim()) {
+          e.preventDefault();
+          el?.focus();
+          alert('Please fill out the required fields.');
+          return;
+        }
+      }
+    });
+  </script>
+</body>
+  </html>
