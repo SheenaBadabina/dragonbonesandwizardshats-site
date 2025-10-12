@@ -9,122 +9,26 @@
     />
     <title>Dragon Bones & Wizards Hats</title>
 
+    <!-- Global theme + behavior -->
     <link rel="stylesheet" href="/assets/css/site.css" />
     <script defer src="/assets/js/site.js"></script>
 
+    <!-- Page-local layout only (doesn't touch global header/nav styles) -->
     <style>
+      :root {
+        --teal: #00bfa5;
+        --bg: #0b0f12;
+        --surface: #0f1419;
+        --text: #d9e1e8;
+        --muted: #92a1ad;
+      }
+
       body {
         margin: 0;
-        font-family: system-ui, Inter, Roboto, sans-serif;
-        background-color: #0b0f12;
-        color: #d9e1e8;
+        font-family: system-ui, Inter, Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
         line-height: 1.7;
-      }
-      /* Prevent background scroll when mobile menu open */
-      body.menu-open { overflow: hidden; }
-
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 1.5rem;
-        background: rgba(11, 15, 18, 0.8);
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        backdrop-filter: blur(6px);
-      }
-      header img.logo { height: 48px; width: auto; }
-
-      /* Desktop nav */
-      nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 1.2rem;
-      }
-      nav a {
-        color: #d9e1e8;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.2s, outline-color .2s;
-        outline-color: #00bfa5;
-      }
-      nav a:hover,
-      nav a:focus-visible { color: #00bfa5; }
-
-      /* Hamburger button */
-      .menu-toggle {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        gap: 5px;
-        border: 0;
-        background: transparent;
-        padding: 6px;
-      }
-      .menu-toggle span {
-        width: 26px;
-        height: 3px;
-        background: #d9e1e8;
-        border-radius: 3px;
-      }
-      .menu-toggle:focus-visible { outline: 2px solid #00bfa5; outline-offset: 3px; }
-
-      /* Mobile menu + backdrop */
-      .mobile-backdrop {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,.45);
-        backdrop-filter: blur(2px);
-        display: none;
-        z-index: 999; /* one below header, above page */
-      }
-      .mobile-backdrop.show { display: block; }
-
-      @media (max-width: 720px) {
-        /* Hide desktop list; use slide-down panel */
-        nav ul {
-          display: none;
-        }
-        .menu-toggle { display: flex; }
-
-        .mobile-panel {
-          position: absolute;
-          top: 64px;        /* below header */
-          right: 12px;
-          width: min(78vw, 280px);
-          background: #0f1419;
-          border: 1px solid #00bfa5;
-          border-radius: 10px;
-          box-shadow: 0 10px 30px rgba(0,0,0,.45);
-          display: none;
-          z-index: 1001;
-          overflow: hidden;
-        }
-        .mobile-panel.open { display: block; }
-
-        .mobile-panel ul {
-          list-style: none;
-          margin: 0;
-          padding: .5rem 0;
-          display: grid;
-        }
-        .mobile-panel li { padding: 0; }
-        .mobile-panel a {
-          display: block;
-          padding: .85rem 1rem;
-          color: #e9eef3;
-          text-decoration: none;
-        }
-        .mobile-panel a:hover,
-        .mobile-panel a:focus-visible {
-          background: rgba(0,191,165,0.12);
-          color: #00ffcc;
-          outline: none;
-        }
       }
 
       main { padding-top: 80px; }
@@ -135,37 +39,45 @@
         padding: 6rem 1rem 4rem;
       }
       .hero img.logo { width: 120px; height: auto; margin-bottom: 1rem; }
-      .hero h1 { font-size: 2rem; margin: 0.5rem 0; color: #00bfa5; }
+      .hero h1 { font-size: 2rem; margin: 0.5rem 0; color: var(--teal); }
 
       .latest {
         text-align: center;
         padding: 2rem 1rem 3rem;
-        background: #0f1419;
+        background: var(--surface);
+      }
+      .latest h2 { color: var(--teal); }
+      .latest p { max-width: 600px; margin: 1rem auto; color: var(--muted); }
+      .latest .card {
+        margin: 0 auto;
+        max-width: 460px;
+        background: rgba(0,0,0,0.35);
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0,191,165,0.2);
+        padding: 1rem;
       }
       .latest img {
         width: 100%;
-        max-width: 400px;
+        max-width: 420px;
         border-radius: 12px;
         box-shadow: 0 0 15px rgba(0, 191, 165, 0.2);
       }
-      .latest h2 { color: #00bfa5; }
-      .latest p { max-width: 600px; margin: 1rem auto; color: #92a1ad; }
 
       .btn-primary {
         display: inline-block;
         margin-top: 1rem;
-        background: #00bfa5;
-        color: #0b0f12;
+        background: var(--teal);
+        color: var(--bg);
         padding: 0.8rem 1.4rem;
         border-radius: 8px;
         text-decoration: none;
         font-weight: 600;
         box-shadow: 0 0 10px rgba(0, 191, 165, 0.3);
       }
-      .btn-primary:hover { background: #00a892; }
+      .btn-primary:hover { filter: brightness(0.95); }
 
-      .feature { text-align: center; background: #0b0f12; padding: 3rem 1rem 4rem; }
-      .feature h2 { color: #00bfa5; margin-bottom: 1rem; }
+      .feature { text-align: center; background: var(--bg); padding: 3rem 1rem 4rem; }
+      .feature h2 { color: var(--teal); margin-bottom: 1rem; }
       .feature img {
         width: 100%;
         max-width: 720px;
@@ -174,61 +86,41 @@
         box-shadow: 0 0 15px rgba(0, 191, 165, 0.25);
       }
 
-      .author { text-align: center; padding: 3rem 1rem 4rem; background: #0f1419; }
+      .author { text-align: center; padding: 3rem 1rem 4rem; background: var(--surface); }
       .author img {
         width: 140px; height: 140px; border-radius: 50%; object-fit: cover;
-        margin-bottom: 1rem; border: 2px solid #00bfa5;
+        margin-bottom: 1rem; border: 2px solid var(--teal);
       }
 
-      footer {
-        background: #0b0f12;
+      .site-footer {
+        background: var(--bg);
         padding: 1.2rem 1rem;
         text-align: center;
         font-size: 0.9rem;
-        color: #92a1ad;
+        color: var(--muted);
       }
-      footer a { color: #00bfa5; text-decoration: none; margin: 0 0.4rem; }
-      footer a:hover { text-decoration: underline; }
+      .site-footer a { color: var(--teal); text-decoration: none; margin: 0 0.4rem; }
+      .site-footer a:hover { text-decoration: underline; }
     </style>
   </head>
 
   <body>
-    <header>
-      <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats" class="logo" />
-
-      <!-- Accessible hamburger -->
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Menu"
-        aria-controls="mobileMenu"
-        aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-      <!-- Desktop nav -->
-      <nav aria-label="Primary">
-        <ul class="desktop-list">
-          <li><a href="/">Home</a></li>
-          <li><a href="/stories/">Stories</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/work-with-me.html">Work With Me</a></li>
-        </ul>
+    <!-- Header matches Stories page structure; styles come from site.css -->
+    <header class="site-header">
+      <a href="/" class="brand">
+        <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
+        <span class="brand-text">Dragon Bones & Wizards Hats</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <nav class="site-nav" data-collapsible>
+        <a href="/">Home</a>
+        <a href="/stories/">Stories</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/work-with-me.html">Work With Me</a>
       </nav>
-
-      <!-- Mobile overlay + panel -->
-      <div class="mobile-backdrop" id="mobileBackdrop"></div>
-      <div class="mobile-panel" id="mobileMenu">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/stories/">Stories</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/work-with-me.html">Work With Me</a></li>
-        </ul>
-      </div>
     </header>
 
-    <main>
+    <main class="container">
       <section class="hero">
         <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" class="logo" />
         <h1>Dragon Bones & Wizards Hats</h1>
@@ -237,7 +129,7 @@
 
       <section class="latest">
         <h2>Latest Story</h2>
-        <div id="latestStory">
+        <div id="latestStory" class="card">
           <p>Loading latest story…</p>
         </div>
       </section>
@@ -274,57 +166,42 @@
     </footer>
 
     <script>
-      // dynamic year
+      // Footer year
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // MOBILE MENU BEHAVIOR: open/close + backdrop + ESC + click-outside + scroll lock
-      const btn = document.getElementById("menuToggle");
-      const panel = document.getElementById("mobileMenu");
-      const backdrop = document.getElementById("mobileBackdrop");
+      // LATEST STORY: derive from Stories index (Option B)
+      (function () {
+        const target = document.getElementById("latestStory");
+        const url = "/stories/?" + Date.now(); // cache-bust to avoid stale HTML
 
-      function openMenu() {
-        panel.classList.add("open");
-        backdrop.classList.add("show");
-        document.body.classList.add("menu-open");
-        btn.setAttribute("aria-expanded", "true");
-        // focus first link for accessibility
-        const first = panel.querySelector("a");
-        if (first) first.focus({ preventScroll: true });
-      }
-      function closeMenu() {
-        panel.classList.remove("open");
-        backdrop.classList.remove("show");
-        document.body.classList.remove("menu-open");
-        btn.setAttribute("aria-expanded", "false");
-        btn.focus({ preventScroll: true });
-      }
-      btn.addEventListener("click", () => {
-        const expanded = btn.getAttribute("aria-expanded") === "true";
-        expanded ? closeMenu() : openMenu();
-      });
-      backdrop.addEventListener("click", closeMenu);
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeMenu();
-      });
+        fetch(url, { cache: "no-store" })
+          .then((r) => (r.ok ? r.text() : Promise.reject(r.status)))
+          .then((html) => {
+            const doc = new DOMParser().parseFromString(html, "text/html");
+            const card = doc.querySelector("a.story-card");
+            if (!card) throw new Error("No story card found on /stories/");
 
-      // load latest story from JSON
-      fetch("/assets/stories.json", { cache: "no-store" })
-        .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-        .then((stories) => {
-          const story = stories[0];
-          if (!story) throw new Error("No stories found");
-          const div = document.getElementById("latestStory");
-          div.innerHTML = `
-            <img src="${encodeURI(story.image)}" alt="${story.title}" loading="lazy">
-            <h3>${story.title}</h3>
-            <p>${story.description}</p>
-            <a href="${story.link}" class="btn-primary">Read Now</a>
-          `;
-        })
-        .catch(() => {
-          document.getElementById("latestStory").innerHTML =
-            "<p>Could not load the latest story.</p>";
-        });
+            const href = card.getAttribute("href") || "/stories/";
+            const imgEl = card.querySelector("img");
+            const titleEl = card.querySelector("h2, h3");
+            const descEl = card.querySelector("p");
+
+            const imgSrc = imgEl ? encodeURI(imgEl.getAttribute("src")) : "";
+            const imgAlt = imgEl ? (imgEl.getAttribute("alt") || "Story cover") : "Story cover";
+            const title = titleEl ? titleEl.textContent.trim() : "Latest Story";
+            const desc = descEl ? descEl.textContent.trim() : "New on the site.";
+
+            target.innerHTML = `
+              ${imgSrc ? `<img src="${imgSrc}" alt="${imgAlt}" loading="lazy">` : ""}
+              <h3 style="margin-top:0.75rem;">${title}</h3>
+              <p>${desc}</p>
+              <a href="${href}" class="btn-primary">Read Now</a>
+            `;
+          })
+          .catch(() => {
+            target.innerHTML = `<p>Could not load the latest story.</p>`;
+          });
+      })();
     </script>
   </body>
 </html>
