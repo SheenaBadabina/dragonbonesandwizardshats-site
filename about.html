@@ -104,7 +104,7 @@
     /* ===== Bio (TXT source of truth) ===== */
     .about-prose {
       max-width:980px;
-      margin: 1rem auto 2.5rem;
+      margin: 1rem auto 1.25rem;
       padding: 0 1rem;
     }
     #aboutText {
@@ -121,15 +121,14 @@
       box-shadow: 0 0 15px rgba(0,191,165,.15);
     }
 
-    /* CTA buttons (theme-consistent) */
-    .cta {
-      display:grid;
-      gap:.75rem;
-      grid-template-columns: 1fr;
-      max-width: 720px;
-      margin: 0 auto 3rem;
+    /* CTA block just below the about text */
+    .cta-single {
+      max-width:720px;
+      margin: 0.5rem auto 2rem;
       padding: 0 1rem;
+      text-align:center;
     }
+    .cta-single p { margin: 0 0 .6rem; color: var(--muted); }
     .btn {
       display:inline-block;
       text-align:center;
@@ -143,6 +142,15 @@
     }
     .btn:hover { filter:brightness(.95); }
 
+    /* Multi-CTA buttons section */
+    .cta {
+      display:grid;
+      gap:.75rem;
+      grid-template-columns: 1fr;
+      max-width: 720px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
     @media (min-width:720px){
       .cta { grid-template-columns: repeat(3, 1fr); }
     }
@@ -170,7 +178,7 @@
   </header>
 
   <main class="container">
-    <!-- NEW: portrait at the very top with animated ring -->
+    <!-- Portrait at the very top with animated ring -->
     <section class="portrait-hero" aria-label="Author portrait">
       <figure class="orb">
         <img
@@ -188,7 +196,13 @@
       <pre id="aboutText">Loading…</pre>
     </section>
 
-    <!-- Call-to-action buttons -->
+    <!-- NEW: Single CTA to the website-build page -->
+    <section class="cta-single" aria-label="Website build call to action">
+      <p>Want a site with this vibe and polish?</p>
+      <a class="btn" href="/build-a-website.html">Build My Website</a>
+    </section>
+
+    <!-- Existing call-to-action buttons -->
     <section class="cta" aria-label="Explore more">
       <a class="btn" href="https://sheenasadventures.com" target="_blank" rel="noopener">Visit Sheena’s Adventures</a>
       <a class="btn" href="https://www.youtube.com/@SheenasAdventures" target="_blank" rel="noopener">Sheena’s Adventures on YouTube</a>
@@ -221,4 +235,4 @@
     })();
   </script>
 </body>
-  </html>
+</html>
