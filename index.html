@@ -20,6 +20,8 @@
         color: #d9e1e8;
         line-height: 1.7;
       }
+      /* Prevent background scroll when mobile menu open */
+      body.menu-open { overflow: hidden; }
 
       header {
         display: flex;
@@ -30,15 +32,12 @@
         position: fixed;
         width: 100%;
         top: 0;
-        z-index: 999;
+        z-index: 1000;
         backdrop-filter: blur(6px);
       }
+      header img.logo { height: 48px; width: auto; }
 
-      header img.logo {
-        height: 48px;
-        width: auto;
-      }
-
+      /* Desktop nav */
       nav ul {
         list-style: none;
         margin: 0;
@@ -46,96 +45,111 @@
         display: flex;
         gap: 1.2rem;
       }
-
       nav a {
         color: #d9e1e8;
         text-decoration: none;
         font-weight: 500;
-        transition: color 0.2s;
+        transition: color 0.2s, outline-color .2s;
+        outline-color: #00bfa5;
       }
+      nav a:hover,
+      nav a:focus-visible { color: #00bfa5; }
 
-      nav a:hover {
-        color: #00bfa5;
-      }
-
-      /* Hamburger menu */
+      /* Hamburger button */
       .menu-toggle {
         display: none;
         flex-direction: column;
         cursor: pointer;
         gap: 5px;
+        border: 0;
+        background: transparent;
+        padding: 6px;
       }
-
       .menu-toggle span {
-        width: 24px;
+        width: 26px;
         height: 3px;
         background: #d9e1e8;
         border-radius: 3px;
       }
+      .menu-toggle:focus-visible { outline: 2px solid #00bfa5; outline-offset: 3px; }
+
+      /* Mobile menu + backdrop */
+      .mobile-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,.45);
+        backdrop-filter: blur(2px);
+        display: none;
+        z-index: 999; /* one below header, above page */
+      }
+      .mobile-backdrop.show { display: block; }
 
       @media (max-width: 720px) {
+        /* Hide desktop list; use slide-down panel */
         nav ul {
           display: none;
-          flex-direction: column;
+        }
+        .menu-toggle { display: flex; }
+
+        .mobile-panel {
           position: absolute;
-          top: 70px;
-          right: 0;
+          top: 64px;        /* below header */
+          right: 12px;
+          width: min(78vw, 280px);
           background: #0f1419;
-          width: 200px;
-          border-left: 1px solid #00bfa5;
+          border: 1px solid #00bfa5;
+          border-radius: 10px;
+          box-shadow: 0 10px 30px rgba(0,0,0,.45);
+          display: none;
+          z-index: 1001;
+          overflow: hidden;
         }
-        nav ul.active {
-          display: flex;
+        .mobile-panel.open { display: block; }
+
+        .mobile-panel ul {
+          list-style: none;
+          margin: 0;
+          padding: .5rem 0;
+          display: grid;
         }
-        .menu-toggle {
-          display: flex;
+        .mobile-panel li { padding: 0; }
+        .mobile-panel a {
+          display: block;
+          padding: .85rem 1rem;
+          color: #e9eef3;
+          text-decoration: none;
+        }
+        .mobile-panel a:hover,
+        .mobile-panel a:focus-visible {
+          background: rgba(0,191,165,0.12);
+          color: #00ffcc;
+          outline: none;
         }
       }
 
-      main {
-        padding-top: 80px;
-      }
+      main { padding-top: 80px; }
 
       .hero {
         background: url("/assets/Bannerdbwh.png") center center / cover fixed;
         text-align: center;
         padding: 6rem 1rem 4rem;
       }
-
-      .hero img.logo {
-        width: 120px;
-        height: auto;
-        margin-bottom: 1rem;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-        margin: 0.5rem 0;
-        color: #00bfa5;
-      }
+      .hero img.logo { width: 120px; height: auto; margin-bottom: 1rem; }
+      .hero h1 { font-size: 2rem; margin: 0.5rem 0; color: #00bfa5; }
 
       .latest {
         text-align: center;
         padding: 2rem 1rem 3rem;
         background: #0f1419;
       }
-
       .latest img {
         width: 100%;
         max-width: 400px;
         border-radius: 12px;
         box-shadow: 0 0 15px rgba(0, 191, 165, 0.2);
       }
-
-      .latest h2 {
-        color: #00bfa5;
-      }
-
-      .latest p {
-        max-width: 600px;
-        margin: 1rem auto;
-        color: #92a1ad;
-      }
+      .latest h2 { color: #00bfa5; }
+      .latest p { max-width: 600px; margin: 1rem auto; color: #92a1ad; }
 
       .btn-primary {
         display: inline-block;
@@ -148,22 +162,10 @@
         font-weight: 600;
         box-shadow: 0 0 10px rgba(0, 191, 165, 0.3);
       }
+      .btn-primary:hover { background: #00a892; }
 
-      .btn-primary:hover {
-        background: #00a892;
-      }
-
-      .feature {
-        text-align: center;
-        background: #0b0f12;
-        padding: 3rem 1rem 4rem;
-      }
-
-      .feature h2 {
-        color: #00bfa5;
-        margin-bottom: 1rem;
-      }
-
+      .feature { text-align: center; background: #0b0f12; padding: 3rem 1rem 4rem; }
+      .feature h2 { color: #00bfa5; margin-bottom: 1rem; }
       .feature img {
         width: 100%;
         max-width: 720px;
@@ -172,19 +174,10 @@
         box-shadow: 0 0 15px rgba(0, 191, 165, 0.25);
       }
 
-      .author {
-        text-align: center;
-        padding: 3rem 1rem 4rem;
-        background: #0f1419;
-      }
-
+      .author { text-align: center; padding: 3rem 1rem 4rem; background: #0f1419; }
       .author img {
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 1rem;
-        border: 2px solid #00bfa5;
+        width: 140px; height: 140px; border-radius: 50%; object-fit: cover;
+        margin-bottom: 1rem; border: 2px solid #00bfa5;
       }
 
       footer {
@@ -194,33 +187,45 @@
         font-size: 0.9rem;
         color: #92a1ad;
       }
-
-      footer a {
-        color: #00bfa5;
-        text-decoration: none;
-        margin: 0 0.4rem;
-      }
-
-      footer a:hover {
-        text-decoration: underline;
-      }
+      footer a { color: #00bfa5; text-decoration: none; margin: 0 0.4rem; }
+      footer a:hover { text-decoration: underline; }
     </style>
   </head>
 
   <body>
     <header>
       <img src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats" class="logo" />
-      <div class="menu-toggle" id="menuToggle">
+
+      <!-- Accessible hamburger -->
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Menu"
+        aria-controls="mobileMenu"
+        aria-expanded="false">
         <span></span><span></span><span></span>
-      </div>
-      <nav>
-        <ul id="navList">
+      </button>
+
+      <!-- Desktop nav -->
+      <nav aria-label="Primary">
+        <ul class="desktop-list">
           <li><a href="/">Home</a></li>
           <li><a href="/stories/">Stories</a></li>
           <li><a href="/contact.html">Contact</a></li>
           <li><a href="/work-with-me.html">Work With Me</a></li>
         </ul>
       </nav>
+
+      <!-- Mobile overlay + panel -->
+      <div class="mobile-backdrop" id="mobileBackdrop"></div>
+      <div class="mobile-panel" id="mobileMenu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/stories/">Stories</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/work-with-me.html">Work With Me</a></li>
+        </ul>
+      </div>
     </header>
 
     <main>
@@ -258,9 +263,10 @@
       </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
       <p>
         © <span id="year"></span> dragonbonesandwizardshats •
+        <a href="/work-with-me.html">Work With Me</a> •
         <a href="/terms-of-use.html">Terms</a> •
         <a href="/privacy-policy.html">Privacy</a> •
         <a href="/contact.html">Contact</a>
@@ -268,13 +274,38 @@
     </footer>
 
     <script>
-      // hamburger toggle
-      const menuToggle = document.getElementById("menuToggle");
-      const navList = document.getElementById("navList");
-      menuToggle.addEventListener("click", () => navList.classList.toggle("active"));
-
       // dynamic year
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // MOBILE MENU BEHAVIOR: open/close + backdrop + ESC + click-outside + scroll lock
+      const btn = document.getElementById("menuToggle");
+      const panel = document.getElementById("mobileMenu");
+      const backdrop = document.getElementById("mobileBackdrop");
+
+      function openMenu() {
+        panel.classList.add("open");
+        backdrop.classList.add("show");
+        document.body.classList.add("menu-open");
+        btn.setAttribute("aria-expanded", "true");
+        // focus first link for accessibility
+        const first = panel.querySelector("a");
+        if (first) first.focus({ preventScroll: true });
+      }
+      function closeMenu() {
+        panel.classList.remove("open");
+        backdrop.classList.remove("show");
+        document.body.classList.remove("menu-open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.focus({ preventScroll: true });
+      }
+      btn.addEventListener("click", () => {
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        expanded ? closeMenu() : openMenu();
+      });
+      backdrop.addEventListener("click", closeMenu);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
 
       // load latest story from JSON
       fetch("/assets/stories.json", { cache: "no-store" })
