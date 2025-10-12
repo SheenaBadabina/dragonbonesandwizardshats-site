@@ -1,122 +1,124 @@
-<!-- /build-a-website.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Have me build your website — custom, fast, human-crafted sites with a cinematic touch." />
-  <title>Have Me Build Your Website • Dragon Bones & Wizards Hats</title>
+  <meta name="description" content="Have me build your website — fast, clean, and cinematic. Tell me what you need and I’ll design, author, and ship it." />
+  <title>Have Me Build Your Website</title>
 
   <!-- Global theme + behavior -->
   <link rel="stylesheet" href="/assets/css/site.css" />
   <script defer src="/assets/js/site.js"></script>
 
-  <!-- Page-local styles (layout + animated code ring only) -->
+  <!-- Page-local styles (layout only; no overrides to global header/nav rules) -->
   <style>
     :root{
-      --teal:#00bfa5; --bg:#0b0f12; --surface:#0f1419; --text:#d9e1e8; --muted:#92a1ad;
+      --teal:#00bfa5;
+      --bg:#0b0f12;
+      --surface:#0f1419;
+      --text:#d9e1e8;
+      --muted:#92a1ad;
+      --ring:#00ffcc;
     }
-    body{ background:var(--bg); color:var(--text); line-height:1.7; }
-    main{ padding-top:80px; }
+    body{ background:var(--bg); color:var(--text); }
+
+    main{ padding-top:84px; }
 
     .hero{
-      background: var(--surface);
-      padding: 2.25rem 1rem 2.5rem;
-      text-align: center;
+      padding:2.25rem 1rem 1rem;
+      text-align:center;
+      background:linear-gradient(180deg, rgba(0,191,165,.08), transparent 60%);
     }
-    .hero h1{ margin:.75rem 0 .25rem; font-size:1.9rem; color:var(--teal); }
-    .hero p.lede{ margin:.25rem auto 1.25rem; max-width:760px; color:var(--muted); }
+    .hero h1{ margin:.5rem 0 0; font-size:1.9rem; color:var(--teal); }
+    .hero p{ margin:.35rem auto 0; max-width:720px; color:var(--muted); }
 
-    /* Avatar with animated code ring */
-    .avatar-wrap{
-      position:relative; width:min(72vw, 320px); aspect-ratio:1/1; margin:0 auto 1rem;
-      border-radius:50%; overflow:visible;
+    /* Portrait with animated “code ring” */
+    .portrait-wrap{
+      width:180px; height:180px; margin:0 auto 1rem; position:relative;
+      border-radius:50%; overflow:hidden; filter:drop-shadow(0 6px 24px rgba(0,191,165,.25));
     }
-    .avatar{
-      position:relative; width:100%; height:100%; border-radius:50%; overflow:hidden;
-      border:3px solid var(--teal); box-shadow:0 0 20px rgba(0,191,165,.25), inset 0 0 20px rgba(0,191,165,.15);
+    .portrait{
+      width:100%; height:100%; object-fit:cover; border-radius:50%;
+      border:2px solid var(--teal);
     }
-    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
-
-    /* Rotating SVG text ring */
     .code-ring{
-      position:absolute; inset:-12px; pointer-events:none;
-      filter: drop-shadow(0 0 6px rgba(0,191,165,.35));
-      animation:spin 12s linear infinite;
-    }
-    .glow-ring{
-      position:absolute; inset:-18px; border-radius:50%;
-      box-shadow:0 0 24px rgba(0,191,165,.35), 0 0 56px rgba(0,191,165,.25) inset;
       pointer-events:none;
-      animation:pulse 2.2s ease-in-out infinite;
+      position:absolute; inset:-6px; border-radius:50%;
+      --d: 260deg;
+      background:
+        conic-gradient(from 0deg at 50% 50%, rgba(0,0,0,0) var(--d), rgba(0,255,204,.35) calc(var(--d) + 2deg), rgba(0,0,0,0) calc(var(--d) + 10deg)) ,
+        radial-gradient(closest-side, rgba(0,255,204,.15), rgba(0,0,0,0) 70%);
+      animation: spin 6s linear infinite, pulse 2.6s ease-in-out infinite;
     }
     @keyframes spin{ to{ transform:rotate(360deg); } }
     @keyframes pulse{
-      0%,100%{ box-shadow:0 0 20px rgba(0,191,165,.28), 0 0 40px rgba(0,191,165,.18) inset; }
-      50%{ box-shadow:0 0 32px rgba(0,191,165,.45), 0 0 70px rgba(0,191,165,.32) inset; }
+      0%,100%{ box-shadow:0 0 0 rgba(0,255,204,0); }
+      50%{ box-shadow:0 0 28px rgba(0,255,204,.35); }
     }
-    @media (prefers-reduced-motion:reduce){
-      .code-ring,.glow-ring{ animation:none; }
-    }
+    .hero .hint{ font-size:.95rem; color:var(--muted); }
 
-    .cta-row{
-      display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; margin-top:.5rem;
-    }
-    .btn-primary{
-      display:inline-block; background:var(--teal); color:#00110e;
-      text-decoration:none; font-weight:600; border-radius:10px;
-      padding:.9rem 1.35rem; box-shadow:0 0 10px rgba(0,191,165,.3);
-    }
-    .btn-primary:hover{ filter:brightness(.96); }
-
-    .content{ max-width:980px; margin:0 auto; padding:2rem 1rem 3rem; }
-
+    /* Form card */
     .card{
-      background:var(--surface); border-radius:12px; padding:1.1rem 1rem;
-      box-shadow:0 0 15px rgba(0,191,165,.18);
+      max-width:880px; margin:1.25rem auto 3rem; background:var(--surface);
+      border-radius:14px; padding:1.25rem; box-shadow:0 12px 36px rgba(0,0,0,.35);
     }
-    .grid{ display:grid; gap:1rem; }
-    @media(min-width:760px){
-      .grid-2{ grid-template-columns:1fr 1fr; }
-    }
-    .section-title{ color:var(--teal); margin:1.25rem 0 .5rem; font-size:1.45rem; }
+    .section-title{ color:var(--teal); margin:1.25rem 0 .5rem; }
 
-    /* Form */
-    form label{ display:block; font-weight:600; margin:.45rem 0 .25rem; }
-    form .hint{ color:var(--muted); font-size:.93rem; margin:.1rem 0 .35rem; }
-    input[type="text"],input[type="email"],select,textarea{
-      width:100%; background:#0b1014; color:var(--text);
-      border:1px solid #12343a; border-radius:10px; padding:.7rem .8rem;
+    form{ display:grid; gap:1rem; }
+
+    .row{ display:grid; gap:.75rem; }
+    @media(min-width:720px){
+      .row-2{ grid-template-columns:1fr 1fr; }
+      .row-3{ grid-template-columns:repeat(3,1fr); }
+    }
+
+    label{ display:block; font-weight:600; }
+    .help{ font-size:.9rem; color:var(--muted); }
+
+    input[type="text"],
+    input[type="email"],
+    select, textarea{
+      width:100%; padding:.8rem .9rem; color:var(--text); background:#0b1116;
+      border:1px solid rgba(0,191,165,.35); border-radius:10px;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.2);
     }
     textarea{ min-height:140px; resize:vertical; }
-    .check-row{ display:flex; flex-wrap:wrap; gap:.6rem 1rem; }
-    .check-row label{ font-weight:500; display:inline-flex; gap:.45rem; align-items:center; }
-    .actions{ margin-top:1rem; display:flex; gap:.7rem; align-items:center; }
-    .required{ color:#ffa6a6; font-weight:600; margin-left:.25rem; }
 
-    /* Toast (style also exists in site.css; kept compatible) */
-    #toast {
-      background: rgba(0,191,165,0.20);
-      border: 1px solid #00bfa5;
-      color: #00ffcc;
-      padding: 1rem;
-      border-radius: 10px;
-      text-align: center;
-      font-weight: 500;
-      box-shadow: 0 0 10px rgba(0,191,165,0.3);
-      animation: fadeIn .6s ease-out;
-      margin-bottom:1rem;
+    /* Clean, compact option pills for checkboxes/radios */
+    .options{ display:grid; gap:.6rem; }
+    .grid-2{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+    .grid-3{ grid-template-columns:repeat(3, minmax(0,1fr)); }
+    @media(max-width:640px){ .grid-3{ grid-template-columns:1fr 1fr; } }
+
+    .option{
+      display:flex; align-items:center; gap:.55rem;
+      background:#0b1116; border:1px solid rgba(0,191,165,.28);
+      border-radius:10px; padding:.65rem .7rem;
+      transition:transform .06s ease, border-color .15s ease, box-shadow .15s ease;
     }
-    @keyframes fadeIn { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;} }
+    .option:has(input:checked){
+      border-color:var(--teal);
+      box-shadow:0 0 0 2px rgba(0,191,165,.15), 0 8px 18px rgba(0,191,165,.12) inset;
+    }
+    .option input{ accent-color:var(--teal); width:18px; height:18px; }
 
-    .muted{ color:var(--muted); }
-    .collapsible summary{ cursor:pointer; color:var(--teal); font-weight:600; }
-    .collapsible{ background:rgba(0,0,0,.25); border:1px solid #113c37; border-radius:10px; padding:.75rem 1rem; }
+    .btn{
+      display:inline-block; background:var(--teal); color:#03201c;
+      padding:.9rem 1.35rem; border-radius:10px; font-weight:700; text-decoration:none;
+      box-shadow:0 0 14px rgba(0,191,165,.35);
+    }
+    .btn:hover{ filter:brightness(.95); }
+
+    .toast{
+      display:none; margin:0 auto 1rem; max-width:880px; text-align:center;
+      background:rgba(0,191,165,.16); border:1px solid var(--teal);
+      color:#00ffcc; padding:.85rem 1rem; border-radius:10px; font-weight:600;
+    }
+    .budget-note{ margin-top:.35rem; color:var(--muted); font-size:.92rem; }
   </style>
 </head>
 <body>
-
-  <!-- Global header (matches Stories page) -->
+  <!-- Global header -->
   <header class="site-header">
     <a href="/" class="brand">
       <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
@@ -133,168 +135,138 @@
 
   <main>
     <section class="hero">
-      <div class="avatar-wrap" aria-hidden="true">
-        <div class="avatar">
-          <img src="/assets/sheena-nerdy-programmer-copper-code-1000x1000.png" alt="Sheena in copper blouse with gold code inlay" />
-        </div>
-
-        <!-- SVG text ring (animated) -->
-        <svg class="code-ring" viewBox="0 0 100 100" aria-hidden="true">
-          <defs>
-            <path id="r" d="M50,50 m-44,0 a44,44 0 1,0 88,0 a44,44 0 1,0 -88,0" />
-          </defs>
-          <text font-size="5" fill="#00e1c8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">
-            <textPath href="#r" startOffset="0%">
-              const let () => {} [] <> /* render() */ import async await if (ctx) return; 0 1 0 1 0 1
-            </textPath>
-          </text>
-        </svg>
-        <div class="glow-ring" aria-hidden="true"></div>
+      <div class="portrait-wrap" aria-hidden="true">
+        <img class="portrait" src="/assets/sheena-nerdy-programmer-copper-code-1000x1000.png" alt="Sheena — nerdy coder portrait in copper with gold code" />
+        <div class="code-ring"></div>
       </div>
-
       <h1>Have Me Build Your Website</h1>
-      <p class="lede">Custom, fast, human-crafted sites—designed, written, and shipped with care.</p>
-
-      <div class="cta-row">
-        <a class="btn-primary" href="#request">Start Your Request</a>
-        <a class="btn-primary" href="#process">See Process</a>
-      </div>
+      <p class="hint">Tell me what you need — I’ll design, write, and ship a fast, cinematic site with the same polish as Dragon Bones &amp; Wizards Hats.</p>
     </section>
 
-    <section class="content grid grid-2">
-      <!-- What you get -->
-      <div class="card">
-        <h2 class="section-title">What You Get</h2>
-        <ul>
-          <li>Clean, accessible HTML/CSS/JS</li>
-          <li>Cloudflare Pages hosting</li>
-          <li>Performance-focused & mobile-first</li>
-          <li>Optional AI-assisted imagery & copy</li>
-          <li>Simple maintenance—no heavy CMS required (unless you want one)</li>
-        </ul>
-        <details id="process" class="collapsible" style="margin-top:.75rem">
-          <summary>Process (Discovery → Launch)</summary>
-          <p class="muted" style="margin:.5rem 0 0">
-            Discovery → Proposal → Build → Review → Launch → Support. Assets are emailed after kickoff.
-          </p>
-        </details>
-      </div>
+    <div class="toast" id="toast">Thanks! Your request was sent.</div>
 
-      <!-- Request form -->
-      <div class="card" id="request">
-        <div id="toast" style="display:none;">Thanks! I’ll reply within 1–2 business days.</div>
-
-        <h2 class="section-title">Start Your Request</h2>
-        <form action="/functions/website-build-submit" method="post" novalidate>
-          <!-- Contact -->
-          <label for="name">Your Name<span class="required">*</span></label>
-          <input id="name" name="name" type="text" required />
-
-          <label for="email">Email<span class="required">*</span></label>
-          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required />
-
-          <label for="company">Company / Organization</label>
-          <input id="company" name="company" type="text" />
-
-          <!-- Domain -->
-          <label for="domain_current">Current Domain</label>
-          <input id="domain_current" name="domain_current" type="text" placeholder="example.com" />
-          <div class="hint">If you already own one.</div>
-
-          <label>Do you need a domain?</label>
-          <div class="check-row" role="group" aria-label="Domain needed">
-            <label><input type="radio" name="domain_needed" value="yes"> Yes</label>
-            <label><input type="radio" name="domain_needed" value="no"> No</label>
-            <label><input type="radio" name="domain_needed" value="unsure" checked> Unsure</label>
+    <section class="card">
+      <form action="/functions/website-request" method="POST" novalidate>
+        <!-- Contact -->
+        <h2 class="section-title">Basics</h2>
+        <div class="row row-2">
+          <div>
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" required placeholder="Your name" />
           </div>
-
-          <!-- Site type -->
-          <label>Type of Site</label>
-          <div class="check-row">
-            <label><input type="checkbox" name="site_type" value="portfolio"> Portfolio</label>
-            <label><input type="checkbox" name="site_type" value="personal/author"> Personal/Author</label>
-            <label><input type="checkbox" name="site_type" value="small-business"> Small business</label>
-            <label><input type="checkbox" name="site_type" value="nonprofit"> Nonprofit</label>
-            <label><input type="checkbox" name="site_type" value="blog"> Blog</label>
-            <label><input type="checkbox" name="site_type" value="ecommerce"> e-commerce</label>
-            <label><input type="checkbox" name="site_type" value="booking/scheduling"> Booking</label>
-            <label><input type="checkbox" name="site_type" value="landing-page"> Landing page</label>
-            <label><input type="checkbox" name="site_type" value="other"> Other</label>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" />
           </div>
-          <label for="site_type_other">If “Other,” what did you have in mind?</label>
-          <input id="site_type_other" name="site_type_other" type="text" />
+        </div>
 
-          <!-- Pages -->
-          <label for="pages_estimate">How many pages?</label>
-          <select id="pages_estimate" name="pages_estimate">
-            <option>1</option><option>2–3</option><option>4–6</option><option>7–10</option><option>10+</option>
-          </select>
-
-          <!-- Features -->
-          <label>Features</label>
-          <div class="check-row">
-            <label><input type="checkbox" name="feature" value="contact_form"> Contact form</label>
-            <label><input type="checkbox" name="feature" value="email_newsletter"> Email newsletter</label>
-            <label><input type="checkbox" name="feature" value="audio_podcast"> Audio / Podcast</label>
-            <label><input type="checkbox" name="feature" value="video_embed"> Video embeds</label>
-            <label><input type="checkbox" name="feature" value="gallery"> Gallery</label>
-            <label><input type="checkbox" name="feature" value="map"> Map</label>
-            <label><input type="checkbox" name="feature" value="faq"> FAQ</label>
-            <label><input type="checkbox" name="feature" value="legal_pages"> Legal pages</label>
-            <label><input type="checkbox" name="feature" value="other"> Other</label>
+        <!-- Domain -->
+        <div class="row">
+          <label>Do you already have a domain?</label>
+          <div class="options grid-3" role="group" aria-label="Have a domain?">
+            <label class="option"><input type="radio" name="haveDomain" value="yes" />Yes</label>
+            <label class="option"><input type="radio" name="haveDomain" value="no" />No</label>
+            <label class="option"><input type="radio" name="haveDomain" value="unsure" checked />Unsure</label>
           </div>
-          <label for="features_other_text">If “Other,” list any special features</label>
-          <input id="features_other_text" name="features_other_text" type="text" />
-
-          <!-- Content & images -->
-          <label>Content readiness</label>
-          <div class="check-row">
-            <label><input type="radio" name="content_status" value="have_copy"> I have my copy</label>
-            <label><input type="radio" name="content_status" value="need_help_writing"> Need help writing</label>
-            <label><input type="radio" name="content_status" value="mix" checked> A mix</label>
+          <div id="domainField" style="display:none;">
+            <label for="domain">Your domain</label>
+            <input id="domain" name="domain" type="text" placeholder="example.com" />
           </div>
+        </div>
 
-          <label>Images & artwork</label>
-          <div class="check-row">
-            <label><input type="radio" name="images_status" value="have_images"> I have images</label>
-            <label><input type="radio" name="images_status" value="need_ai_images"> Please generate images</label>
-            <label><input type="radio" name="images_status" value="mix" checked> A mix</label>
+        <!-- Type of site -->
+        <h2 class="section-title">Project Type</h2>
+        <div class="options grid-3" role="group" aria-label="Type of site">
+          <label class="option"><input type="checkbox" name="siteType" value="Portfolio" />Portfolio</label>
+          <label class="option"><input type="checkbox" name="siteType" value="Personal/Author" />Personal / Author</label>
+          <label class="option"><input type="checkbox" name="siteType" value="Small business" />Small business</label>
+          <label class="option"><input type="checkbox" name="siteType" value="Nonprofit" />Nonprofit</label>
+          <label class="option"><input type="checkbox" name="siteType" value="Blog" />Blog</label>
+          <label class="option"><input type="checkbox" name="siteType" value="E-commerce" />E-commerce</label>
+          <label class="option"><input type="checkbox" name="siteType" value="Booking" />Booking</label>
+          <label class="option"><input type="checkbox" name="siteType" value="Landing page" />Landing page</label>
+          <label class="option"><input type="checkbox" name="siteType" value="Other" />Other</label>
+        </div>
+        <div>
+          <label for="siteOther">If “Other,” what did you have in mind?</label>
+          <input id="siteOther" name="siteOther" type="text" placeholder="Describe your idea" />
+        </div>
+
+        <!-- Pages / Features -->
+        <div class="row row-2">
+          <div>
+            <label for="pages">How many pages?</label>
+            <select id="pages" name="pages">
+              <option>1</option>
+              <option>2–5</option>
+              <option>6–10</option>
+              <option>11–20</option>
+              <option>20+</option>
+            </select>
           </div>
-          <div class="hint">If we move forward, you can email me assets directly for staging.</div>
-
-          <!-- Budget & timeline -->
-          <label for="budget">Budget</label>
-          <select id="budget" name="budget">
-            <option>&lt;$500</option><option>$500–$1,500</option>
-            <option>$1,500–$3,000</option><option>$3,000+</option><option>unsure</option>
-          </select>
-
-          <label for="timeline">Timeline</label>
-          <select id="timeline" name="timeline">
-            <option>rush (&lt;2 weeks)</option><option>2–4 weeks</option>
-            <option>1–2 months</option><option>flexible</option>
-          </select>
-
-          <!-- Description -->
-          <label for="message">Brief description of the project<span class="required">*</span></label>
-          <textarea id="message" name="message" required placeholder="Goals, vibe, references, special pages…"></textarea>
-
-          <!-- Consent & honeypot -->
-          <label>
-            <input type="checkbox" name="agree_contact" value="yes" required />
-            You can email me about this request.<span class="required">*</span>
-          </label>
-          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute; left:-5000px; opacity:0;" aria-hidden="true" />
-
-          <!-- Turnstile -->
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0vOSqh9kDdb7s_"></div>
-
-          <div class="actions">
-            <button class="btn-primary" type="submit">Send Request</button>
-            <span class="muted">I typically reply within 1–2 business days.</span>
+          <div>
+            <label for="budget">Estimated budget</label>
+            <select id="budget" name="budget" required>
+              <option value="$500–$1,000">$500–$1,000</option>
+              <option value="$1,000–$2,500">$1,000–$2,500</option>
+              <option value="$2,500–$5,000">$2,500–$5,000</option>
+              <option value="$5,000+">$5,000+</option>
+              <option value="Custom / TBD">Custom / TBD</option>
+            </select>
+            <div class="budget-note">Projects start at <strong>$500 minimum</strong>.</div>
           </div>
-        </form>
-      </div>
+        </div>
+
+        <h2 class="section-title">Features</h2>
+        <div class="options grid-3" role="group" aria-label="Features">
+          <label class="option"><input type="checkbox" name="features" value="Contact form" />Contact form</label>
+          <label class="option"><input type="checkbox" name="features" value="Email newsletter" />Email newsletter</label>
+          <label class="option"><input type="checkbox" name="features" value="Audio/Podcast" />Audio / Podcast</label>
+          <label class="option"><input type="checkbox" name="features" value="Video embeds" />Video embeds</label>
+          <label class="option"><input type="checkbox" name="features" value="Gallery" />Gallery</label>
+          <label class="option"><input type="checkbox" name="features" value="Map" />Map</label>
+          <label class="option"><input type="checkbox" name="features" value="FAQ" />FAQ</label>
+          <label class="option"><input type="checkbox" name="features" value="Legal pages" />Legal pages</label>
+          <label class="option"><input type="checkbox" name="features" value="Other" />Other</label>
+        </div>
+        <div>
+          <label for="featuresOther">If “Other,” list any special features</label>
+          <input id="featuresOther" name="featuresOther" type="text" placeholder="CMS, memberships, search, etc." />
+        </div>
+
+        <!-- Content / Images -->
+        <div class="row row-2">
+          <div>
+            <label>Content readiness</label>
+            <div class="options" role="group" aria-label="Content readiness">
+              <label class="option"><input type="radio" name="content" value="I have my copy" />I have my copy</label>
+              <label class="option"><input type="radio" name="content" value="Need help writing" />Need help writing</label>
+              <label class="option"><input type="radio" name="content" value="A mix" checked />A mix</label>
+            </div>
+          </div>
+          <div>
+            <label>Images &amp; artwork</label>
+            <div class="options" role="group" aria-label="Images and artwork">
+              <label class="option"><input type="radio" name="images" value="I have images" />I have images</label>
+              <label class="option"><input type="radio" name="images" value="Please generate images" />Please generate images</label>
+              <label class="option"><input type="radio" name="images" value="A mix" checked />A mix</label>
+            </div>
+            <div class="help">No uploads here — once we’re a go, you can email assets directly.</div>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div>
+          <label for="summary">Project summary</label>
+          <textarea id="summary" name="summary" required placeholder="Tell me about your site, audience, goals, vibe, and any deadlines."></textarea>
+        </div>
+
+        <!-- Turnstile -->
+        <div class="help">One quick check to keep out bots:</div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0vOSqh9kDdb7s_"></div>
+
+        <div><button class="btn" type="submit">Send Request</button></div>
+      </form>
     </section>
   </main>
 
@@ -308,31 +280,26 @@
     </p>
   </footer>
 
+  <!-- Turnstile script -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
   <script>
-    // Year
+    // footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Toast on ?sent=1
-    const params = new URLSearchParams(location.search);
-    if (params.get('sent') === '1') {
-      const t = document.getElementById('toast');
-      if (t) t.style.display = 'block';
-    }
+    // show domain field only when "yes"
+    const radios = document.querySelectorAll('input[name="haveDomain"]');
+    const domainField = document.getElementById('domainField');
+    function updateDomain(){ domainField.style.display =
+      [...radios].some(r => r.checked && r.value === 'yes') ? 'block' : 'none'; }
+    radios.forEach(r => r.addEventListener('change', updateDomain));
+    updateDomain();
 
-    // Simple client-side required checks
-    document.querySelector('form')?.addEventListener('submit', (e) => {
-      const f = e.currentTarget;
-      const required = ['name','email','message'];
-      for (const id of required) {
-        const el = f.querySelector('#' + id);
-        if (!el || !el.value.trim()) {
-          e.preventDefault();
-          el?.focus();
-          alert('Please fill out the required fields.');
-          return;
-        }
-      }
-    });
+    // simple toast if redirected with ?sent=1 (server function should 302 here on success)
+    if (new URLSearchParams(location.search).get('sent') === '1'){
+      const t = document.getElementById('toast'); t.style.display = 'block';
+      setTimeout(()=> t.style.display='none', 5500);
+    }
   </script>
 </body>
-  </html>
+</html>
