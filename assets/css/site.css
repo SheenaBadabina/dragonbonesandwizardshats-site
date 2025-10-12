@@ -89,12 +89,41 @@ body {
   color: #e6e6e6;
 }
 
+/* ===== Footer Cleanup ===== */
 .site-footer {
-  text-align: center;
-  padding: 1rem 0;
-  font-size: 0.9rem;
   background: rgba(0, 0, 0, 0.6);
   margin-top: 3rem;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #92a1ad;
+  line-height: 1.6;
+}
+
+.site-footer p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+/* copyright on top, links side-by-side underneath */
+.site-footer p span {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.site-footer a,
+.site-footer a:visited {
+  color: #00bfa5;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.site-footer a:hover {
+  color: #00ffcc;
+  text-decoration: underline;
 }
 
 /* Mobile Menu */
@@ -116,6 +145,7 @@ body {
     display: flex;
   }
 }
+
 /* Success Toast Message */
 #toast {
   background: rgba(0, 191, 165, 0.2);
@@ -133,7 +163,3 @@ body {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-/* Footer link theme */
-.site-footer a,
-.site-footer a:visited { color:#00bfa5; text-decoration:none; }
-.site-footer a:hover { text-decoration:underline; color:#00ffcc; }
