@@ -19,9 +19,14 @@
   <style>
     /* Page-scoped helpers that complement site.css without changing your system */
     .page-wrap { max-width: 980px; margin: 0 auto; padding: 16px; }
-    .hero { width: 100%; aspect-ratio: 16/9; border-radius: 12px; object-fit: cover; background:#0F1419; }
-    .drive-embed { width: 100%; aspect-ratio: 16/9; border: 0; border-radius: 12px; background:#000; }
-    #storyImage { width: 100%; height: auto; border-radius: 12px; display: block; margin: 16px 0; }
+    .drive-embed {
+      width: 100%;
+      aspect-ratio: 9/16;   /* Force portrait for short-form */
+      border: 0;
+      border-radius: 12px;
+      background:#000;
+      display: block;
+    }
     #storyText { white-space: pre-wrap; line-height: 1.7; font-family: Georgia, Times, serif; color: #D9E1E8; }
     .muted { color: #92A1AD; font-size: .95rem; }
     .spacer { height: 12px; }
@@ -33,14 +38,10 @@
     <a class="btn-link" href="/">← Home</a>
     <h1>This Halloween Candy Shows How You Died</h1>
     <p class="muted">A Dragon Bones &amp; Wizard Hats Halloween special.</p>
-    <img
-      id="storyImage"
-      src="/assets/taste-your-death-website-square.png"
-      alt="Cover art for This Halloween Candy Shows How You Died" />
   </header>
 
   <main class="page-wrap">
-    <!-- Sneak-peek video (Google Drive preview) -->
+    <!-- Portrait sneak-peek video (Google Drive preview) -->
     <section aria-label="Video sneak peek">
       <iframe
         class="drive-embed"
@@ -57,8 +58,7 @@
     <div class="spacer"></div>
 
     <!-- Story loader (TXT is the source of truth) -->
-    <article id="story"
-      data-text="/assets/prose/this-halloween-candy-shows-how-you-died.txt">
+    <article id="story" data-text="/assets/prose/this-halloween-candy-shows-how-you-died.txt">
       <h2>Story</h2>
       <pre id="storyText">Loading…</pre>
     </article>
