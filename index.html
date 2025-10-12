@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/assets/css/site.css" />
     <script defer src="/assets/js/site.js"></script>
 
-    <!-- Page-local layout only -->
+    <!-- Page-local layout only (doesn't touch global header/nav styles) -->
     <style>
       :root {
         --teal: #00bfa5;
@@ -107,6 +107,16 @@
       }
       .author .headshot img { width: 100%; height: 100%; object-fit: cover; }
       .author .about-btn { display: inline-block; margin: 0.5rem auto 0; }
+
+      .site-footer {
+        background: var(--bg);
+        padding: 1.2rem 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      .site-footer a { color: var(--teal); text-decoration: none; margin: 0 0.4rem; }
+      .site-footer a:hover { text-decoration: underline; }
     </style>
   </head>
 
@@ -170,8 +180,6 @@
     </main>
 
     <script>
-      document.getElementById("year")?.textContent = new Date().getFullYear();
-
       (function () {
         const target = document.getElementById("latestStory");
         const url = "/stories/?" + Date.now();
