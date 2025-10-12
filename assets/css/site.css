@@ -1,94 +1,180 @@
 /* Dragon Bones & Wizards Hats Site Styles */
 /* Mobile-first responsive layout */
 
-body{
-  margin:0;
-  font-family:"Poppins",sans-serif;
-  background:#0d0d0d url("/assets/banner.png") no-repeat center top;
-  background-size:cover;
-  color:#f5f5f5;
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #0d0d0d url("/assets/banner.png") no-repeat center top;
+  background-size: cover;
+  color: #f5f5f5;
 }
 
-.site-header{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:1rem; background:rgba(0,0,0,.6); position:sticky; top:0;
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
 }
 
-.brand{
-  display:flex; align-items:center; gap:.5rem; text-decoration:none;
-  color:#00bfa5; font-weight:bold; font-size:1.1rem;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #00bfa5;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
-.nav-toggle{ display:none; background:none; border:none; color:#f5f5f5; font-size:1.8rem; }
-
-.site-nav{ display:flex; gap:1rem; }
-.site-nav a{ color:#f5f5f5; text-decoration:none; font-weight:500; }
-
-.container{ padding:1rem; max-width:800px; margin:auto; }
-
-.story-hero{
-  width:100%; border-radius:10px; margin-bottom:1rem;
-  box-shadow:0 0 20px rgba(0,191,165,.3);
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #f5f5f5;
+  font-size: 1.8rem;
 }
 
-.story-links{ display:flex; flex-wrap:wrap; gap:.75rem; margin-bottom:1.5rem; }
-
-.btn{
-  display:inline-block; padding:.75rem 1.25rem; background:#00bfa5; color:#0d0d0d;
-  font-weight:bold; text-decoration:none; border-radius:8px; transition:.2s ease;
-}
-.btn:hover{ background:#00ffcc; }
-
-.story-body{ line-height:1.7; font-size:1.05rem; color:#e6e6e6; }
-
-/* ================= Footer (two rows: copy on 1st, links on 2nd) ================= */
-.site-footer{
-  background:rgba(0,0,0,.6); text-align:center; padding:1.2rem 0; margin-top:3rem; font-size:.9rem;
-}
-.site-footer p{
-  /* flex container so we can force a break before the first link */
-  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
-  gap:.6rem .75rem; margin:0; line-height:1.6;
-  color:#f5f5f5; /* copyright + any stray separators use body text color */
+.site-nav {
+  display: flex;
+  gap: 1rem;
 }
 
-/* Put the first link (and all following links) on a new row */
-.site-footer p a:first-of-type{
-  flex-basis:100%; /* line break */
-  position:relative; padding-top:.6rem; /* space above the divider */
+.site-nav a {
+  color: #f5f5f5;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-/* Thin divider above the links row */
-.site-footer p a:first-of-type::before{
-  content:""; position:absolute; left:50%; transform:translateX(-50%);
-  top:.2rem; width:220px; max-width:70vw; height:1px; background:rgba(0,191,165,.25);
+.container {
+  padding: 1rem;
+  max-width: 800px;
+  margin: auto;
 }
 
-/* Links row styling */
-.site-footer a{ color:#00bfa5; text-decoration:none; }
-.site-footer a:hover{ color:#00ffcc; text-decoration:underline; }
-
-/* Optional spacer dot between links if your HTML doesn’t already have bullets.
-   This only adds a dot before links AFTER the first one. Safe even if bullets exist,
-   because it’s subtle and matches theme. Remove if you don’t want any extra dot. */
-.site-footer p a + a::before{
-  content:"•"; margin:0 .5rem 0 .25rem; color:rgba(0,191,165,.5);
+.story-hero {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 20px rgba(0, 191, 165, 0.3);
 }
 
-/* Mobile menu */
-@media (max-width:700px){
-  .nav-toggle{ display:block; }
-  .site-nav{
-    display:none; flex-direction:column; background:rgba(0,0,0,.85);
-    position:absolute; top:60px; right:10px; padding:1rem; border-radius:8px;
+.story-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  background-color: #00bfa5;
+  color: #0d0d0d;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #00ffcc;
+}
+
+.story-body {
+  line-height: 1.7;
+  font-size: 1.05rem;
+  color: #e6e6e6;
+}
+
+/* ===== Footer (two rows: copy on top, links beneath; no bullets) ===== */
+.site-footer {
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 1.2rem 0 1.6rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+/* Stack footer content in two rows */
+.site-footer p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Top row (copyright + site name) */
+.footer-copy {
+  color: #f5f5f5;
+  white-space: nowrap;
+  margin-bottom: .65rem; /* space above divider */
+  display: inline-block;
+}
+
+/* Divider line */
+.footer-rule {
+  width: min(520px, 82%);
+  height: 1px;
+  margin: .35rem auto .8rem;
+  background: linear-gradient(90deg, transparent, rgba(0,191,165,.45), transparent);
+}
+
+/* Bottom row (links) */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.4rem;     /* row gap / column gap */
+  align-items: center;
+}
+
+/* Ensure no decorative bullets from any past rules */
+.footer-links::before,
+.footer-links::after,
+.footer-links a::before,
+.footer-links a::after,
+.footer-links .sep {
+  content: none !important;
+  display: none !important;
+}
+
+/* Link theme */
+.site-footer a,
+.site-footer a:visited { color:#00bfa5; text-decoration:none; }
+.site-footer a:hover { text-decoration:underline; color:#00ffcc; }
+
+/* Mobile Menu */
+@media (max-width: 700px) {
+  .nav-toggle { display: block; }
+
+  .site-nav {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.85);
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    padding: 1rem;
+    border-radius: 8px;
   }
-  .site-nav.open{ display:flex; }
+  .site-nav.open { display: flex; }
 }
 
-/* Success Toast */
-#toast{
-  background:rgba(0,191,165,.2); border:1px solid #00bfa5; color:#00ffcc;
-  padding:1rem; border-radius:10px; text-align:center; font-weight:500;
-  box-shadow:0 0 10px rgba(0,191,165,.3); animation:fadeIn .6s ease-out;
+/* Success Toast Message */
+#toast {
+  background: rgba(0, 191, 165, 0.2);
+  border: 1px solid #00bfa5;
+  color: #00ffcc;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 0 10px rgba(0, 191, 165, 0.3);
+  animation: fadeIn 0.6s ease-out;
 }
-@keyframes fadeIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
