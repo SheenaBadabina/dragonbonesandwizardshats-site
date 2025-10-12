@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>This Halloween Candy Shows How You Died — Dragon Bones & Wizard Hats</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>This Halloween Candy Shows How You Died — Dragon Bones & Wizards Hats</title>
   <meta name="description" content="A Halloween short from Dragon Bones & Wizard Hats. Early sneak peek video plus the full story text." />
   <link rel="canonical" href="https://dragonbonesandwizardshats.com/stories/this-halloween-candy-shows-how-you-died.html" />
-  <link rel="preload" href="/assets/css/site.css" as="style" />
   <link rel="stylesheet" href="/assets/css/site.css" />
+
+  <!-- Social -->
   <meta property="og:type" content="article" />
   <meta property="og:title" content="This Halloween Candy Shows How You Died" />
   <meta property="og:description" content="A Halloween short from Dragon Bones & Wizard Hats. Early sneak peek video plus the full story text." />
@@ -16,32 +17,50 @@
   <meta name="twitter:title" content="This Halloween Candy Shows How You Died" />
   <meta name="twitter:description" content="A Halloween short from Dragon Bones & Wizard Hats." />
   <meta name="twitter:image" content="/assets/taste-your-death-website-square.png" />
+
   <style>
-    /* Page-scoped helpers that complement site.css without changing your system */
-    .page-wrap { max-width: 980px; margin: 0 auto; padding: 16px; }
+    /* Page-local helpers only; global look & feel comes from site.css */
+    .container { max-width: 980px; margin: 0 auto; padding: 16px; }
     .drive-embed {
       width: 100%;
-      aspect-ratio: 9/16;   /* Force portrait for short-form */
+      aspect-ratio: 9/16;     /* force portrait for shorts */
       border: 0;
       border-radius: 12px;
-      background:#000;
+      background: #000;
       display: block;
     }
-    #storyText { white-space: pre-wrap; line-height: 1.7; font-family: Georgia, Times, serif; color: #D9E1E8; }
-    .muted { color: #92A1AD; font-size: .95rem; }
+    #storyText {
+      white-space: pre-wrap;
+      line-height: 1.7;
+      font-family: Georgia, Times, serif;
+    }
+    .muted { color: #92A1AD; }
+    h1 { margin-top: 0.5rem; }
     .spacer { height: 12px; }
-    @media (min-width: 720px) { .spacer { height: 16px; } }
+    @media (min-width: 720px){ .spacer { height: 16px; } }
   </style>
 </head>
 <body>
-  <header class="page-wrap">
-    <a class="btn-link" href="/">← Home</a>
-    <h1>This Halloween Candy Shows How You Died</h1>
-    <p class="muted">A Dragon Bones &amp; Wizard Hats Halloween special.</p>
+  <!-- Site Header (matches Stories index/header) -->
+  <header class="site-header">
+    <a href="/" class="brand">
+      <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
+      <span class="brand-text">Dragon Bones & Wizards Hats</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <nav class="site-nav" data-collapsible>
+      <a href="/">Home</a>
+      <a href="/stories/">Stories</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/work-with-me.html">Work With Me</a>
+    </nav>
   </header>
 
-  <main class="page-wrap">
-    <!-- Portrait sneak-peek video (Google Drive preview) -->
+  <main class="container">
+    <h1>This Halloween Candy Shows How You Died</h1>
+    <p class="muted">Halloween Special</p>
+
+    <!-- Portrait Google Drive preview -->
     <section aria-label="Video sneak peek">
       <iframe
         class="drive-embed"
@@ -57,34 +76,36 @@
 
     <div class="spacer"></div>
 
-    <!-- Story loader (TXT is the source of truth) -->
+    <!-- TXT is the source of truth -->
     <article id="story" data-text="/assets/prose/this-halloween-candy-shows-how-you-died.txt">
       <h2>Story</h2>
       <pre id="storyText">Loading…</pre>
     </article>
   </main>
 
-  <footer class="page-wrap">
-    <p class="muted">© <span id="year"></span> dragonbonesandwizardshats •
+  <!-- Site Footer (matches rest of site) -->
+  <footer class="site-footer">
+    <p>© <span id="year"></span> dragonbonesandwizardshats •
       <a href="/terms-of-use.html">Terms</a> •
       <a href="/privacy-policy.html">Privacy</a> •
       <a href="/contact.html">Contact</a>
     </p>
   </footer>
 
+  <script src="/assets/js/site.js"></script>
   <script>
     // Year stamp
     (function(){ var y=document.getElementById('year'); if(y){ y.textContent=new Date().getFullYear(); } })();
 
-    // Load prose from TXT (immutable source)
+    // Load prose from TXT (immutable)
     (function(){
       var a=document.getElementById('story');
       if(!a) return;
       var txt=a.dataset.text;
-      fetch(txt, { cache:'no-store' })
+      fetch(txt,{cache:'no-store'})
         .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); })
         .then(function(t){ document.getElementById('storyText').textContent = t; })
-        .catch(function(){ document.getElementById('storyText').textContent='Failed to load story.'; });
+        .catch(function(){ document.getElementById('storyText').textContent = 'Failed to load story.'; });
     })();
   </script>
 </body>
