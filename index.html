@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/assets/css/site.css" />
     <script defer src="/assets/js/site.js"></script>
 
-    <!-- Page-local layout only (doesn't touch global header/nav styles) -->
+    <!-- Page-local layout only -->
     <style>
       :root {
         --teal: #00bfa5;
@@ -107,42 +107,6 @@
       }
       .author .headshot img { width: 100%; height: 100%; object-fit: cover; }
       .author .about-btn { display: inline-block; margin: 0.5rem auto 0; }
-
-      /* Footer — copyright on line 1, divider, links on line 2 */
-      .site-footer {
-        background: var(--bg);
-        padding: 1.2rem 1rem 1.4rem;
-        text-align: center;
-        font-size: 0.9rem;
-        color: var(--muted);
-      }
-      .site-footer p { margin: 0; }
-      .footer-copy {
-        color: #f5f5f5;
-        margin-bottom: .6rem;
-      }
-      .footer-divider {
-        width: min(520px, 92%);
-        height: 1px;
-        margin: 0.2rem auto 0.6rem;
-        background: linear-gradient(
-          to right,
-          transparent,
-          rgba(0,191,165,.35),
-          transparent
-        );
-      }
-      .footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-      }
-      .footer-links a {
-        color: var(--teal);
-        text-decoration: none;
-      }
-      .footer-links a:hover { text-decoration: underline; }
     </style>
   </head>
 
@@ -205,19 +169,8 @@
       </section>
     </main>
 
-    <footer class="site-footer">
-      <p class="footer-copy">© <span id="year"></span> dragonbonesandwizardshats</p>
-      <div class="footer-divider" aria-hidden="true"></div>
-      <p class="footer-links">
-        <a href="/work-with-me.html">Work With Me</a>
-        <a href="/terms-of-use.html">Terms</a>
-        <a href="/privacy-policy.html">Privacy</a>
-        <a href="/contact.html">Contact</a>
-      </p>
-    </footer>
-
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
+      document.getElementById("year")?.textContent = new Date().getFullYear();
 
       (function () {
         const target = document.getElementById("latestStory");
