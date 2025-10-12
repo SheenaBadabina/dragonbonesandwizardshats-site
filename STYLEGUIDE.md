@@ -8,11 +8,11 @@ This document defines how we build, theme, and maintain **dragonbonesandwizardsh
 
 **Name:** Dragon Bones & Wizards Hats  
 **Purpose:** Archive of original fantasy stories, plus Contact and Work With Me pages for sponsorships and collaborations.  
-**Logo:** `/assets/Logodbwh.png`  
-**Banner:** `/assets/Bannerdbwh.png`  
+**Logo:** /assets/Logodbwh.png  
+**Banner:** /assets/Bannerdbwh.png  
 **Current Domains:**  
-- Primary: `dragonbonesandwizardshats.com`  
-- Preview: `*.pages.dev`
+- Primary: dragonbonesandwizardshats.com  
+- Preview: *.pages.dev  
 
 **External Links:**  
 - YouTube (video adaptations)  
@@ -22,35 +22,35 @@ This document defines how we build, theme, and maintain **dragonbonesandwizardsh
 
 ## REPOSITORY STRUCTURE
 
-```
 /
-├─ index.html
-├─ stories/
-│  ├─ index.html
-│  └─ the-thief-who-destroyed-time.html
-├─ contact.html
-├─ work-with-me.html
-├─ privacy-policy.html
-├─ terms-of-use.html
-├─ assets/
-│  ├─ Logodbwh.png
-│  ├─ Bannerdbwh.png
-│  ├─ Author.png
-│  ├─ Dragon Wizard Battle.png
-│  ├─ The Thief Who Destroyed Time (And Had to Fix It).png
-│  ├─ The Thief Who Destroyed Time (And Had to Fix It).txt
-│  ├─ css/
-│  │  └─ site.css
-│  ├─ js/
-│  │  └─ site.js
-│  └─ legal/
-│     ├─ privacy-policy.txt
-│     └─ terms-of-use.txt
-├─ functions/
-│  ├─ contact-submit.js
-│  └─ sponsor-submit.js
+├─ index.html  
+├─ stories/  
+│  ├─ index.html  
+│  └─ the-thief-who-destroyed-time.html  
+├─ contact.html  
+├─ work-with-me.html  
+├─ privacy-policy.html  
+├─ terms-of-use.html  
+├─ assets/  
+│  ├─ Logodbwh.png  
+│  ├─ Bannerdbwh.png  
+│  ├─ Author.png  
+│  ├─ Dragon Wizard Battle.png  
+│  ├─ The Thief Who Destroyed Time (And Had to Fix It).png  
+│  ├─ The Thief Who Destroyed Time (And Had to Fix It).txt  
+│  ├─ css/  
+│  │  └─ site.css  
+│  ├─ js/  
+│  │  └─ site.js  
+│  ├─ prose/  
+│  │  └─ (All story text files now live here)  
+│  └─ legal/  
+│     ├─ privacy-policy.txt  
+│     └─ terms-of-use.txt  
+├─ functions/  
+│  ├─ contact-submit.js  
+│  └─ sponsor-submit.js  
 └─ STYLEGUIDE.md
-```
 
 ---
 
@@ -60,15 +60,15 @@ This document defines how we build, theme, and maintain **dragonbonesandwizardsh
 Cinematic, legible, mobile-first. Teal glow accents against dark stone backgrounds.
 
 **Colors:**  
-- Teal accent — `#00BFA5`  
-- Background — `#0B0F12`  
-- Surface — `#0F1419`  
-- Text primary — `#D9E1E8`  
-- Text muted — `#92A1AD`
+- Teal accent — #00BFA5  
+- Background — #0B0F12  
+- Surface — #0F1419  
+- Text primary — #D9E1E8  
+- Text muted — #92A1AD  
 
 **Typography:**  
-- UI: `system-ui, Inter, Roboto, Arial, sans-serif`  
-- Story text: `Georgia, Times, serif`  
+- UI: system-ui, Inter, Roboto, Arial, sans-serif  
+- Story text: Georgia, Times, serif  
 - Base font: 16px; line-height: 1.7  
 
 **Layout:**  
@@ -79,7 +79,7 @@ Cinematic, legible, mobile-first. Teal glow accents against dark stone backgroun
 
 **Imagery:**  
 - Banner = background layer, not a separate block  
-- Responsive rule: `max-width:100%; height:auto;`  
+- Responsive rule: max-width:100%; height:auto;  
 - Object-fit: cover for hero and showcase images  
 
 ---
@@ -87,74 +87,71 @@ Cinematic, legible, mobile-first. Teal glow accents against dark stone backgroun
 ## GLOBAL COMPONENTS
 
 **Header:**  
-- Logo + title link to `/`  
+- Logo + title link to /  
 - Nav items: Home, Stories, Contact, Work With Me  
 
 **Footer:**  
-```
-© <span id="year"></span> dragonbonesandwizardshats •
-<a href="/terms-of-use.html">Terms</a> •
-<a href="/privacy-policy.html">Privacy</a> •
-<a href="/contact.html">Contact</a>
-```
+© <span id="year"></span> dragonbonesandwizardshats •  
+<a href="/terms-of-use.html">Terms</a> •  
+<a href="/privacy-policy.html">Privacy</a> •  
+<a href="/contact.html">Contact</a> •  
+<a href="/work-with-me.html">Work With Me</a>
+
+All footer links must be rendered in **teal (#00BFA5)** per theme, hover underline, with font size and spacing consistent with global text rules.
 
 ---
 
 ## STORY WORKFLOW — TXT AS SOURCE OF TRUTH
 
 **Rule:**  
-Every story lives as a `.txt` file in `/assets/` or `/assets/stories/`.  
-Never paste the prose directly into HTML.
+Every story lives as a `.txt` file in /assets/prose/.  
+Never paste prose directly into HTML.
 
 ### FILES PER STORY
-- TXT: `/assets/<Exact Title>.txt`  
-  Example: `/assets/The Thief Who Destroyed Time (And Had to Fix It).txt`
-- Cover image: `/assets/<Exact Title>.png`
-- Story page: `/stories/<slug>.html`
+- TXT: /assets/prose/<Exact Title>.txt  
+- Cover image: /assets/<Exact Title>.png  
+- Story page: /stories/<slug>.html  
 
 ### STORY PAGE TEMPLATE
-Each story HTML file loads its TXT and cover dynamically.
+Each story HTML file loads its TXT dynamically.  
 
-```
-<article id="story"
-  data-text="/assets/The Thief Who Destroyed Time (And Had to Fix It).txt"
-  data-image="/assets/The Thief Who Destroyed Time (And Had to Fix It).png">
-  <nav class="story-links">
-    <a href="https://youtu.be/-i-ZGzN2j-E" target="_blank">Watch on YouTube</a>
-    <a href="https://open.spotify.com/show/3piG2nuJ2M2xjwbQ7Eu8Df" target="_blank">Listen on Spotify</a>
-  </nav>
-  <img id="storyImage" alt="Story cover">
-  <pre id="storyText">Loading…</pre>
-</article>
+    <article id="story"
+      data-text="/assets/prose/The Thief Who Destroyed Time (And Had to Fix It).txt"
+      data-image="/assets/The Thief Who Destroyed Time (And Had to Fix It).png">
+      <nav class="story-links">
+        <a href="https://youtu.be/-i-ZGzN2j-E" target="_blank">Watch on YouTube</a>
+        <a href="https://open.spotify.com/show/3piG2nuJ2M2xjwbQ7Eu8Df" target="_blank">Listen on Spotify</a>
+      </nav>
+      <img id="storyImage" alt="Story cover">
+      <pre id="storyText">Loading…</pre>
+    </article>
 
-<script>
-const a=document.getElementById('story');
-const txt=encodeURI(a.dataset.text);
-const img=encodeURI(a.dataset.image);
-document.getElementById('storyImage').src=img;
-fetch(txt,{cache:'no-store'})
-.then(r=>r.ok?r.text():Promise.reject(r.status))
-.then(t=>{document.getElementById('storyText').textContent=t})
-.catch(()=>{document.getElementById('storyText').textContent='Failed to load story.'});
-</script>
-```
+    <script>
+    const a=document.getElementById('story');
+    const txt=encodeURI(a.dataset.text);
+    const img=encodeURI(a.dataset.image);
+    document.getElementById('storyImage').src=img;
+    fetch(txt,{cache:'no-store'})
+    .then(r=>r.ok?r.text():Promise.reject(r.status))
+    .then(t=>{document.getElementById('storyText').textContent=t})
+    .catch(()=>{document.getElementById('storyText').textContent='Failed to load story.'});
+    </script>
 
-**Media links:** Always appear before the story text.
+**Media links:** Always appear before the story text.  
+**Exclusive sneak previews:** May include  
+`<div class="exclusive-banner">Exclusive Sneak Peek — You’re seeing this before YouTube!</div>`  
+above the video frame.
 
 ---
 
 ## STORIES INDEX PAGE
 
-Grid of story cards linking to individual pages.
+Grid of story cards linking to individual pages. Newest stories appear first.
 
-```
-<a class="story-card" href="/stories/the-thief-who-destroyed-time.html">
-  <img src="/assets/The Thief Who Destroyed Time (And Had to Fix It).png" alt="Story cover">
-  <h3>The Thief Who Destroyed Time (And Had to Fix It)</h3>
-</a>
-```
-
-Newest story always appears first.
+    <a class="story-card" href="/stories/the-thief-who-destroyed-time.html">
+      <img src="/assets/The Thief Who Destroyed Time (And Had to Fix It).png" alt="Story cover">
+      <h3>The Thief Who Destroyed Time (And Had to Fix It)</h3>
+    </a>
 
 ---
 
@@ -167,114 +164,108 @@ The homepage highlights the latest story with:
 - Optional “Watch on YouTube” and “Listen on Spotify” links  
 
 Banner image acts as subtle background.  
-Showcase image (`Dragon Wizard Battle.png`) may appear in a mid-page highlight section.
+Showcase image (Dragon Wizard Battle.png) may appear in a mid-page highlight section.  
 
 ---
 
 ## LEGAL PAGES — IMMUTABLE TEXT
 
-All legal copy is stored as raw `.txt` under `/assets/legal/`.
+All legal copy is stored as raw .txt under /assets/legal/.
 
-```
-/assets/legal/privacy-policy.txt
-/assets/legal/terms-of-use.txt
-```
+    /assets/legal/privacy-policy.txt  
+    /assets/legal/terms-of-use.txt
 
-Each HTML page (`/privacy-policy.html`, `/terms-of-use.html`) loads its TXT verbatim using:
+Each HTML page loads its TXT verbatim using:
 
-```
-fetch('/assets/legal/terms-of-use.txt', {cache:'no-store'})
-  .then(r => r.text())
-  .then(t => {document.getElementById('legal').textContent=t});
-```
+    fetch('/assets/legal/terms-of-use.txt', {cache:'no-store'})
+      .then(r => r.text())
+      .then(t => {document.getElementById('legal').textContent=t});
 
 Displayed inside `<pre id="legal"></pre>` to preserve exact formatting.
 
-**No auto-edits or scripts modify legal text.**
+No scripts modify or sanitize legal text dynamically.
 
 ---
 
 ## FORMS & FUNCTIONS
 
 **Forms:**
-- `/contact.html` → `/functions/contact-submit`
-- `/work-with-me.html` → `/functions/sponsor-submit`
+- /contact.html → /functions/contact-submit  
+- /work-with-me.html → /functions/sponsor-submit  
 
-Use Cloudflare Turnstile widget:
-```
-<div class="cf-turnstile" data-sitekey="0x4AAAAAAB0vOSqh9kDdb7s_"></div>
-```
+Cloudflare Turnstile widget:  
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0vOSqh9kDdb7s_"></div>
 
 **Functions:**
-- Cloudflare Pages Functions format  
-- Use `onRequestPost`  
+- Format: Cloudflare Pages Functions  
+- Use onRequestPost  
 - Send email via Resend API  
-- Env variable: `RESEND_API_KEY` (Secret)  
-- “From”: `Dragon Bones & Wizards Hats <contact@dragonbonesandwizardshats.com>`  
-- Optional Turnstile validation with `TURNSTILE_SECRET`
+- Env variable: RESEND_API_KEY (Secret)  
+- From: Dragon Bones & Wizards Hats <contact@dragonbonesandwizardshats.com>  
+- Optional Turnstile validation with TURNSTILE_SECRET  
 
-**Success Behavior:** redirect with `?sent=1`, display a teal toast message.
+Success behavior: redirect with ?sent=1 and display a teal toast message.
 
 ---
 
 ## CSS GUIDELINES
 
-**site.css must contain:**
+site.css must contain:  
 - Responsive image and layout rules  
-- `.btn` teal accent glow  
-- `.story-card` hover glow  
+- .btn teal accent glow  
+- .story-card hover glow  
+- Footer link color: #00BFA5  
 - Toast style:
-```
-#toast {
-  background: rgba(0,191,165,0.2);
-  border: 1px solid #00bfa5;
-  color: #00ffcc;
-  padding: 1rem;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: 500;
-  box-shadow: 0 0 10px rgba(0,191,165,0.3);
-  animation: fadeIn .6s ease-out;
-}
-@keyframes fadeIn {
-  from {opacity:0; transform:translateY(10px);}
-  to {opacity:1; transform:none;}
-}
-```
+
+    #toast {
+      background: rgba(0,191,165,0.2);
+      border: 1px solid #00bfa5;
+      color: #00ffcc;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 500;
+      box-shadow: 0 0 10px rgba(0,191,165,0.3);
+      animation: fadeIn .6s ease-out;
+    }
+    @keyframes fadeIn {
+      from {opacity:0; transform:translateY(10px);}
+      to {opacity:1; transform:none;}
+    }
 
 ---
 
 ## ACCESSIBILITY & SEO
 
-- Every `<img>` requires descriptive `alt` text  
-- Single `<h1>` per page  
+- Every <img> requires descriptive alt text  
+- Single <h1> per page  
 - Color contrast meets WCAG AA  
 - Keyboard focus visible  
-- `<meta name="description">` per page  
+- <meta name="description"> per page  
 
 ---
 
 ## DEPLOYMENT
 
 **Cloudflare Pages**  
-- Project: `dragonbonesandwizardshats-site`  
+- Project: dragonbonesandwizardshats-site  
 - Build command: none (static HTML)  
-- Output directory: `/`  
-- Functions auto-detected from `/functions/`  
+- Output directory: /  
+- Functions auto-detected from /functions/  
 
 **Custom Domain:**  
-- Add `dragonbonesandwizardshats.com` under *Pages → Custom Domains*  
-- Keep `.pages.dev` as staging  
+- Add dragonbonesandwizardshats.com under Pages → Custom Domains  
+- Keep .pages.dev as staging  
 - DNS managed automatically after linking  
 
 ---
 
 ## NEW STORY CHECKLIST
 
-1. Add TXT → `/assets/<Title>.txt`  
-2. Add Cover → `/assets/<Title>.png`  
-3. Create `/stories/<slug>.html` using template  
-4. Add to `/stories/index.html`  
+1. Add TXT → /assets/prose/<Title>.txt  
+2. Add Cover → /assets/<Title>.png  
+3. Create /stories/<slug>.html using template  
+4. Add to /stories/index.html  
 5. Update homepage “Latest Story” section  
 6. Verify all links and images  
 7. Confirm story text loads correctly  
@@ -290,9 +281,9 @@ Use Cloudflare Turnstile widget:
 - Filenames must remain exact  
 - Commit full files only  
 - Use clear commit messages:  
-  `feat(story): add <title>`  
-  `fix(form): update resend endpoint`  
-  `style(css): tweak teal glow`
+  feat(story): add <title>  
+  fix(form): update resend endpoint  
+  style(css): tweak teal glow  
 
 ---
 
@@ -301,31 +292,57 @@ Use Cloudflare Turnstile widget:
 Dragon Bones & Wizards Hats runs as a clean static site on Cloudflare Pages, with all content (stories, legal text) loaded dynamically from immutable TXT assets.  
 Every visual and behavioral rule lives here to ensure total consistency between future updates.
 
-*This file is authoritative. No edits to structure, color, or workflow should occur without updating this guide.*
-## JSON Smart Update System
+This file is authoritative. No edits to structure, color, or workflow should occur without updating this guide.
 
-Each new story is registered in `/assets/stories.json`.  
+---
+
+## JSON SMART UPDATE SYSTEM
+
+Each new story is registered in /assets/stories.json.  
 The homepage and Stories Index automatically load the most recent entry from this file as the featured story.
 
-When adding a new story:
-1. Create the story’s `.txt` and `.html` files in `/stories/` as usual.
-2. Add a new object to the top of `/assets/stories.json` with:
-   - `"title"` → the story’s title (matches the `.html` filename without extension)
-   - `"description"` → a short tagline for the story
-   - `"image"` → path to its artwork in `/assets/`
-   - `"link"` → path to the story’s `.html`
-   - `"youtube"` and `"spotify"` → links to external media (optional)
+When adding a new story:  
+1. Create the story’s .txt and .html files in /stories/ as usual.  
+2. Add a new object to the top of /assets/stories.json with:  
+   - "title" → the story’s title (matches the .html filename without extension)  
+   - "description" → a short tagline for the story  
+   - "image" → path to its artwork in /assets/  
+   - "link" → path to the story’s .html  
+   - "youtube" and "spotify" → links to external media (optional)  
 
-The homepage will automatically pull and display the topmost entry from this JSON list.
+The homepage will automatically pull and display the topmost entry.
 
 Example entry:
-```json
-{
-  "title": "The Thief Who Destroyed Time (And Had to Fix It)",
-  "description": "A thief steals Chronus’s hourglass and must mend the flow of time.",
-  "image": "/assets/the-thief-who-destroyed-time.png",
-  "link": "/stories/the-thief-who-destroyed-time.html",
-  "youtube": "https://youtu.be/-i-ZGzN2j-E?si=Mm5Et7MM4sAIMn3V",
-  "spotify": "https://open.spotify.com/show/3piG2nuJ2M2xjwbQ7Eu8Df"
-}
-```
+    {
+      "title": "The Thief Who Destroyed Time (And Had to Fix It)",
+      "description": "A thief steals Chronus’s hourglass and must mend the flow of time.",
+      "image": "/assets/the-thief-who-destroyed-time.png",
+      "link": "/stories/the-thief-who-destroyed-time.html",
+      "youtube": "https://youtu.be/-i-ZGzN2j-E?si=Mm5Et7MM4sAIMn3V",
+      "spotify": "https://open.spotify.com/show/3piG2nuJ2M2xjwbQ7Eu8Df"
+    }
+
+---
+
+## CODE BLOCK GENERATION INSTRUCTIONS
+
+When exporting or updating this STYLEGUIDE.md file, always wrap the **entire document** inside **one continuous quadruple-backtick code fence** so that it can be copied or re-imported without breaks.
+
+Use this syntax:
+
+    \````markdown  
+    (your entire style guide content)  
+    \````  
+
+Important rules:
+1. **Never** include additional triple-backtick fences inside the file.  
+2. For all inner examples (HTML, JS, CSS, JSON), use **four-space indentation** instead of backticks.  
+3. Start the block with  
+    \````markdown  
+   and end it with  
+    \````  
+   exactly once.  
+4. Keep language identifier “markdown” after the first fence for readability.  
+5. This format ensures the file can be pasted into GitHub, Docs, or ChatGPT without splitting into multiple “Copy code” boxes.
+
+This appendix must always remain at the bottom of STYLEGUIDE.md.
