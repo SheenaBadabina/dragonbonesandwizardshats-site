@@ -179,7 +179,19 @@
       </section>
     </main>
 
+    <footer class="site-footer">
+      <p>
+        © <span id="year"></span> dragonbonesandwizardshats •
+        <a href="/work-with-me.html">Work With Me</a> •
+        <a href="/terms-of-use.html">Terms</a> •
+        <a href="/privacy-policy.html">Privacy</a> •
+        <a href="/contact.html">Contact</a>
+      </p>
+    </footer>
+
     <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
       (function () {
         const target = document.getElementById("latestStory");
         const url = "/stories/?" + Date.now();
