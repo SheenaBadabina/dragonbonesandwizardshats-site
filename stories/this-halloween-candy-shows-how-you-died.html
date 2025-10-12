@@ -11,7 +11,7 @@
   <!-- Social -->
   <meta property="og:type" content="article" />
   <meta property="og:title" content="This Halloween Candy Shows How You Died" />
-  <meta property="og:description" content="Exclusive early release — watch the sneak peek before it’s live on YouTube." />
+  <meta property="og:description" content="Exclusive early release — watch the sneak peek before it premieres on YouTube." />
   <meta property="og:image" content="/assets/taste-your-death-website-square.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="This Halloween Candy Shows How You Died" />
@@ -20,17 +20,22 @@
 
   <style>
     .container { max-width: 980px; margin: 0 auto; padding: 16px; }
-    .drive-embed {
+    .video-embed {
       width: 100%;
-      aspect-ratio: 9/16; border: 0; border-radius: 12px; background:#000; display:block;
+      aspect-ratio: 9/16;
+      border: 0;
+      border-radius: 12px;
+      background: #000;
+      display: block;
     }
     #storyText { white-space: pre-wrap; line-height: 1.7; font-family: Georgia, Times, serif; color: #D9E1E8; }
     .muted { color: #92A1AD; }
     h1 { margin-top: 0.5rem; }
     .spacer { height: 12px; }
-    @media (min-width: 720px){ .spacer { height: 16px; } }
+    @media (min-width: 720px){
+      .spacer { height: 16px; }
+    }
 
-    /* Sneak Peek Banner */
     .banner {
       background: rgba(0,191,165,0.15);
       border: 1px solid #00bfa5;
@@ -44,15 +49,22 @@
       animation: fadeIn .8s ease-out;
     }
     .banner strong { color: #00ffcc; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-    /* Force teal footer links (including :visited) */
-    .site-footer a, .site-footer a:visited { color:#00bfa5; text-decoration:none; }
-    .site-footer a:hover { text-decoration:underline; color:#00ffcc; }
+    .site-footer a, .site-footer a:visited {
+      color: #00bfa5;
+      text-decoration: none;
+    }
+    .site-footer a:hover {
+      text-decoration: underline;
+      color: #00ffcc;
+    }
   </style>
 </head>
 <body>
-  <!-- Site Header -->
   <header class="site-header">
     <a href="/" class="brand">
       <img class="logo" src="/assets/Logodbwh.png" alt="Dragon Bones & Wizards Hats logo" width="60" height="60" />
@@ -68,7 +80,6 @@
   </header>
 
   <main class="container">
-    <!-- Exclusive Sneak Peek Banner -->
     <div class="banner">
       <strong>Exclusive Sneak Peek!</strong><br>
       You’re among the first to see this story — available here <em>before it premieres on YouTube.</em>
@@ -77,32 +88,31 @@
     <h1>This Halloween Candy Shows How You Died</h1>
     <p class="muted">Halloween Special</p>
 
-    <!-- Portrait Google Drive preview -->
-    <section aria-label="Video sneak peek">
+    <!-- YouTube short embed -->
+    <section aria-label="YouTube preview">
       <iframe
-        class="drive-embed"
-        src="https://drive.google.com/file/d/1fOK88IF-fyqxowH5OKSD3UFSvkP30lLg/preview"
-        allow="autoplay; fullscreen"
+        class="video-embed"
+        src="https://www.youtube.com/embed/Q1IsA52DRss"
+        allow="autoplay; encrypted-media; fullscreen"
         allowfullscreen
-        title="This Halloween Candy Shows How You Died — video preview">
+        title="This Halloween Candy Shows How You Died — YouTube preview">
       </iframe>
       <noscript>
-        <p><a href="https://drive.google.com/file/d/1fOK88IF-fyqxowH5OKSD3UFSvkP30lLg/view" target="_blank" rel="noopener">Open the video on Google Drive</a></p>
+        <p><a href="https://youtu.be/Q1IsA52DRss" target="_blank" rel="noopener">Watch on YouTube</a></p>
       </noscript>
     </section>
 
     <div class="spacer"></div>
 
-    <!-- TXT is the source of truth -->
     <article id="story" data-text="/assets/prose/this-halloween-candy-shows-how-you-died.txt">
       <h2>Story</h2>
       <pre id="storyText">Loading…</pre>
     </article>
   </main>
 
-  <!-- Site Footer -->
   <footer class="site-footer">
-    <p>© <span id="year"></span> dragonbonesandwizardshats •
+    <p>
+      © <span id="year"></span> dragonbonesandwizardshats •
       <a href="/work-with-me.html">Work With Me</a> •
       <a href="/terms-of-use.html">Terms</a> •
       <a href="/privacy-policy.html">Privacy</a> •
