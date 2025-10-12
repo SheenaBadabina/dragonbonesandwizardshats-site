@@ -49,6 +49,10 @@
       .story-card { grid-template-columns: 140px 1fr; }
       .story-card img { width: 140px; height: 140px; }
     }
+
+    /* Force teal footer links (including :visited) */
+    .site-footer a, .site-footer a:visited { color:#00bfa5; text-decoration:none; }
+    .site-footer a:hover { text-decoration:underline; color:#00ffcc; }
   </style>
 </head>
 <body>
@@ -119,7 +123,12 @@
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> dragonbonesandwizardshats</p>
+    <p>© <span id="year"></span> dragonbonesandwizardshats •
+      <a href="/work-with-me.html">Work With Me</a> •
+      <a href="/terms-of-use.html">Terms</a> •
+      <a href="/privacy-policy.html">Privacy</a> •
+      <a href="/contact.html">Contact</a>
+    </p>
   </footer>
 
   <script src="/assets/js/site.js"></script>
