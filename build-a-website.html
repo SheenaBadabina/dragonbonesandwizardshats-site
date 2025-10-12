@@ -62,12 +62,10 @@
     .code-ring{
       pointer-events:none;
       position:absolute; inset:0; border-radius:50%;
-      /* Animated sweep */
       background:
-        conic-gradient(from 0deg, rgba(0,0,0,0) 0deg, rgba(0,255,204,.5) 40deg, rgba(0,0,0,0) 80deg)
-        , radial-gradient(closest-side, rgba(0,255,204,.14), rgba(0,0,0,0) 70%);
+        conic-gradient(from 0deg, rgba(0,0,0,0) 0deg, rgba(0,255,204,.5) 40deg, rgba(0,0,0,0) 80deg),
+        radial-gradient(closest-side, rgba(0,255,204,.14), rgba(0,0,0,0) 70%);
       animation: ring-spin 6s linear infinite;
-      /* Mask so only the border band shows, not the center */
       -webkit-mask: radial-gradient(closest-side, transparent calc(100% - var(--ring-w)), #000 calc(100% - var(--ring-w) + 0.5px));
               mask: radial-gradient(closest-side, transparent calc(100% - var(--ring-w)), #000 calc(100% - var(--ring-w) + 0.5px));
     }
@@ -110,7 +108,6 @@
       box-shadow: inset 0 0 0 1px rgba(0,0,0,.2);
     }
     textarea{ min-height:140px; resize:vertical; }
-    /* keep long placeholder text from forcing horizontal scroll */
     input,select,textarea{ overflow:hidden; text-overflow:ellipsis; }
 
     /* Clean option pills */
@@ -180,7 +177,8 @@
       <div class="toast" id="toast">Thanks! Your request was sent.</div>
 
       <section class="card">
-        <form action="/functions/website-request" method="POST" novalidate>
+        <!-- Correct backend route -->
+        <form action="/functions/website-build-submit" method="POST" novalidate>
           <!-- Contact -->
           <h2 class="section-title">Basics</h2>
           <div class="row row-2">
@@ -226,7 +224,7 @@
             <input id="siteOther" name="siteOther" type="text" placeholder="Describe your idea" />
           </div>
 
-          <!-- Pages / Features -->
+          <!-- Pages / Budget -->
           <div class="row row-2">
             <div>
               <label for="pages">How many pages?</label>
@@ -251,6 +249,7 @@
             </div>
           </div>
 
+          <!-- Features -->
           <h2 class="section-title">Features</h2>
           <div class="options grid-3" role="group" aria-label="Features">
             <label class="option"><input type="checkbox" name="features" value="Contact form" />Contact form</label>
