@@ -108,36 +108,15 @@
       .author .headshot img { width: 100%; height: 100%; object-fit: cover; }
       .author .about-btn { display: inline-block; margin: 0.5rem auto 0; }
 
-      /* Footer (two rows: copyright, then links) */
       .site-footer {
         background: var(--bg);
-        padding: 1.6rem 1rem 2.2rem;
+        padding: 1.2rem 1rem;
         text-align: center;
         font-size: 0.9rem;
         color: var(--muted);
       }
-      .footer-copy {
-        margin: 0;
-        color: #f5f5f5;
-      }
-      .footer-divider {
-        margin: 0.75rem auto 0.9rem;
-        width: min(520px, 82%);
-        height: 1px;
-        border: 0;
-        background: linear-gradient(90deg, transparent, rgba(0,191,165,.4), transparent);
-      }
-      .footer-links {
-        display: flex;
-        justify-content: center;
-        gap: 1.2rem;
-        flex-wrap: wrap;
-      }
-      .footer-links a {
-        color: var(--teal);
-        text-decoration: none;
-      }
-      .footer-links a:hover { text-decoration: underline; color: #00ffcc; }
+      .site-footer a { color: var(--teal); text-decoration: none; margin: 0 0.4rem; }
+      .site-footer a:hover { text-decoration: underline; }
     </style>
   </head>
 
@@ -200,16 +179,14 @@
       </section>
     </main>
 
-    <!-- CLEAN two-row footer (single source of truth) -->
     <footer class="site-footer">
-      <p class="footer-copy">© <span id="year"></span> dragonbonesandwizardshats</p>
-      <hr class="footer-divider" aria-hidden="true" />
-      <nav class="footer-links" aria-label="Footer">
-        <a href="/work-with-me.html">Work With Me</a>
-        <a href="/terms-of-use.html">Terms</a>
-        <a href="/privacy-policy.html">Privacy</a>
+      <p>
+        © <span id="year"></span> dragonbonesandwizardshats •
+        <a href="/work-with-me.html">Work With Me</a> •
+        <a href="/terms-of-use.html">Terms</a> •
+        <a href="/privacy-policy.html">Privacy</a> •
         <a href="/contact.html">Contact</a>
-      </nav>
+      </p>
     </footer>
 
     <script>
