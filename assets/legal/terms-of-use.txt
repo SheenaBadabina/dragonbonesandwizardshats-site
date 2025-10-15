@@ -1,10 +1,10 @@
-# Terms of Use — Dragon Bones & Wizards Hats
+# Terms of Use — Dragon Bones & Wizard Hats
 
-**Last updated: October 5, 2025**
+**Last updated: October 15, 2025**
 
 ## 1. Introduction and Acceptance
 
-Welcome to Dragon Bones & Wizards Hats ("DBWH," "we," "us," or "our"). These Terms of Use ("Terms") govern your access to and use of our website at https://dragonbonesandwizardhats.com (the "Site"), our YouTube channel, our podcast, and all related content, features, and services (collectively, the "Services").
+Welcome to Dragon Bones & Wizard Hats ("DBWH," "we," "us," or "our"). These Terms of Use ("Terms") govern your access to and use of our website at https://dragonbonesandwizardhats.com (the "Site"), our YouTube channel, our podcast, and all related content, features, and services (collectively, the "Services").
 
 By accessing or using any part of the Services, you agree to be bound by these Terms. If you do not agree to these Terms, you must not access or use the Services.
 
@@ -14,11 +14,13 @@ The Services are intended for adults and are not directed to children under the 
 
 ## 3. About Our Services
 
-DBWH is a storytelling brand featuring original fantasy content, including:
+DBWH is a storytelling brand featuring original fantasy content and professional services, including:
 
 - Written stories and behind-the-scenes content on our website
 - Narrated fantasy stories on our YouTube channel
 - Audio storytelling via our podcast distributed through platforms including Spotify and Apple Podcasts
+- Website design and development services for clients
+- Sponsorship and brand collaboration opportunities
 - Information about our brand and ways to connect with us
 
 Our content is creative entertainment intended for adult audiences and may contain mature themes.
@@ -50,9 +52,20 @@ You may not:
 
 ## 5. User Submissions
 
-### 5.1 Contact Form and Communications
+### 5.1 Contact Form and Service Request Forms
 
-Our Site includes a contact form where you may submit your name, email address, and a message. By submitting information through the contact form or by emailing us directly, you grant us permission to use that information to respond to your inquiry and for the purposes described in our Privacy Policy.
+Our Site includes forms where you may submit information, including:
+
+- **Contact form**: Submit your name, email address, and a message for general inquiries
+- **Website build request form**: Submit project details including name, email, domain information, project type, budget, features, content readiness, and project summary for website development services
+- **Sponsorship/collaboration form**: Submit brand information, promotional preferences, budget, timeline, deliverables, and contact details for partnership opportunities
+
+By submitting information through any form on the Site or by emailing us directly, you grant us permission to use that information to respond to your inquiry, provide requested services, and for the purposes described in our Privacy Policy.
+
+For service request forms (website builds and sponsorships), you represent and warrant that:
+- All information you provide is accurate and truthful
+- You have the authority to enter into discussions regarding the services or partnerships described
+- You understand that form submission is an inquiry only and does not create a binding contract until we mutually agree to terms in a separate written agreement
 
 ### 5.2 Feedback and Suggestions
 
@@ -89,9 +102,31 @@ You agree not to:
 
 The Services may contain affiliate links or sponsored content. When you click on an affiliate link and make a purchase, we may receive a commission at no additional cost to you. Sponsored content will be clearly disclosed as such. We only recommend products, services, or content that we believe may be of interest to our audience. All affiliate relationships and sponsorships comply with Federal Trade Commission (FTC) guidelines.
 
-## 9. Digital Millennium Copyright Act (DMCA)
+## 9. Professional Services
 
-### 9.1 Copyright Infringement Notification
+### 9.1 Website Development Services
+
+We offer website design and development services on a project basis. Service inquiries submitted through the "Build a Website" form are non-binding requests for information. All website development projects require a separate written agreement that specifies scope, deliverables, timeline, payment terms, and intellectual property rights.
+
+### 9.2 Sponsorship and Brand Collaborations
+
+We offer sponsorship and brand collaboration opportunities for our content. Inquiries submitted through the "Work With Me" form are non-binding expressions of interest. All sponsorship and collaboration arrangements require a separate written agreement that specifies promotional deliverables, compensation, timeline, and content approval processes.
+
+### 9.3 No Guarantees
+
+Form submissions for professional services do not guarantee acceptance of your project or partnership. We reserve the right to decline any inquiry for any reason, including but not limited to scheduling conflicts, budgetary misalignment, or incompatibility with our brand values.
+
+### 9.4 Client and Partner Responsibilities
+
+If we enter into a written agreement for professional services:
+- You are responsible for providing accurate information, timely feedback, and any required materials
+- You agree to pay invoices according to the agreed-upon payment terms
+- You acknowledge that delays caused by your failure to provide necessary materials or feedback may impact project timelines
+- You grant us permission to showcase completed work in our portfolio unless otherwise specified in writing
+
+## 10. Digital Millennium Copyright Act (DMCA)
+
+### 10.1 Copyright Infringement Notification
 
 If you believe that content available through the Services infringes your copyright, please send a written notice to our designated copyright agent at contact@dragonbonesandwizardhats.com with the following information:
 
@@ -102,21 +137,21 @@ If you believe that content available through the Services infringes your copyri
 - A statement that the information in the notification is accurate, and under penalty of perjury, that you are authorized to act on behalf of the copyright owner
 - Your physical or electronic signature
 
-### 9.2 Counter-Notification
+### 10.2 Counter-Notification
 
 If you believe that content you posted was removed in error, you may send a counter-notification to the same email address with the information required under the DMCA.
 
-## 10. Disclaimers
+## 11. Disclaimers
 
-### 10.1 Content Disclaimer
+### 11.1 Content Disclaimer
 
 The Content provided through the Services is for entertainment purposes only. While we strive for accuracy in informational content, we make no representations or warranties regarding the completeness, accuracy, or reliability of any Content. Any reliance you place on such Content is strictly at your own risk.
 
-### 10.2 No Professional Advice
+### 11.2 No Professional Advice
 
 Nothing in the Services constitutes professional advice, including but not limited to legal, financial, medical, or therapeutic advice. If you need professional advice, please consult with a qualified professional.
 
-### 10.3 "AS IS" and "AS AVAILABLE"
+### 11.3 "AS IS" and "AS AVAILABLE"
 
 THE SERVICES AND ALL CONTENT ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.
 
@@ -127,7 +162,7 @@ We do not warrant that:
 - Any errors in the Services will be corrected
 - The Services will meet your requirements
 
-## 11. Limitation of Liability
+## 12. Limitation of Liability
 
 TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL DBWH, SHEENA, OR OUR AFFILIATES, LICENSORS, SERVICE PROVIDERS, EMPLOYEES, AGENTS, OR REPRESENTATIVES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:
 
@@ -140,7 +175,7 @@ THIS LIMITATION APPLIES WHETHER THE ALLEGED LIABILITY IS BASED ON CONTRACT, TORT
 
 SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES OR THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES. ACCORDINGLY, SOME OF THE LIMITATIONS SET FORTH ABOVE MAY NOT APPLY TO YOU.
 
-## 12. Indemnification
+## 13. Indemnification
 
 You agree to indemnify, defend, and hold harmless DBWH, Sheena, and our affiliates, licensors, service providers, and their respective officers, directors, employees, contractors, agents, and representatives from and against any and all claims, damages, obligations, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from:
 
@@ -149,43 +184,43 @@ You agree to indemnify, defend, and hold harmless DBWH, Sheena, and our affiliat
 - Your violation of any third-party rights, including intellectual property rights
 - Any content you submit or transmit through the Services
 
-## 13. Changes to the Services and Terms
+## 14. Changes to the Services and Terms
 
-### 13.1 Modifications to Services
+### 14.1 Modifications to Services
 
 We reserve the right to modify, suspend, or discontinue any aspect of the Services at any time without notice or liability.
 
-### 13.2 Changes to Terms
+### 14.2 Changes to Terms
 
 We may revise these Terms from time to time. The "Last updated" date at the top of this page indicates when these Terms were last revised. Any changes are effective immediately upon posting. Your continued use of the Services after any changes constitutes your acceptance of the revised Terms. We encourage you to review these Terms periodically.
 
-## 14. Termination
+## 15. Termination
 
 We reserve the right to terminate or suspend your access to all or part of the Services at any time, with or without cause, with or without notice, effective immediately, without liability to you. Upon termination, your right to use the Services will immediately cease.
 
-The following provisions survive termination: Sections 4 (Intellectual Property Rights), 5.2 (Feedback and Suggestions), 10 (Disclaimers), 11 (Limitation of Liability), 12 (Indemnification), 15 (Governing Law and Dispute Resolution), and 16 (General Provisions).
+The following provisions survive termination: Sections 4 (Intellectual Property Rights), 5.2 (Feedback and Suggestions), 11 (Disclaimers), 12 (Limitation of Liability), 13 (Indemnification), 16 (Governing Law and Dispute Resolution), and 17 (General Provisions).
 
-## 15. Governing Law and Dispute Resolution
+## 16. Governing Law and Dispute Resolution
 
-### 15.1 Governing Law
+### 16.1 Governing Law
 
 These Terms and any dispute arising out of or related to these Terms or the Services shall be governed by and construed in accordance with the laws of the State of Utah, without regard to its conflict of law provisions.
 
-### 15.2 Venue and Jurisdiction
+### 16.2 Venue and Jurisdiction
 
 You agree that any legal action or proceeding arising out of or related to these Terms or the Services shall be brought exclusively in the state or federal courts located in Utah County, Utah, and you hereby consent to the personal jurisdiction and venue of such courts.
 
-### 15.3 Waiver of Class Actions
+### 17.3 Waiver of Class Actions
 
 YOU AND DBWH AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING.
 
-## 16. General Provisions
+## 17. General Provisions
 
-### 16.1 Entire Agreement
+### 17.1 Entire Agreement
 
 These Terms, together with our Privacy Policy, constitute the entire agreement between you and DBWH regarding the Services and supersede all prior agreements and understandings.
 
-### 16.2 Severability
+### 17.2 Severability
 
 If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect, and the invalid or unenforceable provision shall be modified to the minimum extent necessary to make it valid and enforceable.
 
@@ -193,19 +228,19 @@ If any provision of these Terms is found to be invalid or unenforceable, the rem
 
 No waiver of any provision of these Terms shall be deemed a further or continuing waiver of such provision or any other provision. Our failure to enforce any right or provision of these Terms shall not constitute a waiver of such right or provision.
 
-### 16.4 Assignment
+### 17.4 Assignment
 
 You may not assign or transfer these Terms or your rights hereunder without our prior written consent. We may assign or transfer these Terms without restriction.
 
-### 16.5 No Third-Party Beneficiaries
+### 17.5 No Third-Party Beneficiaries
 
 These Terms do not create any third-party beneficiary rights.
 
-### 16.6 Force Majeure
+### 17.6 Force Majeure
 
 We shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control.
 
-## 17. Contact Information
+## 18. Contact Information
 
 If you have any questions about these Terms, please contact us at:
 
