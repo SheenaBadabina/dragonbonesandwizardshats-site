@@ -1,10 +1,10 @@
-# Privacy Policy — Dragon Bones & Wizards Hats
+# Privacy Policy — Dragon Bones & Wizard Hats
 
-**Last updated: October 5, 2025**
+**Last updated: October 15, 2025**
 
 ## 1. Introduction
 
-Dragon Bones & Wizards Hats ("DBWH," "we," "us," or "our") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at https://dragonbonesandwizardhats.com (the "Site"), interact with our YouTube channel, listen to our podcast, or otherwise engage with our services (collectively, the "Services").
+Dragon Bones & Wizard Hats ("DBWH," "we," "us," or "our") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at https://dragonbonesandwizardhats.com (the "Site"), interact with our YouTube channel, listen to our podcast, or otherwise engage with our services (collectively, the "Services").
 
 Please read this Privacy Policy carefully. By using the Services, you consent to the practices described in this Privacy Policy. If you do not agree with this Privacy Policy, please do not use the Services.
 
@@ -18,6 +18,26 @@ We collect minimal information necessary to operate the Services and communicate
 - Your name
 - Your email address
 - The content of your message
+
+**Website Build Request Form:** When you submit a request for website development services, we collect:
+- Your name and email address
+- Domain information (if applicable)
+- Project type and scope (portfolio, business, blog, e-commerce, etc.)
+- Number of pages requested
+- Budget range
+- Desired features (contact forms, newsletters, audio/video, galleries, etc.)
+- Content and image readiness
+- Project summary and goals
+
+**Sponsorship/Collaboration Request Form:** When you submit a request for brand partnerships, we collect:
+- Brand or company name
+- Explanation of fit with our audience
+- Preferred promotion types (mentions, integrated segments, full-episode integrations)
+- Timeline and budget preferences
+- Desired deliverables (links, pinned comments, clips, social mentions)
+- Product access information (physical samples, digital access)
+- Required talking points and topics to avoid
+- Your name and email address
 
 **Email Communications:** When you email us directly at contact@dragonbonesandwizardhats.com, we collect the information contained in your email, including your email address and any personal information you choose to share.
 
@@ -59,6 +79,9 @@ We use the information we collect for the following purposes:
 - To respond to your inquiries submitted through the contact form or email
 - To communicate with you about the Services
 - To send you information you have requested
+- To discuss and negotiate website development projects
+- To discuss and negotiate sponsorship or brand collaboration opportunities
+- To provide quotes, proposals, and project updates for professional services
 
 ### 3.2 Service Operation and Improvement
 
@@ -66,6 +89,8 @@ We use the information we collect for the following purposes:
 - To understand how visitors use the Site and identify areas for improvement
 - To troubleshoot technical issues
 - To ensure the security and integrity of the Services
+- To evaluate service requests and determine project feasibility
+- To provide professional services (website development, sponsorships) as agreed upon in separate written contracts
 
 ### 3.3 Legal and Safety
 
@@ -114,6 +139,7 @@ However, third-party platforms whose content is embedded on our Site (such as Yo
 We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.
 
 - **Contact Form Submissions:** We retain your name, email address, and message content for as long as necessary to respond to your inquiry and maintain a record of our communications. You may request deletion of this information at any time by contacting us.
+- **Service Request Forms (Website Build and Sponsorship):** We retain information submitted through service request forms for the duration of any business relationship and for a reasonable period thereafter (typically 3-7 years) for business record-keeping, tax compliance, and potential dispute resolution. If no business relationship is established, we typically delete or anonymize this information within 1-2 years.
 - **Server Logs:** Server logs are typically retained for a limited period (e.g., 30-90 days) for security and troubleshooting purposes, after which they are automatically deleted or anonymized.
 - **Analytics Data:** Cloudflare Web Analytics data is aggregated, anonymized, and retained in accordance with Cloudflare's data retention policies.
 
@@ -157,7 +183,9 @@ If you are a California resident, you have rights under the California Consumer 
 
 **Categories of Personal Information We Collect:** For California residents, we collect the following categories of personal information:
 - Identifiers (name, email address, IP address)
+- Commercial information (project preferences, budget ranges, business information for B2B services)
 - Internet or network activity information (browsing behavior, interaction with the Site)
+- Professional or employment-related information (when provided in service request forms)
 
 **We do not sell personal information** as defined by the CCPA/CPRA.
 
